@@ -6,7 +6,7 @@ export const PromoReferralSection: React.FC = () => {
   return (
     <section
       id="referral"
-      className="py-20 sm:py-28 relative overflow-hidden"
+      className="py-12 sm:py-28 relative overflow-hidden"
       style={{
         background: 'linear-gradient(135deg, #FFF8FA 0%, #FFD0DD 40%, #D8C9ED 100%)',
       }}
@@ -55,7 +55,7 @@ export const PromoReferralSection: React.FC = () => {
           </div>
 
           {/* Right: Visual Network Diagram (YOU -> LEVEL 1 -> LEVEL 2 -> LEVEL 3) */}
-          <div className="lg:col-span-6 p-8 sm:p-10 rounded-[28px] bg-white border border-[#E8DDE3] shadow-[0_10px_35px_rgba(5,6,42,0.06)] relative overflow-hidden">
+          <div className="lg:col-span-6 p-6 sm:p-10 rounded-[24px] sm:rounded-[28px] bg-white border border-[#E8DDE3] shadow-[0_10px_35px_rgba(5,6,42,0.06)] relative overflow-hidden">
             <div className="text-center mb-6">
               <span className="text-xs font-extrabold uppercase tracking-widest text-[#555568] block mb-1">
                 Illustrative Referral Flow

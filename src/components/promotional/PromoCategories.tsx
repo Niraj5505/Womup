@@ -120,7 +120,7 @@ export const PromoCategories: React.FC = () => {
   ]
 
   return (
-    <section id="categories" className="py-20 sm:py-28 bg-[#FFF8FA] relative overflow-hidden">
+    <section id="categories" className="py-12 sm:py-28 bg-[#FFF8FA] relative overflow-hidden">
       {/* Background Soft Accent Glows */}
       <div className="absolute top-1/3 right-10 w-[550px] h-[350px] bg-[#FFD0DD]/40 rounded-full blur-[130px] pointer-events-none" />
 
@@ -139,7 +139,7 @@ export const PromoCategories: React.FC = () => {
         </div>
 
         {/* 14 Category Cards Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-3 sm:gap-4">
           {categories.map((cat, index) => {
             const Icon = cat.icon
             return (
@@ -149,29 +149,29 @@ export const PromoCategories: React.FC = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: index * 0.03 }}
-                whileHover={{ y: -6, boxShadow: '0 12px 35px rgba(253,132,159,0.15)' }}
-                className="p-6 rounded-[22px] bg-white border border-[#E8DDE3] shadow-[0_8px_30px_rgba(5,6,42,0.05)] transition-all duration-300 flex flex-col justify-between group cursor-default"
+                whileHover={{ y: -4, boxShadow: '0 12px 35px rgba(253,132,159,0.15)' }}
+                className="p-4 sm:p-6 rounded-[18px] sm:rounded-[22px] bg-white border border-[#E8DDE3] shadow-[0_8px_30px_rgba(5,6,42,0.05)] transition-all duration-300 flex flex-col justify-between group cursor-default"
               >
                 <div>
                   {/* Category Visual Icon with Soft Accent */}
                   <div
-                    className={`w-14 h-14 rounded-2xl ${cat.accentBg} flex items-center justify-center mb-5 group-hover:scale-105 transition-transform`}
+                    className={`w-10 h-10 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl ${cat.accentBg} flex items-center justify-center mb-3 sm:mb-5 group-hover:scale-105 transition-transform`}
                   >
-                    <Icon className={`w-7 h-7 ${cat.iconColor}`} />
+                    <Icon className={`w-5 h-5 sm:w-7 sm:h-7 ${cat.iconColor}`} />
                   </div>
 
-                  <h3 className="text-lg font-black text-[#05062A] tracking-tight group-hover:text-[#FD849F] transition-colors">
+                  <h3 className="text-sm sm:text-lg font-black text-[#05062A] tracking-tight group-hover:text-[#FD849F] transition-colors leading-tight">
                     {cat.name}
                   </h3>
 
-                  <p className="text-xs text-[#555568] mt-2 leading-relaxed">
+                  <p className="hidden sm:block text-xs text-[#555568] mt-2 leading-relaxed">
                     {cat.desc}
                   </p>
                 </div>
 
-                <div className="mt-5 pt-3 border-t border-[#E8DDE3] flex items-center justify-between text-[11px] text-[#555568]">
-                  <span className="font-semibold">Eligible Category</span>
-                  <span className="w-2 h-2 rounded-full bg-[#FD849F]" />
+                <div className="mt-3 sm:mt-5 pt-2 sm:pt-3 border-t border-[#E8DDE3] flex items-center justify-between text-[10px] sm:text-[11px] text-[#555568]">
+                  <span className="font-semibold hidden sm:block">Eligible Category</span>
+                  <span className="w-2 h-2 rounded-full bg-[#FD849F] ml-auto" />
                 </div>
               </motion.div>
             )

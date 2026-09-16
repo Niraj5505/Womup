@@ -20,9 +20,9 @@ export const PromoFooter: React.FC = () => {
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-24 bg-gradient-to-r from-[#FD849F]/5 via-[#6651BF]/10 to-[#3048C8]/5 blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-12 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-8 pb-12 border-b border-[#292A52]">
+        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-8 pb-10 sm:pb-12 border-b border-[#292A52]">
           {/* Brand Column (Span 2) */}
-          <div className="lg:col-span-2 space-y-4">
+          <div className="col-span-2 sm:col-span-2 lg:col-span-2 space-y-4">
             <BrandLogo size="lg" showTagline={false} inverted={true} />
 
             <p className="text-xs sm:text-sm font-semibold text-[#FD849F] uppercase tracking-wider">

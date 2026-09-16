@@ -17,14 +17,14 @@ export const PromoBanner: React.FC<PromoBannerProps> = ({ onOpenJoinModal }) => 
   }
 
   return (
-    <section id="benefits" className="py-16 sm:py-24 bg-white relative overflow-hidden">
+    <section id="benefits" className="py-12 sm:py-24 bg-white relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="relative rounded-[32px] p-8 sm:p-12 lg:p-16 border border-[#E8DDE3] shadow-[0_12px_45px_rgba(5,6,42,0.06)] overflow-hidden"
+          className="relative rounded-[24px] sm:rounded-[32px] p-6 sm:p-12 lg:p-16 border border-[#E8DDE3] shadow-[0_12px_45px_rgba(5,6,42,0.06)] overflow-hidden"
           style={{
             background: 'linear-gradient(135deg, #FFF8FA 0%, #FFD0DD 50%, #D8C9ED 100%)',
           }}
@@ -56,9 +56,9 @@ export const PromoBanner: React.FC<PromoBannerProps> = ({ onOpenJoinModal }) => 
               </p>
 
               {/* Highlight Panel: Large ₹2,000 with Gold Coin */}
-              <div className="p-6 rounded-[24px] bg-white border border-[#E8DDE3] shadow-[0_8px_30px_rgba(5,6,42,0.06)] flex flex-col sm:flex-row items-center gap-6 max-w-lg mx-auto lg:mx-0">
+              <div className="p-5 sm:p-6 rounded-[20px] sm:rounded-[24px] bg-white border border-[#E8DDE3] shadow-[0_8px_30px_rgba(5,6,42,0.06)] flex flex-row items-center gap-4 sm:gap-6 max-w-lg mx-auto lg:mx-0">
                 {/* 3D Gold Coin */}
-                <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full overflow-hidden shadow-[0_0_20px_rgba(253,132,159,0.3)] border-2 border-[#FFC4D1] shrink-0">
+                <div className="w-16 h-16 sm:w-24 sm:h-24 rounded-full overflow-hidden shadow-[0_0_20px_rgba(253,132,159,0.3)] border-2 border-[#FFC4D1] shrink-0">
                   <img
                     src="/images/gold-coin.jpg"
                     alt="Gold Shopping Coin"
@@ -105,7 +105,7 @@ export const PromoBanner: React.FC<PromoBannerProps> = ({ onOpenJoinModal }) => 
               <motion.div
                 whileHover={{ scale: 1.02 }}
                 transition={{ duration: 0.3 }}
-                className="relative w-full max-w-md aspect-[4/3] rounded-[28px] overflow-hidden border-2 border-white shadow-[0_12px_36px_rgba(5,6,42,0.1)] group bg-white"
+                className="relative w-full max-w-sm sm:max-w-md aspect-[4/3] rounded-[24px] sm:rounded-[28px] overflow-hidden border-2 border-white shadow-[0_12px_36px_rgba(5,6,42,0.1)] group bg-white"
               >
                 <img
                   src="/images/promo-banner-shopper.jpg"

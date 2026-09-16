@@ -4,7 +4,7 @@ import { ArrowDown, ShieldAlert, Check } from 'lucide-react'
 
 export const PromoShoppingBenefits: React.FC = () => {
   return (
-    <section id="savings" className="py-20 sm:py-28 bg-[#FFF8FA] relative overflow-hidden">
+    <section id="savings" className="py-12 sm:py-28 bg-[#FFF8FA] relative overflow-hidden">
       {/* Background Soft Accents */}
       <div className="absolute top-1/4 left-10 w-[550px] h-[400px] bg-[#FFD0DD]/40 rounded-full blur-[130px] pointer-events-none" />
       <div className="absolute bottom-10 right-10 w-[550px] h-[400px] bg-[#D8C9ED]/40 rounded-full blur-[130px] pointer-events-none" />
@@ -36,7 +36,7 @@ export const PromoShoppingBenefits: React.FC = () => {
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="p-6 sm:p-7 rounded-[24px] bg-white border border-[#E8DDE3] flex items-center justify-between shadow-[0_8px_30px_rgba(5,6,42,0.06)]"
+              className="p-5 sm:p-7 rounded-[20px] sm:rounded-[24px] bg-white border border-[#E8DDE3] flex items-center justify-between shadow-[0_8px_30px_rgba(5,6,42,0.06)] gap-4"
             >
               <div>
                 <span className="text-xs font-black uppercase tracking-widest text-[#555568] block mb-1">

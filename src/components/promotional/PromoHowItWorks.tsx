@@ -28,10 +28,10 @@ export const PromoHowItWorks: React.FC = () => {
   ]
 
   return (
-    <section id="how-it-works" className="py-20 sm:py-28 bg-white relative overflow-hidden">
+    <section id="how-it-works" className="py-12 sm:py-28 bg-white relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-16">
           <span className="px-3.5 py-1 rounded-full bg-[#FFD0DD]/60 border border-[#FFC4D1] text-[#FD849F] text-xs font-extrabold uppercase tracking-wider inline-block mb-3">
             Simple 3-Step Flow
           </span>
@@ -55,7 +55,7 @@ export const PromoHowItWorks: React.FC = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.15 }}
                 whileHover={{ y: -6, boxShadow: '0 16px 40px rgba(253,132,159,0.12)' }}
-                className="relative rounded-[24px] bg-white border border-[#E8DDE3] p-8 sm:p-10 shadow-[0_8px_30px_rgba(5,6,42,0.06)] transition-all duration-300 flex flex-col justify-between group"
+                className="relative rounded-[20px] sm:rounded-[24px] bg-white border border-[#E8DDE3] p-6 sm:p-10 shadow-[0_8px_30px_rgba(5,6,42,0.06)] transition-all duration-300 flex flex-col justify-between group"
               >
                 <div>
                   {/* Step Number & Badge */}

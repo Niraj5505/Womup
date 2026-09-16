@@ -31,7 +31,7 @@ export const PromoShoppingCoin: React.FC = () => {
   ]
 
   return (
-    <section id="shopping-coin" className="py-20 sm:py-28 bg-white relative overflow-hidden">
+    <section id="shopping-coin" className="py-12 sm:py-28 bg-white relative overflow-hidden">
       {/* Background Soft Glows */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[750px] h-[450px] bg-[#FFD0DD]/40 rounded-full blur-[140px] pointer-events-none" />
 

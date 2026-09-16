@@ -18,7 +18,7 @@ export const PromoFinalCta: React.FC<PromoFinalCtaProps> = ({ onOpenJoinModal })
   }
 
   return (
-    <section className="py-20 sm:py-28 bg-[#FFF8FA] relative overflow-hidden">
+    <section className="py-12 sm:py-28 bg-[#FFF8FA] relative overflow-hidden">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
           initial={{ opacity: 0, scale: 0.96 }}
@@ -87,8 +87,8 @@ export const PromoFinalCta: React.FC<PromoFinalCtaProps> = ({ onOpenJoinModal })
               </div>
             </div>
 
-            {/* Right: Large WOMUP Promotional Image */}
-            <div className="lg:col-span-5 flex justify-center">
+            {/* Right: Large WOMUP Promotional Image - hidden on mobile */}
+            <div className="hidden sm:flex lg:col-span-5 justify-center">
               <motion.div
                 whileHover={{ scale: 1.02 }}
                 transition={{ duration: 0.3 }}
