@@ -1,0 +1,70 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-womup-bg: #FFF8FA;
+    --color-womup-surface: #FFFFFF;
+    --color-womup-soft-pink: #FFD0DD;
+    --color-womup-light-pink: #FFC4D1;
+    --color-womup-pink: #FD849F;
+    --color-womup-purple: #6651BF;
+    --color-womup-blue: #3048C8;
+    --color-womup-lavender: #D8C9ED;
+    --color-womup-dark: #05062A;
+    --color-womup-text-primary: #05062A;
+    --color-womup-text-secondary: #555568;
+    --color-womup-border: #E8DDE3;
+  }
+
+  * {
+    border-color: #E8DDE3;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: #FFF8FA;
+    color: #05062A;
+  }
+
+  body {
+    background-color: #FFF8FA;
+    color: #05062A;
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Inter', system-ui, sans-serif;
+    letter-spacing: -0.02em;
+    color: #05062A;
+  }
+}
+
+/* Custom modern light scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: #FFF8FA;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #E8DDE3;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #FD849F;
+}
+
+/* Currency & Indian Rupee symbol utility */
+.font-inr {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-feature-settings: 'cv01' on;
+}
