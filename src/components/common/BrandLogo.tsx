@@ -21,30 +21,16 @@ export const BrandLogo: React.FC<BrandLogoProps> = ({
 
   return (
     <div className={`flex items-center gap-2.5 select-none ${className}`}>
-      {/* Visual Logo Mark (W Icon) */}
+      {/* Visual Logo Mark (Official W Icon) */}
       <div
-        className={`relative ${sizeClasses.icon} flex items-center justify-center rounded-xl bg-gradient-to-br from-[#FD849F] via-[#6651BF] to-[#3048C8] p-[1.5px] shadow-[0_0_15px_rgba(253,132,159,0.35)] group transition-transform duration-300 hover:scale-105`}
+        className={`relative ${sizeClasses.icon} flex items-center justify-center rounded-xl bg-gradient-to-br from-[#FD849F] via-[#6651BF] to-[#3048C8] p-[1.5px] shadow-[0_4px_16px_rgba(253,132,159,0.3)] group transition-transform duration-300 hover:scale-105 shrink-0`}
       >
-        <div className="relative w-full h-full bg-[#0C0D35] rounded-[10px] flex items-center justify-center overflow-hidden">
-          {/* Stylized W Icon */}
-          <svg viewBox="0 0 40 40" className="w-5/6 h-5/6" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M8 12L14 28L20 16L26 28L32 12"
-              stroke="url(#womupLogoGradient)"
-              strokeWidth="3.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-            <circle cx="20" cy="11" r="2.2" fill="#FD849F" />
-            <defs>
-              <linearGradient id="womupLogoGradient" x1="8" y1="12" x2="32" y2="28" gradientUnits="userSpaceOnUse">
-                <stop offset="0%" stopColor="#FD849F" />
-                <stop offset="40%" stopColor="#FFC4D1" />
-                <stop offset="75%" stopColor="#6651BF" />
-                <stop offset="100%" stopColor="#3048C8" />
-              </linearGradient>
-            </defs>
-          </svg>
+        <div className="relative w-full h-full bg-[#05062A] rounded-[10px] flex items-center justify-center overflow-hidden">
+          <img
+            src="/images/womup-logo.png"
+            alt="WOMUP Logo"
+            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+          />
         </div>
       </div>
 

@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { X, CheckCircle2, User, Phone, Mail, MapPin, Sparkles, Send } from 'lucide-react'
+import { BrandLogo } from '../common/BrandLogo.tsx'
 
 interface JoinFreeModalProps {
   isOpen: boolean
@@ -106,7 +107,8 @@ export const JoinFreeModal: React.FC<JoinFreeModalProps> = ({ isOpen, onClose })
             <div>
               {/* Header */}
               <div className="mb-6">
-                <div className="flex items-center gap-2 mb-2">
+                <div className="flex items-center justify-between gap-2 mb-3">
+                  <BrandLogo size="sm" showTagline={false} />
                   <span className="px-3 py-1 rounded-full bg-[#FFF8FA] border border-[#E8DDE3] text-[#FD849F] text-xs font-bold uppercase tracking-wider flex items-center gap-1.5 shadow-xs">
                     <Sparkles className="w-3.5 h-3.5" />
                     Free Registration
