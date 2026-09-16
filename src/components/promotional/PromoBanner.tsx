@@ -108,8 +108,8 @@ export const PromoBanner: React.FC<PromoBannerProps> = ({ onOpenJoinModal }) => 
                 className="relative w-full max-w-md aspect-[4/3] rounded-[28px] overflow-hidden border-2 border-white shadow-[0_12px_36px_rgba(5,6,42,0.1)] group bg-white"
               >
                 <img
-                  src="/images/hero-shopper.jpg"
-                  alt="Indian shopping lifestyle"
+                  src="/images/promo-banner-shopper.jpg"
+                  alt="Indian shopping lifestyle in mall"
                   className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
