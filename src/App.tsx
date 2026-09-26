@@ -28,7 +28,7 @@ export const App: React.FC = () => {
 
   return (
     <ToastProvider>
-      <div className="min-h-screen bg-[#FFF8FA] text-[#05062A] font-sans antialiased selection:bg-[#FD849F] selection:text-white relative">
+      <div className="min-h-screen bg-[#FAF7FD] text-[#0A0724] font-sans antialiased selection:bg-[#FF1E7A] selection:text-white relative">
         {/* 1. NAVBAR */}
         <PromoNavbar onOpenJoinModal={handleOpenJoinModal} />
 

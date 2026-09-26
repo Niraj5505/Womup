@@ -215,10 +215,10 @@ export const JoinFreeModal: React.FC<JoinFreeModalProps> = ({ isOpen, onClose })
                         key={item.key}
                         type="button"
                         onClick={() => setInterest(item.key as any)}
-                        className={`py-2 px-2 text-xs font-semibold rounded-[10px] border transition-all text-center cursor-pointer ${
+                        className={`py-2 px-2 text-xs font-semibold rounded-xl border transition-all text-center cursor-pointer ${
                           interest === item.key
-                            ? 'bg-[#FFD0DD]/60 border-[#FD849F] text-[#05062A] shadow-xs font-bold'
-                            : 'bg-[#FFF8FA] border-[#E8DDE3] text-[#555568] hover:border-[#FD849F]'
+                            ? 'bg-gradient-to-r from-pink-500/15 to-purple-500/15 border-[#FF1E7A] text-[#BE185D] shadow-xs font-bold'
+                            : 'bg-[#FAF7FD] border-[#E8DDE3] text-[#555568] hover:border-[#FF1E7A]'
                         }`}
                       >
                         {item.label}
@@ -230,9 +230,9 @@ export const JoinFreeModal: React.FC<JoinFreeModalProps> = ({ isOpen, onClose })
                 {/* Submit button */}
                 <button
                   type="submit"
-                  className="w-full mt-3 py-3.5 rounded-full bg-[#FD849F] hover:bg-[#6651BF] text-white font-bold text-sm shadow-[0_4px_18px_rgba(253,132,159,0.35)] transition-all duration-200 flex items-center justify-center gap-2 cursor-pointer"
+                  className="w-full mt-3 py-3.5 rounded-full bg-gradient-to-r from-[#FF1E7A] via-[#E11D48] to-[#7C3AED] hover:from-[#E11D48] hover:to-[#6366F1] text-white font-bold text-sm shadow-[0_8px_25px_rgba(255,30,122,0.45)] ring-1 ring-white/20 transition-all duration-200 flex items-center justify-center gap-2 cursor-pointer"
                 >
-                  <Send className="w-4 h-4" />
+                  <Send className="w-4 h-4 text-pink-100" />
                   <span>Submit Free Registration</span>
                 </button>
 

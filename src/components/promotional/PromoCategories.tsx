@@ -37,50 +37,50 @@ export const PromoCategories: React.FC = () => {
       name: 'Grocery',
       desc: 'Everyday household shopping and pantry staples',
       icon: Store,
-      accentBg: 'bg-emerald-50 border border-emerald-100',
-      iconColor: 'text-emerald-600',
+      accentBg: 'bg-gradient-to-br from-emerald-400 to-teal-600 shadow-[0_4px_14px_rgba(16,185,129,0.35)]',
+      iconColor: 'text-white',
     },
     {
       name: 'Vegetables',
       desc: 'Fresh farm produce and daily greens',
       icon: Carrot,
-      accentBg: 'bg-green-50 border border-green-100',
-      iconColor: 'text-green-600',
+      accentBg: 'bg-gradient-to-br from-lime-500 to-emerald-600 shadow-[0_4px_14px_rgba(34,197,94,0.35)]',
+      iconColor: 'text-white',
     },
     {
       name: 'Medical',
       desc: 'Eligible healthcare purchases and medicines',
       icon: Pill,
-      accentBg: 'bg-pink-50 border border-pink-100',
-      iconColor: 'text-[#FD849F]',
+      accentBg: 'bg-gradient-to-br from-[#FF1E7A] to-rose-600 shadow-[0_4px_14px_rgba(255,30,122,0.35)]',
+      iconColor: 'text-white',
     },
     {
       name: 'Restaurants',
       desc: 'Dining and family food experiences',
       icon: Utensils,
-      accentBg: 'bg-amber-50 border border-amber-100',
-      iconColor: 'text-amber-600',
+      accentBg: 'bg-gradient-to-br from-amber-400 to-orange-600 shadow-[0_4px_14px_rgba(245,158,11,0.35)]',
+      iconColor: 'text-white',
     },
     {
       name: 'Beauty & Salon',
       desc: 'Beauty, grooming and personal care',
       icon: Scissors,
-      accentBg: 'bg-rose-50 border border-rose-100',
-      iconColor: 'text-rose-600',
+      accentBg: 'bg-gradient-to-br from-pink-400 to-fuchsia-600 shadow-[0_4px_14px_rgba(217,70,239,0.35)]',
+      iconColor: 'text-white',
     },
     {
       name: 'Hotels',
       desc: 'Hospitality, stays and travel leisure',
       icon: Building,
-      accentBg: 'bg-indigo-50 border border-indigo-100',
-      iconColor: 'text-indigo-600',
+      accentBg: 'bg-gradient-to-br from-indigo-500 to-purple-600 shadow-[0_4px_14px_rgba(99,102,241,0.35)]',
+      iconColor: 'text-white',
     },
     {
       name: 'Garments',
       desc: 'Apparel and lifestyle fashion',
       icon: Shirt,
-      accentBg: 'bg-purple-50 border border-purple-100',
-      iconColor: 'text-[#6651BF]',
+      accentBg: 'bg-gradient-to-br from-violet-600 to-indigo-700 shadow-[0_4px_14px_rgba(124,58,237,0.35)]',
+      iconColor: 'text-white',
     },
   ]
 
@@ -89,50 +89,50 @@ export const PromoCategories: React.FC = () => {
       name: 'Gift Shops',
       desc: 'Presents, celebrations and curated gifts',
       icon: Gift,
-      accentBg: 'bg-pink-50 border border-pink-100',
-      iconColor: 'text-[#FD849F]',
+      accentBg: 'bg-gradient-to-br from-rose-400 to-pink-600 shadow-[0_4px_14px_rgba(244,63,94,0.35)]',
+      iconColor: 'text-white',
     },
     {
       name: 'Shoe Stores',
       desc: 'Footwear for every daily occasion',
       icon: Footprints,
-      accentBg: 'bg-sky-50 border border-sky-100',
-      iconColor: 'text-sky-600',
+      accentBg: 'bg-gradient-to-br from-sky-400 to-blue-600 shadow-[0_4px_14px_rgba(14,165,233,0.35)]',
+      iconColor: 'text-white',
     },
     {
       name: 'Sweet Shops',
       desc: 'Traditional confectionery and snacks',
       icon: Candy,
-      accentBg: 'bg-orange-50 border border-orange-100',
-      iconColor: 'text-orange-600',
+      accentBg: 'bg-gradient-to-br from-amber-400 to-yellow-500 shadow-[0_4px_14px_rgba(245,158,11,0.35)]',
+      iconColor: 'text-white',
     },
     {
       name: 'Bakery',
       desc: 'Fresh baked breads, cakes and pastries',
       icon: Cake,
-      accentBg: 'bg-amber-50 border border-amber-100',
-      iconColor: 'text-amber-600',
+      accentBg: 'bg-gradient-to-br from-orange-400 to-amber-600 shadow-[0_4px_14px_rgba(249,115,22,0.35)]',
+      iconColor: 'text-white',
     },
     {
       name: 'Electronics',
       desc: 'Smart home appliances and gadgets',
       icon: Zap,
-      accentBg: 'bg-blue-50 border border-blue-100',
-      iconColor: 'text-blue-600',
+      accentBg: 'bg-gradient-to-br from-blue-500 to-cyan-600 shadow-[0_4px_14px_rgba(59,130,246,0.35)]',
+      iconColor: 'text-white',
     },
     {
       name: 'Hospitals',
       desc: 'Clinical healthcare and consultation services',
       icon: Activity,
-      accentBg: 'bg-teal-50 border border-teal-100',
-      iconColor: 'text-teal-600',
+      accentBg: 'bg-gradient-to-br from-teal-400 to-cyan-600 shadow-[0_4px_14px_rgba(20,184,166,0.35)]',
+      iconColor: 'text-white',
     },
     {
       name: 'Classes',
       desc: 'Education, tuition and coaching centers',
       icon: GraduationCap,
-      accentBg: 'bg-violet-50 border border-violet-100',
-      iconColor: 'text-[#6651BF]',
+      accentBg: 'bg-gradient-to-br from-purple-500 to-indigo-600 shadow-[0_4px_14px_rgba(139,92,246,0.35)]',
+      iconColor: 'text-white',
     },
   ]
 
@@ -200,18 +200,18 @@ export const PromoCategories: React.FC = () => {
   }
 
   return (
-    <section id="categories" className="py-16 sm:py-24 bg-[#FAFAFC] relative overflow-hidden border-b border-slate-200/70">
+    <section id="categories" className="py-16 sm:py-24 bg-gradient-to-b from-white via-[#FAF7FD] to-white relative overflow-hidden border-b border-purple-100/70">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Clean Centered Architectural Section Heading */}
         <div className="text-center max-w-3xl mx-auto mb-12">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-50 border border-purple-200 text-xs font-semibold text-[#6651BF] mb-3 shadow-2xs">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gradient-to-r from-purple-500/10 via-pink-500/10 to-indigo-500/10 border border-purple-200/90 text-xs font-bold text-purple-800 mb-3 shadow-xs">
             <span>04</span>
             <span className="text-purple-300">•</span>
             <span>Approved Retail Infrastructure</span>
           </div>
-          <h2 className="text-3xl sm:text-5xl font-black text-[#090A15] tracking-tight">
+          <h2 className="text-3xl sm:text-5xl font-black text-[#0A0724] tracking-tight">
             14 eligible{' '}
-            <span className="bg-gradient-to-r from-[#6651BF] to-[#FD849F] bg-clip-text text-transparent font-extrabold">
+            <span className="bg-gradient-to-r from-[#7C3AED] via-[#FF1E7A] to-[#F59E0B] bg-clip-text text-transparent font-extrabold">
               shopping sectors.
             </span>
           </h2>
@@ -229,8 +229,8 @@ export const PromoCategories: React.FC = () => {
           onTouchEnd={handleTouchEnd}
         >
           {/* Subtle Left & Right Soft Edge Gradient Fades */}
-          <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-10 sm:w-16 bg-gradient-to-r from-[#FAFAFC] via-[#FAFAFC]/80 to-transparent z-20" />
-          <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-10 sm:w-16 bg-gradient-to-l from-[#FAFAFC] via-[#FAFAFC]/80 to-transparent z-20" />
+          <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-12 sm:w-20 bg-gradient-to-r from-[#FAF7FD] via-[#FAF7FD]/80 to-transparent z-20" />
+          <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-12 sm:w-20 bg-gradient-to-l from-[#FAF7FD] via-[#FAF7FD]/80 to-transparent z-20" />
 
           {/* Scroll Track (2-Line Vertical Pairs in Horizontal Flex) */}
           <div
@@ -246,19 +246,19 @@ export const PromoCategories: React.FC = () => {
             {repeatedColumns.map((col, colIndex) => (
               <div
                 key={`col-${colIndex}`}
-                className="flex flex-col gap-3 sm:gap-4 shrink-0 w-[155px] sm:w-[175px] md:w-[190px]"
+                className="flex flex-col gap-3 sm:gap-4 shrink-0 w-[160px] sm:w-[180px] md:w-[195px]"
               >
                 {/* Top Row Card */}
-                <div className="p-4 sm:p-5 rounded-2xl bg-white border border-slate-200/90 shadow-2xs transition-all duration-200 flex flex-col justify-between group cursor-default hover:border-[#FD849F]/50 hover:shadow-[0_8px_25px_rgba(253,132,159,0.12)] h-[210px] sm:h-[230px]">
+                <div className="p-4 sm:p-5 rounded-3xl bg-white border border-purple-100/90 shadow-[0_4px_20px_rgba(124,58,237,0.04)] transition-all duration-300 flex flex-col justify-between group cursor-default hover:border-pink-300 hover:shadow-[0_12px_32px_rgba(255,30,122,0.15)] h-[215px] sm:h-[235px]">
                   <div>
                     {/* Category Icon */}
                     <div
-                      className={`w-10 h-10 sm:w-12 sm:h-12 rounded-xl ${col.top.accentBg} flex items-center justify-center mb-3 sm:mb-4 shadow-2xs group-hover:scale-105 transition-transform`}
+                      className={`w-11 h-11 sm:w-12 sm:h-12 rounded-2xl ${col.top.accentBg} flex items-center justify-center mb-3 sm:mb-4 group-hover:scale-105 transition-transform duration-300`}
                     >
                       <col.top.icon className={`w-5 h-5 sm:w-6 sm:h-6 ${col.top.iconColor}`} />
                     </div>
 
-                    <h3 className="text-sm sm:text-base font-bold text-slate-900 tracking-tight leading-tight group-hover:text-[#6651BF] transition-colors">
+                    <h3 className="text-sm sm:text-base font-bold text-[#0A0724] tracking-tight leading-tight group-hover:text-[#7C3AED] transition-colors">
                       {col.top.name}
                     </h3>
 
@@ -267,9 +267,9 @@ export const PromoCategories: React.FC = () => {
                     </p>
                   </div>
 
-                  <div className="mt-2 pt-2.5 border-t border-slate-100 flex items-center justify-between text-[11px] font-medium text-slate-500">
-                    <span>Verified Sector</span>
-                    <span className="inline-flex items-center gap-1 text-[10px] font-bold text-emerald-600 font-mono">
+                  <div className="mt-2 pt-2.5 border-t border-purple-50 flex items-center justify-between text-[11px] font-medium text-slate-500">
+                    <span className="text-slate-400">Verified</span>
+                    <span className="inline-flex items-center gap-1 text-[10px] font-bold text-emerald-700 bg-emerald-50 border border-emerald-200/80 px-2 py-0.5 rounded-full font-mono">
                       <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
                       ACTIVE
                     </span>
@@ -277,16 +277,16 @@ export const PromoCategories: React.FC = () => {
                 </div>
 
                 {/* Bottom Row Card */}
-                <div className="p-4 sm:p-5 rounded-2xl bg-white border border-slate-200/90 shadow-2xs transition-all duration-200 flex flex-col justify-between group cursor-default hover:border-[#FD849F]/50 hover:shadow-[0_8px_25px_rgba(253,132,159,0.12)] h-[210px] sm:h-[230px]">
+                <div className="p-4 sm:p-5 rounded-3xl bg-white border border-purple-100/90 shadow-[0_4px_20px_rgba(124,58,237,0.04)] transition-all duration-300 flex flex-col justify-between group cursor-default hover:border-pink-300 hover:shadow-[0_12px_32px_rgba(255,30,122,0.15)] h-[215px] sm:h-[235px]">
                   <div>
                     {/* Category Icon */}
                     <div
-                      className={`w-10 h-10 sm:w-12 sm:h-12 rounded-xl ${col.bottom.accentBg} flex items-center justify-center mb-3 sm:mb-4 shadow-2xs group-hover:scale-105 transition-transform`}
+                      className={`w-11 h-11 sm:w-12 sm:h-12 rounded-2xl ${col.bottom.accentBg} flex items-center justify-center mb-3 sm:mb-4 group-hover:scale-105 transition-transform duration-300`}
                     >
                       <col.bottom.icon className={`w-5 h-5 sm:w-6 sm:h-6 ${col.bottom.iconColor}`} />
                     </div>
 
-                    <h3 className="text-sm sm:text-base font-bold text-slate-900 tracking-tight leading-tight group-hover:text-[#6651BF] transition-colors">
+                    <h3 className="text-sm sm:text-base font-bold text-[#0A0724] tracking-tight leading-tight group-hover:text-[#7C3AED] transition-colors">
                       {col.bottom.name}
                     </h3>
 
@@ -295,9 +295,9 @@ export const PromoCategories: React.FC = () => {
                     </p>
                   </div>
 
-                  <div className="mt-2 pt-2.5 border-t border-slate-100 flex items-center justify-between text-[11px] font-medium text-slate-500">
-                    <span>Verified Sector</span>
-                    <span className="inline-flex items-center gap-1 text-[10px] font-bold text-emerald-600 font-mono">
+                  <div className="mt-2 pt-2.5 border-t border-purple-50 flex items-center justify-between text-[11px] font-medium text-slate-500">
+                    <span className="text-slate-400">Verified</span>
+                    <span className="inline-flex items-center gap-1 text-[10px] font-bold text-emerald-700 bg-emerald-50 border border-emerald-200/80 px-2 py-0.5 rounded-full font-mono">
                       <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
                       ACTIVE
                     </span>

@@ -15,17 +15,17 @@ export const PromoFooter: React.FC = () => {
   }
 
   return (
-    <footer className="bg-[#05062A] text-white border-t border-[#292A52] relative overflow-hidden">
+    <footer className="bg-[#0A0724] text-white border-t border-purple-900/60 relative overflow-hidden">
       {/* Background Accent Glow */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-24 bg-gradient-to-r from-[#FD849F]/5 via-[#6651BF]/10 to-[#3048C8]/5 blur-3xl pointer-events-none" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-28 bg-gradient-to-r from-[#FF1E7A]/15 via-[#7C3AED]/20 to-[#3048C8]/10 blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-12 relative z-10">
-        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-8 pb-10 sm:pb-12 border-b border-[#292A52]">
+        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-8 pb-10 sm:pb-12 border-b border-purple-900/50">
           {/* Brand Column (Span 2) */}
           <div className="col-span-2 sm:col-span-2 lg:col-span-2 space-y-4">
             <BrandLogo size="lg" showTagline={false} inverted={true} />
 
-            <p className="text-xs sm:text-sm font-semibold text-[#FD849F] uppercase tracking-wider">
+            <p className="text-xs sm:text-sm font-bold bg-gradient-to-r from-[#FF1E7A] to-[#A855F7] bg-clip-text text-transparent uppercase tracking-wider">
               Empowerment • Shopping • Rewards
             </p>
 
@@ -37,18 +37,18 @@ export const PromoFooter: React.FC = () => {
             <div className="pt-2 space-y-2 text-xs text-[#D8D8E8]">
               <a
                 href="mailto:womupproducts@gmail.com"
-                className="flex items-center gap-2 hover:text-[#FD849F] transition-colors"
+                className="flex items-center gap-2 hover:text-[#FF1E7A] transition-colors"
               >
-                <Mail className="w-4 h-4 text-[#FD849F]" />
+                <Mail className="w-4 h-4 text-[#FF1E7A]" />
                 <span>womupproducts@gmail.com</span>
               </a>
               <a
                 href="https://womup.shop"
                 target="_blank"
                 rel="noreferrer"
-                className="flex items-center gap-2 hover:text-[#FD849F] transition-colors"
+                className="flex items-center gap-2 hover:text-[#FF1E7A] transition-colors"
               >
-                <Globe className="w-4 h-4 text-[#6651BF]" />
+                <Globe className="w-4 h-4 text-[#7C3AED]" />
                 <span>womup.shop</span>
               </a>
             </div>
