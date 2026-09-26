@@ -1,14 +1,13 @@
 import React, { useState } from 'react'
 import { PromoNavbar } from './components/promotional/PromoNavbar.tsx'
 import { PromoHero } from './components/promotional/PromoHero.tsx'
-import { PromoBanner } from './components/promotional/PromoBanner.tsx'
 import { PromoHowItWorks } from './components/promotional/PromoHowItWorks.tsx'
+import { PromoForCustomers } from './components/promotional/PromoForCustomers.tsx'
+import { PromoForVendors } from './components/promotional/PromoForVendors.tsx'
+import { PromoIncomeOpportunity } from './components/promotional/PromoIncomeOpportunity.tsx'
 import { PromoCategories } from './components/promotional/PromoCategories.tsx'
-import { PromoShoppingCoin } from './components/promotional/PromoShoppingCoin.tsx'
-import { PromoShoppingBenefits } from './components/promotional/PromoShoppingBenefits.tsx'
-import { PromoReferralSection } from './components/promotional/PromoReferralSection.tsx'
-import { PromoWhyWomup } from './components/promotional/PromoWhyWomup.tsx'
-import { PromoFinalCta } from './components/promotional/PromoFinalCta.tsx'
+import { PromoMobileApp } from './components/promotional/PromoMobileApp.tsx'
+import { PromoContactJoin } from './components/promotional/PromoContactJoin.tsx'
 import { PromoFooter } from './components/promotional/PromoFooter.tsx'
 import { PromoFloatingAd } from './components/promotional/PromoFloatingAd.tsx'
 import { JoinFreeModal } from './components/promotional/JoinFreeModal.tsx'
@@ -28,46 +27,43 @@ export const App: React.FC = () => {
 
   return (
     <ToastProvider>
-      <div className="min-h-screen bg-[#FAF7FD] text-[#0A0724] font-sans antialiased selection:bg-[#FF1E7A] selection:text-white relative">
-        {/* 1. NAVBAR */}
+      <div className="min-h-screen bg-[#FAF7FD] text-[#0A0E2A] font-sans antialiased selection:bg-[#FF007A] selection:text-white relative">
+        {/* TOP NAVIGATION BAR */}
         <PromoNavbar onOpenJoinModal={handleOpenJoinModal} />
 
         <main>
-          {/* 2. HERO ADVERTISEMENT */}
+          {/* SECTION 1: HOME PAGE (HERO) */}
           <PromoHero onOpenJoinModal={handleOpenJoinModal} />
 
-          {/* 3. ₹2,000 SHOPPING BENEFIT PROMOTION */}
-          <PromoBanner onOpenJoinModal={handleOpenJoinModal} />
+          {/* SECTION 2: HOW WOMUP WORKS */}
+          <PromoHowItWorks onOpenJoinModal={handleOpenJoinModal} />
 
-          {/* 4. HOW WOMUP WORKS */}
-          <PromoHowItWorks />
+          {/* SECTION 3: FOR CUSTOMERS */}
+          <PromoForCustomers onOpenJoinModal={handleOpenJoinModal} />
 
-          {/* 5. SHOPPING CATEGORIES */}
-          <PromoCategories />
+          {/* SECTION 4: FOR VENDORS */}
+          <PromoForVendors onOpenJoinModal={handleOpenJoinModal} />
 
-          {/* 6. SHOPPING COIN */}
-          <PromoShoppingCoin />
+          {/* SECTION 5: INCOME OPPORTUNITY */}
+          <PromoIncomeOpportunity onOpenJoinModal={handleOpenJoinModal} />
 
-          {/* 7. SAVING EXAMPLE */}
-          <PromoShoppingBenefits />
+          {/* SECTION 6: SHOP CATEGORIES */}
+          <PromoCategories onOpenJoinModal={handleOpenJoinModal} />
 
-          {/* 8. REFERRAL / INCOME CONCEPT */}
-          <PromoReferralSection />
+          {/* SECTION 7: WOMUP MOBILE APP */}
+          <PromoMobileApp onOpenJoinModal={handleOpenJoinModal} />
 
-          {/* 9. WHY WOMUP */}
-          <PromoWhyWomup />
-
-          {/* 10. FINAL ADVERTISEMENT CTA */}
-          <PromoFinalCta onOpenJoinModal={handleOpenJoinModal} />
+          {/* SECTION 8: CONTACT / JOIN PAGE (BE A PART OF WOMUP) */}
+          <PromoContactJoin onOpenJoinModal={handleOpenJoinModal} />
         </main>
 
-        {/* 11. FOOTER */}
+        {/* FOOTER */}
         <PromoFooter />
 
-        {/* Minimal Floating Sticky Advertisement Bar */}
+        {/* Minimal Floating Sticky Action Bar */}
         <PromoFloatingAd onOpenJoinModal={handleOpenJoinModal} />
 
-        {/* Promotional Enquiry Modal (Visual CTA Only) */}
+        {/* Promotional Enquiry Modal (Visual CTA) */}
         <JoinFreeModal
           isOpen={isJoinModalOpen}
           onClose={handleCloseJoinModal}

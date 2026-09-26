@@ -1,128 +1,186 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import { UserPlus, ShoppingCart, Coins, ArrowRight } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
 
-export const PromoHowItWorks: React.FC = () => {
+interface PromoHowItWorksProps {
+  onOpenJoinModal?: () => void
+}
+
+export const PromoHowItWorks: React.FC<PromoHowItWorksProps> = ({ onOpenJoinModal }) => {
+  const scrollTo = (id: string) => {
+    const el = document.querySelector(id)
+    if (el) el.scrollIntoView({ behavior: 'smooth' })
+  }
+
+  const handleAction = () => {
+    if (onOpenJoinModal) {
+      onOpenJoinModal()
+    } else {
+      scrollTo('#contact')
+    }
+  }
+
   const steps = [
     {
-      step: '01',
-      title: 'Create Free Profile',
-      description: 'Sign up in under 60 seconds. No credit checks, joining fees, or mandatory product purchases.',
-      icon: UserPlus,
-      badge: 'Zero Entry Cost',
+      num: '1',
+      title: 'Join',
+      desc: 'Register on WOMUP App',
     },
     {
-      step: '02',
-      title: 'Shop at Partner Outlets',
-      description: 'Continue purchasing your usual groceries, pharmacy, and dining needs at participating local stores.',
-      icon: ShoppingCart,
-      badge: '14 Core Sectors',
+      num: '2',
+      title: 'Get Coin',
+      desc: 'Receive ₹2,000 Shopping Coin every month',
     },
     {
-      step: '03',
-      title: 'Receive Direct Value',
-      description: 'Earn monthly Shopping Coins and direct deductions against eligible receipts up to ₹2,000 per month.',
-      icon: Coins,
-      badge: 'Monthly Allowance',
+      num: '3',
+      title: 'Shop',
+      desc: 'Use coin at nearby shops',
+    },
+    {
+      num: '4',
+      title: 'Earn',
+      desc: 'Refer others & get income up to 7 levels',
     },
   ]
 
   return (
-    <section id="how-it-works" className="py-16 sm:py-24 bg-gradient-to-b from-[#FAF7FD] to-white relative overflow-hidden border-b border-purple-100/70">
+    <section
+      id="how-it-works"
+      className="py-16 sm:py-24 bg-gradient-to-b from-white via-pink-50/20 to-white relative overflow-hidden border-b border-pink-100/60"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-14">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gradient-to-r from-purple-500/10 via-pink-500/10 to-indigo-500/10 border border-purple-200/90 text-xs font-bold text-purple-800 mb-3 shadow-xs">
-            <span>03</span>
-            <span className="text-purple-300">•</span>
-            <span>Simple Workflow</span>
-          </div>
-          <h2 className="text-3xl sm:text-5xl font-black text-[#0A0724] tracking-tight">
-            How WOMUP{' '}
-            <span className="bg-gradient-to-r from-[#7C3AED] via-[#FF1E7A] to-[#F59E0B] bg-clip-text text-transparent font-extrabold">
-              functions.
-            </span>
+          <h2 className="text-3xl sm:text-5xl font-black text-[#0A0E2A] tracking-tight">
+            How <span className="text-[#FF007A]">WOMUP</span> Works?
           </h2>
-          <p className="mt-3 text-base sm:text-lg text-slate-600 leading-relaxed">
-            A transparent 3-step operational framework designed to automate value return on your everyday expenses.
+          <p className="mt-3 text-sm sm:text-base text-slate-600 leading-relaxed font-medium">
+            A simple platform connecting Customers and Local Vendors for Smart Shopping and Earning Opportunities.
           </p>
         </div>
 
-        {/* 3 Step Cards (Linear Product Grid Style) */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 relative">
-          {steps.map((item, index) => {
-            const Icon = item.icon
-            const stepColors = [
-              {
-                num: 'text-indigo-600',
-                badge: 'bg-indigo-50 text-indigo-700 border-indigo-200',
-                iconBg: 'bg-gradient-to-br from-indigo-500 to-blue-600 shadow-[0_6px_20px_rgba(99,102,241,0.3)]',
-                cardHover: 'hover:border-indigo-300 hover:shadow-[0_16px_40px_rgba(99,102,241,0.12)]',
-                titleHover: 'group-hover:text-indigo-600',
-                arrowHover: 'group-hover:text-indigo-600',
-              },
-              {
-                num: 'text-[#FF1E7A]',
-                badge: 'bg-pink-50 text-[#BE185D] border-pink-200',
-                iconBg: 'bg-gradient-to-br from-[#FF1E7A] via-[#E11D48] to-[#D946EF] shadow-[0_6px_20px_rgba(255,30,122,0.3)]',
-                cardHover: 'hover:border-pink-300 hover:shadow-[0_16px_40px_rgba(255,30,122,0.12)]',
-                titleHover: 'group-hover:text-[#FF1E7A]',
-                arrowHover: 'group-hover:text-[#FF1E7A]',
-              },
-              {
-                num: 'text-emerald-600',
-                badge: 'bg-emerald-50 text-emerald-800 border-emerald-200',
-                iconBg: 'bg-gradient-to-br from-emerald-500 to-teal-600 shadow-[0_6px_20px_rgba(16,185,129,0.3)]',
-                cardHover: 'hover:border-emerald-300 hover:shadow-[0_16px_40px_rgba(16,185,129,0.12)]',
-                titleHover: 'group-hover:text-emerald-600',
-                arrowHover: 'group-hover:text-emerald-600',
-              },
-            ][index]
-
-            return (
-              <motion.div
-                key={item.step}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.45, delay: index * 0.1 }}
-                whileHover={{ y: -5 }}
-                className={`relative rounded-3xl bg-white border border-purple-100/90 p-7 sm:p-8 shadow-[0_10px_30px_rgba(124,58,237,0.05)] ${stepColors.cardHover} transition-all duration-300 flex flex-col justify-between group`}
-              >
-                <div>
-                  {/* Step Header */}
-                  <div className="flex items-center justify-between mb-6 pb-4 border-b border-purple-50">
-                    <span className={`text-2xl font-mono font-black ${stepColors.num}`}>
-                      {item.step}
-                    </span>
-                    <span className={`px-3 py-1 rounded-full border text-[11px] font-bold ${stepColors.badge}`}>
-                      {item.badge}
-                    </span>
+        {/* Central Circular Diagram: Customer <-> WOMUP <-> Vendor */}
+        <div className="max-w-4xl mx-auto mb-16 relative">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-8 md:gap-4 relative">
+            {/* Left: Customer Circle / Card */}
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="flex flex-col items-center text-center group"
+            >
+              <div className="relative">
+                <div className="w-36 h-36 sm:w-44 sm:h-44 rounded-full p-1.5 bg-gradient-to-tr from-pink-400 to-[#FF007A] shadow-[0_10px_25px_rgba(255,0,122,0.25)]">
+                  <div className="w-full h-full rounded-full overflow-hidden bg-white">
+                    <img
+                      src="/images/customer_man_avatar.jpg"
+                      alt="Customer"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
                   </div>
+                </div>
+              </div>
+              <div className="mt-4">
+                <div className="text-lg font-black text-[#0A0E2A]">Customer</div>
+                <div className="text-xs sm:text-sm font-semibold text-[#FF007A]">
+                  Shop & Save
+                </div>
+              </div>
+            </motion.div>
 
-                  {/* Icon */}
-                  <div className={`w-13 h-13 rounded-2xl ${stepColors.iconBg} flex items-center justify-center mb-5 text-white transition-transform group-hover:scale-105 duration-300`}>
-                    <Icon className="w-6 h-6" />
+            {/* Center: WOMUP Center Logo Badge with Animated Connecting Loop */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              className="flex flex-col items-center justify-center my-4 md:my-0 relative"
+            >
+              {/* Outer decorative dashed orbit */}
+              <div className="relative w-28 h-28 sm:w-36 sm:h-36 rounded-full border-2 border-dashed border-pink-300 flex items-center justify-center p-3 animate-spin-slow">
+                <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-[#FF007A]" />
+                <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-[#1E3A8A]" />
+              </div>
+
+              {/* Inner Solid Card */}
+              <div className="absolute inset-0 m-auto w-20 h-20 sm:w-28 sm:h-28 rounded-full bg-white shadow-[0_12px_30px_rgba(255,0,122,0.18)] border-2 border-pink-100 flex flex-col items-center justify-center p-2">
+                <img
+                  src="/images/womup-logo.png"
+                  alt="WOMUP"
+                  className="w-14 sm:w-18 h-auto object-contain"
+                />
+                <span className="text-[9px] font-black text-[#FF007A] tracking-wider uppercase mt-1">
+                  WOMUP
+                </span>
+              </div>
+            </motion.div>
+
+            {/* Right: Vendor Circle / Card */}
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="flex flex-col items-center text-center group"
+            >
+              <div className="relative">
+                <div className="w-36 h-36 sm:w-44 sm:h-44 rounded-full p-1.5 bg-gradient-to-tr from-blue-500 to-[#1E3A8A] shadow-[0_10px_25px_rgba(30,58,138,0.25)]">
+                  <div className="w-full h-full rounded-full overflow-hidden bg-white">
+                    <img
+                      src="/images/vendor_shopkeeper.jpg"
+                      alt="Vendor"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
                   </div>
-
-                  {/* Title */}
-                  <h3 className={`text-xl font-bold text-[#0A0724] tracking-tight mb-2 ${stepColors.titleHover} transition-colors`}>
-                    {item.title}
-                  </h3>
-
-                  {/* Description */}
-                  <p className="text-sm text-slate-600 leading-relaxed">
-                    {item.description}
-                  </p>
                 </div>
-
-                <div className="mt-6 pt-4 border-t border-purple-50 flex items-center justify-between text-xs font-semibold text-slate-500">
-                  <span>Phase {item.step}</span>
-                  <ArrowRight className={`w-4 h-4 text-slate-400 ${stepColors.arrowHover} group-hover:translate-x-1.5 transition-all`} />
+              </div>
+              <div className="mt-4">
+                <div className="text-lg font-black text-[#0A0E2A]">Vendor</div>
+                <div className="text-xs sm:text-sm font-semibold text-[#1E3A8A]">
+                  Grow Business
                 </div>
-              </motion.div>
-            )
-          })}
+              </div>
+            </motion.div>
+          </div>
+        </div>
+
+        {/* 4 Numbered Steps from Mockup (Join, Get Coin, Shop, Earn) */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto mb-12">
+          {steps.map((s, idx) => (
+            <motion.div
+              key={s.num}
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: idx * 0.1 }}
+              className="bg-white rounded-3xl p-6 border border-pink-100 shadow-[0_8px_20px_rgba(0,0,0,0.03)] text-center flex flex-col items-center relative hover:shadow-[0_12px_28px_rgba(255,0,122,0.12)] hover:border-pink-200 transition-all duration-300 group"
+            >
+              {/* Pink Number Badge */}
+              <div className="w-12 h-12 rounded-full bg-gradient-to-tr from-[#FF007A] to-[#E11D48] text-white font-black text-lg flex items-center justify-center shadow-[0_4px_12px_rgba(255,0,122,0.35)] mb-4 group-hover:scale-110 transition-transform">
+                {s.num}
+              </div>
+
+              {/* Title */}
+              <h3 className="text-lg font-black text-[#0A0E2A] mb-1.5">{s.title}</h3>
+
+              {/* Description */}
+              <p className="text-xs sm:text-sm text-slate-600 font-medium leading-relaxed">
+                {s.desc}
+              </p>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Bottom CTA Button */}
+        <div className="flex justify-center">
+          <motion.button
+            type="button"
+            whileHover={{ scale: 1.04 }}
+            whileTap={{ scale: 0.96 }}
+            onClick={handleAction}
+            className="px-8 py-3.5 rounded-full bg-gradient-to-r from-[#FF007A] to-[#E11D48] hover:from-[#E11D48] hover:to-[#BE185D] text-white text-sm sm:text-base font-bold shadow-[0_10px_25px_rgba(255,0,122,0.35)] transition-all flex items-center gap-2 cursor-pointer"
+          >
+            <span>Get Started Now</span>
+            <ArrowRight className="w-4 h-4" />
+          </motion.button>
         </div>
       </div>
     </section>

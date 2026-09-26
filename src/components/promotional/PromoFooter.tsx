@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Mail, Globe, ArrowUp, X, Shield, FileText, AlertCircle } from 'lucide-react'
+import { Mail, Phone, MapPin, ArrowUp, X, Shield, FileText, AlertCircle } from 'lucide-react'
 import { BrandLogo } from '../common/BrandLogo.tsx'
 
 export const PromoFooter: React.FC = () => {
@@ -17,7 +17,7 @@ export const PromoFooter: React.FC = () => {
   return (
     <footer className="bg-[#0A0724] text-white border-t border-purple-900/60 relative overflow-hidden">
       {/* Background Accent Glow */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-28 bg-gradient-to-r from-[#FF1E7A]/15 via-[#7C3AED]/20 to-[#3048C8]/10 blur-3xl pointer-events-none" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-28 bg-gradient-to-r from-[#FF007A]/15 via-[#7C3AED]/20 to-[#3048C8]/10 blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-12 relative z-10">
         <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-8 pb-10 sm:pb-12 border-b border-purple-900/50">
@@ -25,48 +25,50 @@ export const PromoFooter: React.FC = () => {
           <div className="col-span-2 sm:col-span-2 lg:col-span-2 space-y-4">
             <BrandLogo size="lg" showTagline={false} inverted={true} />
 
-            <p className="text-xs sm:text-sm font-bold bg-gradient-to-r from-[#FF1E7A] to-[#A855F7] bg-clip-text text-transparent uppercase tracking-wider">
-              Empowerment • Shopping • Rewards
+            <p className="text-xs sm:text-sm font-bold bg-gradient-to-r from-[#FF007A] to-[#A855F7] bg-clip-text text-transparent uppercase tracking-wider">
+              Empowerment &bull; Shopping &bull; Revolution
             </p>
 
             <p className="text-xs sm:text-sm text-[#D8D8E8] leading-relaxed max-w-sm">
-              Discover a modern promotional shopping ecosystem designed to deliver savings on everyday purchases and unlock community rewards.
+              WOMUP connects customers with trusted local neighborhood merchants for instant monthly savings and sustainable multi-tier referral income.
             </p>
 
             {/* Direct Official Contact */}
             <div className="pt-2 space-y-2 text-xs text-[#D8D8E8]">
               <a
-                href="mailto:womupproducts@gmail.com"
-                className="flex items-center gap-2 hover:text-[#FF1E7A] transition-colors"
+                href="tel:+919876543210"
+                className="flex items-center gap-2 hover:text-[#FF007A] transition-colors"
               >
-                <Mail className="w-4 h-4 text-[#FF1E7A]" />
-                <span>womupproducts@gmail.com</span>
+                <Phone className="w-4 h-4 text-[#FF007A]" />
+                <span>+91 98765 43210</span>
               </a>
               <a
-                href="https://womup.shop"
-                target="_blank"
-                rel="noreferrer"
-                className="flex items-center gap-2 hover:text-[#FF1E7A] transition-colors"
+                href="mailto:info@womup.in"
+                className="flex items-center gap-2 hover:text-[#FF007A] transition-colors"
               >
-                <Globe className="w-4 h-4 text-[#7C3AED]" />
-                <span>womup.shop</span>
+                <Mail className="w-4 h-4 text-[#FF007A]" />
+                <span>info@womup.in</span>
               </a>
+              <div className="flex items-center gap-2 text-slate-400">
+                <MapPin className="w-4 h-4 text-[#3048C8]" />
+                <span>Mahesana, Gujarat, India</span>
+              </div>
             </div>
           </div>
 
-          {/* Links Column 1: Explore */}
+          {/* Links Column 1: Ecosystem */}
           <div className="space-y-3">
             <h4 className="text-xs font-black uppercase tracking-wider text-white">
-              Navigation
+              Ecosystem
             </h4>
             <ul className="space-y-2 text-xs text-[#D8D8E8]">
               <li>
                 <button
                   type="button"
-                  onClick={() => handleNavClick('#about')}
+                  onClick={() => handleNavClick('#home')}
                   className="hover:text-white transition-colors cursor-pointer"
                 >
-                  About
+                  Home
                 </button>
               </li>
               <li>
@@ -81,10 +83,37 @@ export const PromoFooter: React.FC = () => {
               <li>
                 <button
                   type="button"
-                  onClick={() => handleNavClick('#benefits')}
+                  onClick={() => handleNavClick('#for-customers')}
                   className="hover:text-white transition-colors cursor-pointer"
                 >
-                  Benefits
+                  For Customers
+                </button>
+              </li>
+              <li>
+                <button
+                  type="button"
+                  onClick={() => handleNavClick('#for-vendors')}
+                  className="hover:text-white transition-colors cursor-pointer"
+                >
+                  For Vendors
+                </button>
+              </li>
+            </ul>
+          </div>
+
+          {/* Links Column 2: Opportunities */}
+          <div className="space-y-3">
+            <h4 className="text-xs font-black uppercase tracking-wider text-white">
+              Opportunities
+            </h4>
+            <ul className="space-y-2 text-xs text-[#D8D8E8]">
+              <li>
+                <button
+                  type="button"
+                  onClick={() => handleNavClick('#income')}
+                  className="hover:text-white transition-colors cursor-pointer"
+                >
+                  Income Opportunity
                 </button>
               </li>
               <li>
@@ -93,44 +122,26 @@ export const PromoFooter: React.FC = () => {
                   onClick={() => handleNavClick('#categories')}
                   className="hover:text-white transition-colors cursor-pointer"
                 >
-                  Categories
+                  Shop Categories
                 </button>
               </li>
-            </ul>
-          </div>
-
-          {/* Links Column 2: Contact & Enquiries */}
-          <div className="space-y-3">
-            <h4 className="text-xs font-black uppercase tracking-wider text-white">
-              Connect
-            </h4>
-            <ul className="space-y-2 text-xs text-[#D8D8E8]">
+              <li>
+                <button
+                  type="button"
+                  onClick={() => handleNavClick('#download-app')}
+                  className="hover:text-white transition-colors cursor-pointer"
+                >
+                  WOMUP Mobile App
+                </button>
+              </li>
               <li>
                 <button
                   type="button"
                   onClick={() => handleNavClick('#contact')}
                   className="hover:text-white transition-colors cursor-pointer"
                 >
-                  Contact
+                  Contact &amp; Join
                 </button>
-              </li>
-              <li>
-                <a
-                  href="mailto:womupproducts@gmail.com"
-                  className="hover:text-white transition-colors block"
-                >
-                  Support Desk
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://womup.shop"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="hover:text-white transition-colors block"
-                >
-                  womup.shop
-                </a>
               </li>
             </ul>
           </div>
@@ -138,7 +149,7 @@ export const PromoFooter: React.FC = () => {
           {/* Links Column 3: Legal */}
           <div className="space-y-3">
             <h4 className="text-xs font-black uppercase tracking-wider text-white">
-              Legal & Disclaimers
+              Legal &amp; Policies
             </h4>
             <ul className="space-y-2 text-xs text-[#D8D8E8]">
               <li>
@@ -147,7 +158,7 @@ export const PromoFooter: React.FC = () => {
                   onClick={() => setActiveModal('terms')}
                   className="hover:text-white transition-colors cursor-pointer"
                 >
-                  Terms
+                  Terms of Service
                 </button>
               </li>
               <li>
@@ -156,7 +167,7 @@ export const PromoFooter: React.FC = () => {
                   onClick={() => setActiveModal('privacy')}
                   className="hover:text-white transition-colors cursor-pointer"
                 >
-                  Privacy
+                  Privacy Policy
                 </button>
               </li>
               <li>
@@ -165,7 +176,7 @@ export const PromoFooter: React.FC = () => {
                   onClick={() => setActiveModal('disclaimer')}
                   className="hover:text-white transition-colors cursor-pointer"
                 >
-                  Disclaimer
+                  Earnings Disclaimer
                 </button>
               </li>
             </ul>
@@ -175,13 +186,13 @@ export const PromoFooter: React.FC = () => {
         {/* Bottom Bar */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#D8D8E8]/70">
           <p>
-            &copy; {new Date().getFullYear()} WOMUP. All rights reserved. Promotional advertising presentation.
+            &copy; {new Date().getFullYear()} WOMUP. All rights reserved. Save More. Shop Smarter. Earn More.
           </p>
 
           <button
             type="button"
             onClick={scrollToTop}
-            className="p-2.5 rounded-full bg-[#171843] border border-[#292A52] text-white hover:text-[#FD849F] hover:border-[#FD849F] transition-colors flex items-center gap-1.5 cursor-pointer"
+            className="p-2.5 rounded-full bg-[#171843] border border-[#292A52] text-white hover:text-[#FF007A] hover:border-[#FF007A] transition-colors flex items-center gap-1.5 cursor-pointer"
             aria-label="Back to top"
           >
             <span>Back to top</span>
@@ -198,64 +209,64 @@ export const PromoFooter: React.FC = () => {
               type="button"
               onClick={() => setActiveModal(null)}
               className="absolute top-5 right-5 w-8 h-8 rounded-full bg-[#171843] border border-[#292A52] flex items-center justify-center text-[#D8D8E8] hover:text-white transition-colors cursor-pointer"
+              aria-label="Close dialog"
             >
               <X className="w-4 h-4" />
             </button>
 
             {activeModal === 'terms' && (
               <div className="space-y-4">
-                <div className="flex items-center gap-2 text-[#FD849F]">
-                  <FileText className="w-5 h-5" />
-                  <h3 className="text-xl font-bold text-white">Terms & Conditions</h3>
+                <div className="flex items-center gap-3 text-[#FF007A]">
+                  <FileText className="w-6 h-6" />
+                  <h3 className="text-lg font-black text-white">Terms of Service</h3>
                 </div>
-                <p className="text-xs text-[#D8D8E8] leading-relaxed">
-                  This website is created solely for promotional, educational, and brand advertising purposes. Participation in WOMUP requires no initial registration fee or compulsory purchase of inventory.
-                </p>
-                <p className="text-xs text-[#D8D8E8] leading-relaxed">
-                  Shopping benefits and Shopping Coins are subject to program qualification, participating merchant agreements, and applicable regulatory compliance.
-                </p>
+                <div className="text-xs text-[#D8D8E8] space-y-3 leading-relaxed">
+                  <p>
+                    1. WOMUP is a promotional shopper rewards platform providing monthly shopping coins and referral incentive allowances.
+                  </p>
+                  <p>
+                    2. Monthly coins (e.g. ₹2,000 monthly shopping coins) can be redeemed towards eligible purchases at authorized vendor partners up to specified discount percentages (10% to 15%).
+                  </p>
+                  <p>
+                    3. Users must follow verified merchant guidelines and genuine billing procedures to redeem benefits.
+                  </p>
+                </div>
               </div>
             )}
 
             {activeModal === 'privacy' && (
               <div className="space-y-4">
-                <div className="flex items-center gap-2 text-[#6651BF]">
-                  <Shield className="w-5 h-5" />
-                  <h3 className="text-xl font-bold text-white">Privacy Policy</h3>
+                <div className="flex items-center gap-3 text-[#3048C8]">
+                  <Shield className="w-6 h-6" />
+                  <h3 className="text-lg font-black text-white">Privacy Policy</h3>
                 </div>
-                <p className="text-xs text-[#D8D8E8] leading-relaxed">
-                  We respect user privacy. Any contact information submitted through our enquiry or early registration forms is used solely to respond to questions and provide official onboarding information.
-                </p>
-                <p className="text-xs text-[#D8D8E8] leading-relaxed">
-                  WOMUP does not sell, rent, or lease personal contact details to third-party advertisers.
-                </p>
+                <div className="text-xs text-[#D8D8E8] space-y-3 leading-relaxed">
+                  <p>
+                    WOMUP respects your privacy. Any mobile number, email, or contact information collected via this portal is utilized solely for customer service onboarding and merchant partnership communication.
+                  </p>
+                  <p>
+                    We do not sell, rent, or lease personal contact details to unauthorized third-party commercial marketing firms.
+                  </p>
+                </div>
               </div>
             )}
 
             {activeModal === 'disclaimer' && (
               <div className="space-y-4">
-                <div className="flex items-center gap-2 text-[#FACC15]">
-                  <AlertCircle className="w-5 h-5" />
-                  <h3 className="text-xl font-bold text-white">Program Disclaimer</h3>
+                <div className="flex items-center gap-3 text-amber-400">
+                  <AlertCircle className="w-6 h-6" />
+                  <h3 className="text-lg font-black text-white">Earnings Disclaimer</h3>
                 </div>
-                <p className="text-xs text-[#D8D8E8] leading-relaxed">
-                  All earning ranges, team structure member counts, and benefit calculations shown on this website are illustrative promotional examples and do not constitute financial guarantees or employment contracts.
-                </p>
-                <p className="text-xs text-[#D8D8E8] leading-relaxed">
-                  Shopping Coin is not legal tender or currency and cannot be converted into cash unless expressly permitted under applicable terms. Actual earnings depend entirely on individual performance, qualifying network activity, and program terms.
-                </p>
+                <div className="text-xs text-[#D8D8E8] space-y-3 leading-relaxed">
+                  <p>
+                    Earning representations (such as ₹30,000 to ₹3,00,000 per month) demonstrate potential multi-tier affiliate referral income based on actual active customer retail purchasing volume across 7 referral tiers.
+                  </p>
+                  <p>
+                    Individual results vary depending on team building, community engagement, and actual recurring merchant shopping transactions.
+                  </p>
+                </div>
               </div>
             )}
-
-            <div className="mt-6 pt-4 border-t border-[#292A52]">
-              <button
-                type="button"
-                onClick={() => setActiveModal(null)}
-                className="w-full py-2.5 rounded-full bg-[#171843] hover:bg-[#6651BF] text-white text-xs font-bold transition-colors cursor-pointer"
-              >
-                Close
-              </button>
-            </div>
           </div>
         </div>
       )}
