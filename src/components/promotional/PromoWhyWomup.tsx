@@ -1,88 +1,107 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import { UserCheck, ShoppingCart, Gift, Sparkles, CheckCircle2 } from 'lucide-react'
+import { UserCheck, ShoppingCart, Gift, Users } from 'lucide-react'
 
 export const PromoWhyWomup: React.FC = () => {
   const cards = [
     {
-      title: 'FREE REGISTRATION',
-      desc: 'Join the WOMUP platform completely free of charge. No upfront fees, registration costs, or compulsory packages are ever required.',
+      code: 'PILLAR-01',
+      title: 'Zero Entry Barrier',
+      desc: 'Join WOMUP completely free. No upfront deposits, registration fees, or mandatory product purchases are ever required.',
       icon: UserCheck,
-      badge: 'Zero Entry Cost',
+      badge: '100% Free',
     },
     {
-      title: 'EVERYDAY SHOPPING',
-      desc: 'Seamlessly applies to your routine household purchases across groceries, healthcare, dining, salons, and local retail stores.',
+      code: 'PILLAR-02',
+      title: 'Routine Spends Only',
+      desc: 'No lifestyle change required. Applies directly to the everyday groceries, pharmacy, and dining you already buy.',
       icon: ShoppingCart,
-      badge: '14+ Daily Categories',
+      badge: 'Everyday Needs',
     },
     {
-      title: 'SHOPPING BENEFITS',
-      desc: 'Unlock continuous monthly value through the WOMUP Shopping Coin mechanism designed to optimize family living expenditures.',
+      code: 'PILLAR-03',
+      title: 'Direct Invoice Offset',
+      desc: 'Shopping Coins function as instant deductions against verified point-of-sale bills up to ₹2,000 every single month.',
       icon: Gift,
-      badge: 'Continuous Value',
+      badge: 'Guaranteed Rate',
     },
     {
-      title: 'ADDITIONAL OPPORTUNITIES',
-      desc: 'Explore community referral rewards and optional partner milestones through active network growth and qualifying activity.',
-      icon: Sparkles,
-      badge: 'Community Rewards',
+      code: 'PILLAR-04',
+      title: 'Community Network',
+      desc: 'Earn additional community rewards and milestone referral allowances as friends and family also save on their shopping.',
+      icon: Users,
+      badge: 'Optional Growth',
     },
   ]
 
   return (
-    <section id="about" className="py-12 sm:py-28 bg-white relative overflow-hidden">
+    <section id="about" className="py-16 sm:py-24 bg-white relative overflow-hidden border-b border-slate-200/70">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="px-3.5 py-1 rounded-full bg-[#FFF8FA] border border-[#E8DDE3] text-[#FD849F] text-xs font-extrabold uppercase tracking-wider inline-block mb-3 shadow-xs">
-            Core Advantages
-          </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#05062A] tracking-tight">
-            Why <span className="text-[#FD849F]">WOMUP?</span>
+        <div className="text-center max-w-3xl mx-auto mb-14">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-pink-50 border border-pink-200 text-xs font-semibold text-[#FD849F] mb-3 shadow-2xs">
+            <span>06</span>
+            <span className="text-pink-300">•</span>
+            <span>Value Architecture</span>
+          </div>
+          <h2 className="text-3xl sm:text-5xl font-black text-[#090A15] tracking-tight">
+            The four core{' '}
+            <span className="bg-gradient-to-r from-[#FD849F] to-[#6651BF] bg-clip-text text-transparent font-extrabold">
+              pillars.
+            </span>
           </h2>
-          <p className="mt-4 text-base sm:text-lg text-[#555568] leading-relaxed">
-            Four key pillars that make the WOMUP promotional advertising ecosystem clear, transparent, and valuable.
+          <p className="mt-3 text-base sm:text-lg text-slate-600 leading-relaxed">
+            The foundational principles that make the WOMUP rewards ecosystem transparent, reliable, and grounded.
           </p>
         </div>
 
-        {/* 4 Cards */}
+        {/* 4 Cards (Linear Style) */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {cards.map((card, index) => {
             const Icon = card.icon
+            const badgeColors = [
+              'bg-emerald-50 text-emerald-700 border-emerald-200',
+              'bg-purple-50 text-[#6651BF] border-purple-200',
+              'bg-pink-50 text-[#FD849F] border-pink-200',
+              'bg-amber-50 text-amber-700 border-amber-200',
+            ][index]
+
             return (
               <motion.div
-                key={card.title}
-                initial={{ opacity: 0, y: 25 }}
+                key={card.code}
+                initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: index * 0.1 }}
-                whileHover={{ y: -6, boxShadow: '0 16px 40px rgba(253,132,159,0.12)' }}
-                className="p-7 rounded-[24px] bg-white border border-[#E8DDE3] shadow-[0_8px_30px_rgba(5,6,42,0.06)] transition-all duration-300 flex flex-col justify-between group"
+                transition={{ duration: 0.4, delay: index * 0.08 }}
+                whileHover={{ y: -4 }}
+                className="rounded-2xl bg-[#FAFAFC] border border-slate-200/90 p-6 sm:p-7 shadow-2xs hover:shadow-sm hover:border-[#FD849F]/40 transition-all flex flex-col justify-between group"
               >
                 <div>
-                  <div className="flex items-center justify-between mb-6">
-                    <div className="w-14 h-14 rounded-2xl bg-[#FFD0DD]/40 border border-[#FFC4D1] flex items-center justify-center group-hover:scale-105 transition-transform">
-                      <Icon className="w-6 h-6 text-[#FD849F]" />
-                    </div>
-
-                    <span className="px-3 py-1 rounded-full bg-[#FFF8FA] border border-[#E8DDE3] text-[10px] font-bold text-[#6651BF] uppercase tracking-wider">
+                  <div className="flex items-center justify-between mb-5 pb-3 border-b border-slate-200/70">
+                    <span className="text-xs font-mono font-bold text-[#6651BF]">
+                      {card.code}
+                    </span>
+                    <span className={`text-[11px] font-bold px-2 py-0.5 rounded-full border ${badgeColors}`}>
                       {card.badge}
                     </span>
                   </div>
 
-                  <h3 className="text-lg font-black text-[#05062A] tracking-tight mb-3 group-hover:text-[#FD849F] transition-colors">
+                  <div className="w-11 h-11 rounded-xl bg-white border border-slate-200 flex items-center justify-center mb-4 text-slate-900 group-hover:border-[#FD849F] group-hover:text-[#FD849F] group-hover:bg-pink-50/50 transition-colors shadow-2xs">
+                    <Icon className="w-5 h-5" />
+                  </div>
+
+                  <h3 className="text-base font-bold text-slate-900 tracking-tight mb-2 group-hover:text-[#6651BF] transition-colors">
                     {card.title}
                   </h3>
 
-                  <p className="text-xs sm:text-sm text-[#555568] leading-relaxed">
+                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
                     {card.desc}
                   </p>
                 </div>
 
-                <div className="mt-6 pt-4 border-t border-[#E8DDE3] flex items-center gap-2 text-xs font-semibold text-[#22C55E]">
-                  <CheckCircle2 className="w-4 h-4" />
-                  <span>WOMUP Standard</span>
+                <div className="mt-6 pt-3 border-t border-slate-200/70 text-[11px] font-mono text-emerald-600 font-semibold flex items-center gap-1.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+                  <span>Core Operational Guarantee</span>
                 </div>
               </motion.div>
             )

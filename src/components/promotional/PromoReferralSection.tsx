@@ -1,168 +1,113 @@
 import React from 'react'
-import { motion } from 'framer-motion'
-import { Users, ArrowDown, ShieldAlert, TrendingUp } from 'lucide-react'
+import { ArrowDown, ShieldAlert } from 'lucide-react'
 
 export const PromoReferralSection: React.FC = () => {
   return (
-    <section
-      id="referral"
-      className="py-12 sm:py-28 relative overflow-hidden"
-      style={{
-        background: 'linear-gradient(135deg, #FFF8FA 0%, #FFD0DD 40%, #D8C9ED 100%)',
-      }}
-    >
+    <section id="referral" className="py-16 sm:py-24 bg-white relative overflow-hidden border-b border-slate-200/70">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="px-3.5 py-1 rounded-full bg-white border border-[#E8DDE3] text-[#FD849F] text-xs font-extrabold uppercase tracking-wider inline-block mb-3 shadow-xs">
-            Community & Referral Concept
-          </span>
-          {/* Exact Headline */}
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#05062A] tracking-tight">
-            Refer.{' '}
-            <span className="text-[#FD849F]">
-              Connect.
-            </span>{' '}
-            Grow.
+        <div className="text-center max-w-3xl mx-auto mb-14">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-slate-100 border border-slate-200 text-xs font-semibold text-slate-700 mb-3">
+            <span>08</span>
+            <span className="text-slate-300">•</span>
+            <span>Network Growth</span>
+          </div>
+          <h2 className="text-3xl sm:text-5xl font-black text-[#090A15] tracking-tight">
+            Referral & community <span className="text-slate-500 font-extrabold">distribution.</span>
           </h2>
-          {/* Exact Text */}
-          <p className="mt-4 text-base sm:text-lg text-[#555568] leading-relaxed max-w-2xl mx-auto">
-            WOMUP also presents opportunities connected with referrals and qualifying activity within its program structure.
+          <p className="mt-3 text-base sm:text-lg text-slate-600 leading-relaxed max-w-2xl mx-auto">
+            WOMUP provides structured community sharing allowances when your network saves across everyday retail categories.
           </p>
         </div>
 
         {/* Top Grid: Community Network Image + Visual Network Diagram */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center max-w-6xl mx-auto mb-16">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center max-w-5xl mx-auto mb-14">
           {/* Left: Community Network Visual Photography */}
           <div className="lg:col-span-6 flex justify-center">
-            <motion.div
-              whileHover={{ scale: 1.02 }}
-              transition={{ duration: 0.3 }}
-              className="relative w-full max-w-lg aspect-[4/3] rounded-[28px] overflow-hidden border-2 border-white shadow-[0_12px_36px_rgba(5,6,42,0.08)] group bg-white"
-            >
+            <div className="relative w-full max-w-md aspect-[4/3] rounded-2xl overflow-hidden border border-slate-200 shadow-sm group bg-white">
               <img
                 src="/images/community-network.jpg"
-                alt="WOMUP Community Network of Indian Shoppers"
+                alt="WOMUP Community Network"
                 className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent pointer-events-none" />
 
-              <div className="absolute bottom-4 left-4 right-4 p-3.5 rounded-xl bg-white/95 backdrop-blur-md border border-[#E8DDE3] flex items-center justify-between shadow-sm">
-                <span className="text-xs font-bold text-[#05062A]">Community Connection</span>
-                <span className="text-xs font-extrabold text-[#FD849F]">Multi-Tier Sharing</span>
+              <div className="absolute bottom-4 left-4 right-4 p-3.5 rounded-xl bg-white/95 backdrop-blur-md border border-slate-200 flex items-center justify-between shadow-xs">
+                <span className="text-xs font-bold text-slate-900">Community Structure</span>
+                <span className="text-xs font-mono font-semibold text-emerald-600">Multi-Tier Sharing</span>
               </div>
-            </motion.div>
+            </div>
           </div>
 
           {/* Right: Visual Network Diagram (YOU -> LEVEL 1 -> LEVEL 2 -> LEVEL 3) */}
-          <div className="lg:col-span-6 p-6 sm:p-10 rounded-[24px] sm:rounded-[28px] bg-white border border-[#E8DDE3] shadow-[0_10px_35px_rgba(5,6,42,0.06)] relative overflow-hidden">
+          <div className="lg:col-span-6 p-6 sm:p-8 rounded-2xl bg-[#FAFAFC] border border-slate-200/90 shadow-2xs">
             <div className="text-center mb-6">
-              <span className="text-xs font-extrabold uppercase tracking-widest text-[#555568] block mb-1">
-                Illustrative Referral Flow
+              <span className="text-[11px] font-mono uppercase font-bold text-slate-400 block mb-1">
+                TIERED REWARDS INFRASTRUCTURE
               </span>
-              <h4 className="text-lg font-bold text-[#05062A]">
-                Multi-Level Community Structure
-              </h4>
+              <h3 className="text-lg font-bold text-slate-900">Team Earning Model</h3>
             </div>
 
-            <div className="flex flex-col items-center space-y-3 relative">
-              {/* YOU Node with #FD849F / #6651BF gradient */}
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-                className="px-8 py-3 rounded-2xl bg-gradient-to-r from-[#FD849F] via-[#6651BF] to-[#3048C8] text-white font-extrabold text-sm shadow-[0_4px_20px_rgba(253,132,159,0.35)] flex items-center gap-2.5 z-10"
-              >
-                <Users className="w-4 h-4 text-white" />
-                <span>YOU</span>
-              </motion.div>
-
-              {/* Connector 1 */}
-              <div className="flex flex-col items-center">
-                <div className="w-0.5 h-5 bg-[#FD849F]" />
-                <ArrowDown className="w-4 h-4 text-[#FD849F] -mt-1" />
+            <div className="space-y-3">
+              {/* YOU */}
+              <div className="p-3.5 rounded-xl bg-slate-900 text-white flex items-center justify-between shadow-xs">
+                <div className="flex items-center gap-2.5">
+                  <div className="w-7 h-7 rounded-lg bg-white/10 flex items-center justify-center font-bold text-xs text-white">
+                    00
+                  </div>
+                  <span className="font-bold text-sm">You (Active Member)</span>
+                </div>
+                <span className="text-xs font-mono text-emerald-400 font-semibold">Primary Beneficiary</span>
               </div>
 
-              {/* LEVEL 1 Node */}
-              <motion.div
-                whileHover={{ scale: 1.02 }}
-                className="w-full max-w-xs px-6 py-2.5 rounded-xl bg-[#FFF8FA] border-2 border-[#FFC4D1] text-[#05062A] text-center shadow-xs z-10"
-              >
-                <span className="text-[10px] uppercase font-bold text-[#FD849F] block tracking-wider">
-                  Direct Connections
-                </span>
-                <span className="text-sm font-black text-[#05062A]">LEVEL 1</span>
-              </motion.div>
-
-              {/* Connector 2 */}
-              <div className="flex flex-col items-center">
-                <div className="w-0.5 h-5 bg-[#6651BF]" />
-                <ArrowDown className="w-4 h-4 text-[#6651BF] -mt-1" />
+              {/* Arrow */}
+              <div className="flex justify-center -my-1">
+                <ArrowDown className="w-3.5 h-3.5 text-slate-400" />
               </div>
 
-              {/* LEVEL 2 Node */}
-              <motion.div
-                whileHover={{ scale: 1.02 }}
-                className="w-full max-w-xs px-6 py-2.5 rounded-xl bg-[#FFF8FA] border-2 border-[#D8C9ED] text-[#05062A] text-center shadow-xs z-10"
-              >
-                <span className="text-[10px] uppercase font-bold text-[#6651BF] block tracking-wider">
-                  Secondary Network
-                </span>
-                <span className="text-sm font-black text-[#05062A]">LEVEL 2</span>
-              </motion.div>
-
-              {/* Connector 3 */}
-              <div className="flex flex-col items-center">
-                <div className="w-0.5 h-5 bg-[#3048C8]" />
-                <ArrowDown className="w-4 h-4 text-[#3048C8] -mt-1" />
+              {/* Level 1 */}
+              <div className="p-3.5 rounded-xl bg-white border border-slate-200 flex items-center justify-between shadow-2xs">
+                <div className="flex items-center gap-2.5">
+                  <div className="w-7 h-7 rounded-lg bg-slate-100 flex items-center justify-center font-bold text-xs text-slate-700">
+                    01
+                  </div>
+                  <div>
+                    <span className="font-bold text-sm text-slate-900 block leading-tight">Direct Referrals</span>
+                    <span className="text-[11px] text-slate-500">Tier 1 Network</span>
+                  </div>
+                </div>
+                <span className="text-xs font-mono font-bold text-slate-900">Direct Allowance</span>
               </div>
 
-              {/* LEVEL 3 Node */}
-              <motion.div
-                whileHover={{ scale: 1.02 }}
-                className="w-full max-w-xs px-6 py-2.5 rounded-xl bg-[#FFF8FA] border-2 border-[#E8DDE3] text-[#05062A] text-center shadow-xs z-10"
-              >
-                <span className="text-[10px] uppercase font-bold text-[#3048C8] block tracking-wider">
-                  Extended Community
-                </span>
-                <span className="text-sm font-black text-[#05062A]">LEVEL 3</span>
-              </motion.div>
+              {/* Arrow */}
+              <div className="flex justify-center -my-1">
+                <ArrowDown className="w-3.5 h-3.5 text-slate-400" />
+              </div>
+
+              {/* Level 2 & 3 */}
+              <div className="p-3.5 rounded-xl bg-white border border-slate-200 flex items-center justify-between shadow-2xs">
+                <div className="flex items-center gap-2.5">
+                  <div className="w-7 h-7 rounded-lg bg-slate-100 flex items-center justify-center font-bold text-xs text-slate-700">
+                    02
+                  </div>
+                  <div>
+                    <span className="font-bold text-sm text-slate-900 block leading-tight">Extended Community</span>
+                    <span className="text-[11px] text-slate-500">Tier 2 & 3 Secondary Spends</span>
+                  </div>
+                </div>
+                <span className="text-xs font-mono font-bold text-slate-900">Community Pool</span>
+              </div>
             </div>
           </div>
         </div>
 
-        {/* Additional Earning Opportunities Card in White with Pink Accent */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="max-w-4xl mx-auto rounded-[28px] bg-white border border-[#E8DDE3] p-8 sm:p-12 text-center shadow-[0_10px_40px_rgba(5,6,42,0.06)] relative overflow-hidden"
-        >
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#FFF8FA] border border-[#FFC4D1] text-xs font-bold text-[#FD849F] mb-5 shadow-xs">
-            <TrendingUp className="w-3.5 h-3.5 text-[#FD849F]" />
-            <span>Additional Earning Opportunities</span>
-          </div>
-
-          <h3 className="text-2xl sm:text-3xl font-black text-[#05062A] mb-2">
-            Additional Earning Opportunities
-          </h3>
-
-          <div className="text-4xl sm:text-6xl md:text-7xl font-black font-inr text-[#FD849F] tracking-tight my-4">
-            ₹50,000 — ₹5,00,000
-          </div>
-
-          {/* Exact Label */}
-          <div className="text-xs sm:text-sm font-extrabold text-[#05062A] uppercase tracking-widest">
-            Illustrative Promotional Range
-          </div>
-
-          {/* Non-Guaranteed Notice */}
-          <div className="mt-8 p-4 rounded-2xl bg-[#FFF8FA] border border-[#E8DDE3] flex items-start sm:items-center gap-3 text-xs text-[#555568] text-left">
-            <ShieldAlert className="w-5 h-5 text-[#FD849F] shrink-0" />
-            <p className="leading-relaxed">
-              <strong className="text-[#05062A] font-semibold">Important Notice:</strong> Income figures shown are promotional examples and are not guaranteed. Actual earnings depend on applicable terms, eligibility and qualifying activity. WOMUP does not make any income guarantee.
-            </p>
-          </div>
-        </motion.div>
+        {/* Disclaimer */}
+        <div className="max-w-3xl mx-auto p-4 rounded-xl bg-slate-50 border border-slate-200 flex items-center gap-3 text-xs text-slate-500 shadow-2xs">
+          <ShieldAlert className="w-4 h-4 text-slate-400 shrink-0" />
+          <p className="leading-relaxed">
+            <strong className="text-slate-800 font-semibold">Regulatory Notice:</strong> Community allowances depend entirely on legitimate retail consumption across approved partner stores. No recruiting or joining commissions are paid.
+          </p>
+        </div>
       </div>
     </section>
   )

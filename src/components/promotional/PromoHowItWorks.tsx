@@ -1,94 +1,108 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import { UserPlus, ShoppingCart, Sparkles, ArrowRight } from 'lucide-react'
+import { UserPlus, ShoppingCart, Coins, ArrowRight } from 'lucide-react'
 
 export const PromoHowItWorks: React.FC = () => {
   const steps = [
     {
       step: '01',
-      title: 'Register Free',
-      description: 'Explore the WOMUP ecosystem without an initial registration fee.',
+      title: 'Create Free Profile',
+      description: 'Sign up in under 60 seconds. No credit checks, joining fees, or mandatory product purchases.',
       icon: UserPlus,
       badge: 'Zero Entry Cost',
     },
     {
       step: '02',
-      title: 'Shop',
-      description: 'Shop through participating WOMUP categories and merchants.',
+      title: 'Shop at Partner Outlets',
+      description: 'Continue purchasing your usual groceries, pharmacy, and dining needs at participating local stores.',
       icon: ShoppingCart,
-      badge: '14+ Daily Categories',
+      badge: '14 Core Sectors',
     },
     {
       step: '03',
-      title: 'Get More Value',
-      description: 'Eligible shopping activity may provide benefits according to applicable program terms.',
-      icon: Sparkles,
-      badge: 'Continuous Benefits',
+      title: 'Receive Direct Value',
+      description: 'Earn monthly Shopping Coins and direct deductions against eligible receipts up to ₹2,000 per month.',
+      icon: Coins,
+      badge: 'Monthly Allowance',
     },
   ]
 
   return (
-    <section id="how-it-works" className="py-12 sm:py-28 bg-white relative overflow-hidden">
+    <section id="how-it-works" className="py-16 sm:py-24 bg-white relative overflow-hidden border-b border-slate-200/70">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-16">
-          <span className="px-3.5 py-1 rounded-full bg-[#FFD0DD]/60 border border-[#FFC4D1] text-[#FD849F] text-xs font-extrabold uppercase tracking-wider inline-block mb-3">
-            Simple 3-Step Flow
-          </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#05062A] tracking-tight">
-            How WOMUP <span className="text-[#FD849F]">Works</span>
+        <div className="text-center max-w-3xl mx-auto mb-14">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-50 border border-purple-200 text-xs font-semibold text-[#6651BF] mb-3 shadow-2xs">
+            <span>03</span>
+            <span className="text-purple-300">•</span>
+            <span>Simple Workflow</span>
+          </div>
+          <h2 className="text-3xl sm:text-5xl font-black text-[#090A15] tracking-tight">
+            How WOMUP{' '}
+            <span className="bg-gradient-to-r from-[#6651BF] to-[#FD849F] bg-clip-text text-transparent font-extrabold">
+              functions.
+            </span>
           </h2>
-          <p className="mt-4 text-base sm:text-lg text-[#555568] leading-relaxed">
-            Discover a straightforward process designed to make every shopping routine more rewarding.
+          <p className="mt-3 text-base sm:text-lg text-slate-600 leading-relaxed">
+            A transparent 3-step operational framework designed to automate value return on your everyday expenses.
           </p>
         </div>
 
-        {/* 3 Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
+        {/* 3 Step Cards (Linear Product Grid Style) */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 relative">
           {steps.map((item, index) => {
             const Icon = item.icon
+            const badgeColors = [
+              'bg-pink-50 text-[#FD849F] border-pink-200',
+              'bg-purple-50 text-[#6651BF] border-purple-200',
+              'bg-emerald-50 text-emerald-700 border-emerald-200',
+            ][index]
+            const hoverIconColors = [
+              'group-hover:border-[#FD849F] group-hover:bg-pink-50/80 group-hover:text-[#FD849F]',
+              'group-hover:border-[#6651BF] group-hover:bg-purple-50/80 group-hover:text-[#6651BF]',
+              'group-hover:border-emerald-500 group-hover:bg-emerald-50/80 group-hover:text-emerald-600',
+            ][index]
+
             return (
               <motion.div
                 key={item.step}
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.15 }}
-                whileHover={{ y: -6, boxShadow: '0 16px 40px rgba(253,132,159,0.12)' }}
-                className="relative rounded-[20px] sm:rounded-[24px] bg-white border border-[#E8DDE3] p-6 sm:p-10 shadow-[0_8px_30px_rgba(5,6,42,0.06)] transition-all duration-300 flex flex-col justify-between group"
+                transition={{ duration: 0.45, delay: index * 0.1 }}
+                whileHover={{ y: -4 }}
+                className="relative rounded-2xl bg-[#FAFAFC] border border-slate-200/90 p-7 sm:p-8 shadow-2xs hover:shadow-sm hover:border-[#FD849F]/40 transition-all flex flex-col justify-between group"
               >
                 <div>
-                  {/* Step Number & Badge */}
-                  <div className="flex items-center justify-between mb-8">
-                    <span className="text-4xl sm:text-5xl font-black bg-gradient-to-r from-[#FD849F] to-[#6651BF] bg-clip-text text-transparent">
+                  {/* Step Header */}
+                  <div className="flex items-center justify-between mb-6 pb-4 border-b border-slate-200/70">
+                    <span className="text-2xl font-mono font-black text-[#6651BF]">
                       {item.step}
                     </span>
-
-                    <span className="px-3 py-1 rounded-full bg-[#FFF8FA] border border-[#E8DDE3] text-[11px] font-bold text-[#FD849F]">
+                    <span className={`px-2.5 py-1 rounded-full border text-[11px] font-bold ${badgeColors}`}>
                       {item.badge}
                     </span>
                   </div>
 
-                  {/* Icon Graphic in Soft Pink Background with #FD849F Icon */}
-                  <div className="w-16 h-16 rounded-2xl bg-[#FFD0DD]/40 border border-[#FFC4D1]/60 flex items-center justify-center mb-6 group-hover:scale-105 transition-transform">
-                    <Icon className="w-8 h-8 text-[#FD849F]" />
+                  {/* Icon */}
+                  <div className={`w-12 h-12 rounded-xl bg-white border border-slate-200 flex items-center justify-center mb-5 text-slate-900 transition-colors shadow-2xs ${hoverIconColors}`}>
+                    <Icon className="w-5 h-5" />
                   </div>
 
-                  {/* Heading */}
-                  <h3 className="text-2xl font-black text-[#05062A] tracking-tight mb-3">
+                  {/* Title */}
+                  <h3 className="text-xl font-bold text-slate-900 tracking-tight mb-2 group-hover:text-[#6651BF] transition-colors">
                     {item.title}
                   </h3>
 
                   {/* Description */}
-                  <p className="text-sm text-[#555568] leading-relaxed">
+                  <p className="text-sm text-slate-600 leading-relaxed">
                     {item.description}
                   </p>
                 </div>
 
-                {/* Bottom Step Indicator */}
-                <div className="mt-8 pt-4 border-t border-[#E8DDE3] flex items-center justify-between text-xs font-semibold text-[#555568]">
-                  <span>Step {item.step} of 03</span>
-                  <ArrowRight className="w-4 h-4 text-[#FD849F] group-hover:translate-x-1.5 transition-transform" />
+                <div className="mt-6 pt-4 border-t border-slate-200/70 flex items-center justify-between text-xs font-medium text-slate-500">
+                  <span>Phase {item.step}</span>
+                  <ArrowRight className="w-4 h-4 text-slate-400 group-hover:text-[#FD849F] group-hover:translate-x-1 transition-all" />
                 </div>
               </motion.div>
             )

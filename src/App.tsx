@@ -10,6 +10,7 @@ import { PromoReferralSection } from './components/promotional/PromoReferralSect
 import { PromoWhyWomup } from './components/promotional/PromoWhyWomup.tsx'
 import { PromoFinalCta } from './components/promotional/PromoFinalCta.tsx'
 import { PromoFooter } from './components/promotional/PromoFooter.tsx'
+import { PromoFloatingAd } from './components/promotional/PromoFloatingAd.tsx'
 import { JoinFreeModal } from './components/promotional/JoinFreeModal.tsx'
 import { ToastProvider } from './context/ToastContext.tsx'
 import { ToastContainer } from './components/ui/Toast.tsx'
@@ -62,6 +63,9 @@ export const App: React.FC = () => {
 
         {/* 11. FOOTER */}
         <PromoFooter />
+
+        {/* Minimal Floating Sticky Advertisement Bar */}
+        <PromoFloatingAd onOpenJoinModal={handleOpenJoinModal} />
 
         {/* Promotional Enquiry Modal (Visual CTA Only) */}
         <JoinFreeModal

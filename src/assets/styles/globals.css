@@ -4,7 +4,7 @@
 
 @layer base {
   :root {
-    --color-womup-bg: #FFF8FA;
+    --color-womup-bg: #FAFAFC;
     --color-womup-surface: #FFFFFF;
     --color-womup-soft-pink: #FFD0DD;
     --color-womup-light-pink: #FFC4D1;
@@ -12,55 +12,55 @@
     --color-womup-purple: #6651BF;
     --color-womup-blue: #3048C8;
     --color-womup-lavender: #D8C9ED;
-    --color-womup-dark: #05062A;
-    --color-womup-text-primary: #05062A;
-    --color-womup-text-secondary: #555568;
-    --color-womup-border: #E8DDE3;
+    --color-womup-dark: #090A15;
+    --color-womup-text-primary: #090A15;
+    --color-womup-text-secondary: #525866;
+    --color-womup-border: #E2E8F0;
   }
 
   * {
-    border-color: #E8DDE3;
+    border-color: #E2E8F0;
   }
 
   html {
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background-color: #FFF8FA;
-    color: #05062A;
+    background-color: #FAFAFC;
+    color: #090A15;
   }
 
   body {
-    background-color: #FFF8FA;
-    color: #05062A;
+    background-color: #FAFAFC;
+    color: #090A15;
     font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     overflow-x: hidden;
   }
 
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Inter', system-ui, sans-serif;
-    letter-spacing: -0.02em;
-    color: #05062A;
+    letter-spacing: -0.025em;
+    color: #090A15;
   }
 }
 
-/* Custom modern light scrollbar */
+/* Crisp neutral scrollbar */
 ::-webkit-scrollbar {
-  width: 7px;
-  height: 7px;
+  width: 6px;
+  height: 6px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #FFF8FA;
+  background: #FAFAFC;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #E8DDE3;
+  background: #CBD5E1;
   border-radius: 9999px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #FD849F;
+  background: #94A3B8;
 }
 
 /* Currency & Indian Rupee symbol utility */

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X, ArrowRight } from 'lucide-react'
 import { BrandLogo } from '../common/BrandLogo.tsx'
 
@@ -20,14 +21,14 @@ export const PromoNavbar: React.FC<PromoNavbarProps> = ({ onOpenJoinModal }) => 
         const el = document.getElementById(section)
         if (el) {
           const rect = el.getBoundingClientRect()
-          if (rect.top <= 120 && rect.bottom >= 120) {
+          if (rect.top <= 140 && rect.bottom >= 140) {
             setActiveSection(section)
             break
           }
         }
       }
     }
-    window.addEventListener('scroll', handleScroll)
+    window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
@@ -55,118 +56,122 @@ export const PromoNavbar: React.FC<PromoNavbarProps> = ({ onOpenJoinModal }) => 
   }
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
-        isScrolled
-          ? 'bg-white/95 backdrop-blur-md border-b border-[#E8DDE3] py-3.5 shadow-[0_4px_20px_rgba(5,6,42,0.06)]'
-          : 'bg-white/80 backdrop-blur-sm border-b border-[#E8DDE3]/60 py-4 sm:py-5'
-      }`}
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between">
-          {/* Brand Logo */}
-          <a
-            href="#home"
-            className="flex items-center gap-2 group cursor-pointer"
-            onClick={(e) => {
-              e.preventDefault()
-              handleLinkClick('#home')
-            }}
-          >
-            <BrandLogo size="md" showTagline={false} inverted={false} />
-          </a>
+    <div className="fixed top-3.5 sm:top-4 left-0 right-0 z-50 flex justify-center px-3.5 sm:px-6 pointer-events-none">
+      <header
+        className={`pointer-events-auto w-full max-w-4xl rounded-full transition-all duration-300 px-3.5 sm:px-5 py-2 flex items-center justify-between border ${
+          isScrolled
+            ? 'bg-white/95 backdrop-blur-2xl border-slate-200 shadow-[0_8px_30px_rgba(15,23,42,0.06)]'
+            : 'bg-white/85 backdrop-blur-xl border-slate-200/80 shadow-[0_4px_20px_rgba(15,23,42,0.04)]'
+        }`}
+      >
+        {/* Minimal Logo */}
+        <a
+          href="#home"
+          className="flex items-center gap-2 group cursor-pointer pl-1"
+          onClick={(e) => {
+            e.preventDefault()
+            handleLinkClick('#home')
+          }}
+        >
+          <BrandLogo size="sm" showTagline={false} inverted={false} />
+        </a>
 
-          {/* Desktop Navigation Links */}
-          <nav className="hidden lg:flex items-center gap-8">
-            {navLinks.map((link) => {
-              const isActive = activeSection === link.id
-              return (
-                <a
-                  key={link.name}
-                  href={link.href}
-                  onClick={(e) => {
-                    e.preventDefault()
-                    handleLinkClick(link.href)
-                  }}
-                  className={`text-sm font-semibold transition-colors duration-200 cursor-pointer relative py-1 group ${
-                    isActive ? 'text-[#FD849F]' : 'text-[#05062A] hover:text-[#FD849F]'
-                  }`}
-                >
-                  {link.name}
-                  <span
-                    className={`absolute bottom-0 left-0 h-0.5 bg-[#FD849F] rounded-full transition-all duration-200 ${
-                      isActive ? 'w-full' : 'w-0 group-hover:w-full'
-                    }`}
+        {/* Desktop Minimal Nav Links with Animated Active Pill */}
+        <nav className="hidden md:flex items-center gap-1 bg-slate-100/70 p-1 rounded-full border border-slate-200/50">
+          {navLinks.map((link) => {
+            const isActive = activeSection === link.id
+            return (
+              <button
+                key={link.name}
+                type="button"
+                onClick={() => handleLinkClick(link.href)}
+                className={`relative px-3.5 py-1.5 text-xs font-semibold rounded-full transition-colors duration-200 cursor-pointer ${
+                  isActive ? 'text-[#FD849F]' : 'text-slate-600 hover:text-slate-900'
+                }`}
+              >
+                {isActive && (
+                  <motion.div
+                    layoutId="activeNavPill"
+                    className="absolute inset-0 rounded-full bg-white shadow-xs border border-pink-100"
+                    transition={{ type: 'spring', stiffness: 450, damping: 35 }}
                   />
-                </a>
-              )
-            })}
-          </nav>
+                )}
+                <span className="relative z-10">{link.name}</span>
+              </button>
+            )
+          })}
+        </nav>
 
-          {/* Desktop CTA Button */}
-          <div className="hidden lg:flex items-center gap-4">
-            <button
-              type="button"
-              onClick={handleJoinClick}
-              className="px-6 py-2.5 rounded-full bg-[#FD849F] text-white text-sm font-bold shadow-[0_4px_18px_rgba(253,132,159,0.35)] hover:shadow-[0_6px_24px_rgba(253,132,159,0.5)] hover:bg-[#6651BF] hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 flex items-center gap-2 cursor-pointer"
-            >
-              <span>Join Free</span>
-              <ArrowRight className="w-4 h-4" />
-            </button>
-          </div>
-
-          {/* Mobile Menu Toggle Button */}
-          <div className="lg:hidden flex items-center gap-2">
-            <button
-              type="button"
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="p-2 rounded-xl bg-white border border-[#E8DDE3] text-[#05062A] hover:text-[#FD849F] transition-colors cursor-pointer shadow-xs"
-              aria-label="Toggle Navigation Menu"
-            >
-              {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-            </button>
-          </div>
+        {/* Minimal Right CTA */}
+        <div className="hidden md:flex items-center gap-2">
+          <motion.button
+            type="button"
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.97 }}
+            onClick={handleJoinClick}
+            className="px-4 py-2 rounded-full bg-[#FD849F] hover:bg-[#6651BF] text-white text-xs font-bold shadow-[0_4px_16px_rgba(253,132,159,0.35)] transition-colors flex items-center gap-1.5 cursor-pointer"
+          >
+            <span>Get Started Free</span>
+            <ArrowRight className="w-3.5 h-3.5" />
+          </motion.button>
         </div>
-      </div>
 
-      {/* Mobile Drawer Menu */}
-      {isMobileMenuOpen && (
-        <div className="lg:hidden bg-white border-b border-[#E8DDE3] px-4 pt-4 pb-6 space-y-3 animate-in slide-in-from-top duration-200 shadow-xl">
-          <div className="flex flex-col space-y-1">
-            {navLinks.map((link) => {
-              const isActive = activeSection === link.id
-              return (
-                <a
-                  key={link.name}
-                  href={link.href}
-                  onClick={(e) => {
-                    e.preventDefault()
-                    handleLinkClick(link.href)
-                  }}
-                  className={`px-3.5 py-2.5 rounded-xl text-base font-semibold transition-colors ${
-                    isActive
-                      ? 'bg-[#FFD0DD]/30 text-[#FD849F]'
-                      : 'text-[#05062A] hover:bg-[#FFF8FA] hover:text-[#FD849F]'
-                  }`}
-                >
-                  {link.name}
-                </a>
-              )
-            })}
-          </div>
-
-          <div className="pt-2">
-            <button
-              type="button"
-              onClick={handleJoinClick}
-              className="w-full py-3 rounded-full bg-[#FD849F] text-white text-sm font-bold shadow-[0_4px_18px_rgba(253,132,159,0.35)] flex items-center justify-center gap-2 cursor-pointer"
-            >
-              <span>Join Free</span>
-              <ArrowRight className="w-4 h-4" />
-            </button>
-          </div>
+        {/* Mobile Hamburger Toggle */}
+        <div className="md:hidden flex items-center pr-1">
+          <button
+            type="button"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            className="p-1.5 rounded-full text-slate-800 hover:bg-slate-100 transition-colors cursor-pointer"
+            aria-label="Toggle navigation menu"
+          >
+            {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+          </button>
         </div>
-      )}
-    </header>
+      </header>
+
+      {/* Floating Minimal Mobile Drawer */}
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -10, scale: 0.96 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: -10, scale: 0.96 }}
+            transition={{ duration: 0.2, ease: 'easeOut' }}
+            className="pointer-events-auto absolute top-16 left-4 right-4 max-w-sm mx-auto p-4 rounded-3xl bg-white/95 backdrop-blur-2xl border border-slate-200 shadow-xl space-y-3 md:hidden z-50"
+          >
+            <div className="flex flex-col space-y-1">
+              {navLinks.map((link) => {
+                const isActive = activeSection === link.id
+                return (
+                  <button
+                    key={link.name}
+                    type="button"
+                    onClick={() => handleLinkClick(link.href)}
+                    className={`text-left px-3.5 py-2 rounded-xl text-sm font-semibold transition-colors ${
+                      isActive
+                        ? 'bg-slate-100 text-slate-900 font-bold'
+                        : 'text-slate-600 hover:bg-slate-50'
+                    }`}
+                  >
+                    {link.name}
+                  </button>
+                )
+              })}
+            </div>
+
+            <div className="pt-2 border-t border-slate-200">
+              <button
+                type="button"
+                onClick={handleJoinClick}
+                className="w-full py-2.5 rounded-full bg-slate-900 hover:bg-slate-800 text-white text-xs font-semibold shadow-sm transition-colors flex items-center justify-center gap-1.5 cursor-pointer"
+              >
+                <span>Get Started Free</span>
+                <ArrowRight className="w-3.5 h-3.5 text-[#FD849F]" />
+              </button>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
   )
 }
