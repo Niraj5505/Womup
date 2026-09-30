@@ -9,7 +9,7 @@ import {
   ArrowRight,
   Send,
   CheckCircle2,
-  Headphones,
+  ChevronDown,
 } from 'lucide-react'
 import { useToastContext } from '../../context/ToastContext.tsx'
 
@@ -86,171 +86,153 @@ export const PromoContactJoin: React.FC<PromoContactJoinProps> = ({ onOpenJoinMo
   return (
     <section
       id="contact"
-      className="py-16 sm:py-24 bg-gradient-to-b from-white via-pink-50/20 to-white relative overflow-hidden border-b border-pink-100/60"
+      className="py-14 sm:py-20 bg-gradient-to-b from-white via-pink-50/15 to-white relative overflow-hidden border-b border-pink-100/50"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-12">
+        {/* Section Header from 8_contact_join.png */}
+        <div className="text-center max-w-3xl mx-auto mb-10">
           <h2 className="text-3xl sm:text-5xl font-black text-[#0A0E2A] tracking-tight">
             Be a Part of <span className="text-[#FF007A]">WOMUP</span>
           </h2>
-          <p className="mt-2 text-sm sm:text-base text-slate-600 font-semibold tracking-wide">
+          <p className="mt-2 text-xs sm:text-sm md:text-base text-slate-600 font-semibold tracking-wide">
             Together for a Smarter, Healthier and Prosperous Community
           </p>
         </div>
 
-        {/* Top 2 Action Selection Cards from Mockup 8 */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto mb-14">
-          {/* Card 1: Join as Customer */}
+        {/* Top 2 Action Selection Cards from Mockup 8 (Soft Tinted Backgrounds) */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 max-w-4xl mx-auto mb-12">
+          {/* Card 1: Join as Customer (Pink Tint #FFF5F8) */}
           <motion.div
-            whileHover={{ y: -4, scale: 1.01 }}
+            whileHover={{ y: -3, scale: 1.01 }}
             onClick={handleCustomerCardClick}
-            className="bg-white rounded-3xl p-6 sm:p-7 border border-pink-100 shadow-[0_8px_24px_rgba(255,0,122,0.06)] hover:border-pink-300 hover:shadow-[0_12px_32px_rgba(255,0,122,0.12)] transition-all flex items-center justify-between cursor-pointer group"
+            className="bg-[#FFF5F8] rounded-3xl p-5 sm:p-6 border border-pink-200/80 shadow-[0_4px_20px_rgba(255,0,122,0.06)] hover:border-[#FF007A] transition-all flex items-center justify-between cursor-pointer group"
           >
             <div className="flex items-center gap-4">
-              <div className="w-14 h-14 rounded-2xl bg-pink-50 text-[#FF007A] flex items-center justify-center shrink-0 group-hover:bg-[#FF007A] group-hover:text-white transition-colors shadow-2xs">
+              <div className="w-14 h-14 rounded-full bg-[#FF007A] text-white flex items-center justify-center shrink-0 shadow-[0_4px_12px_rgba(255,0,122,0.3)]">
                 <User className="w-7 h-7" />
               </div>
               <div>
-                <h3 className="text-lg sm:text-xl font-black text-[#0A0E2A] group-hover:text-[#FF007A] transition-colors">
+                <h3 className="text-lg sm:text-xl font-black text-[#FF007A]">
                   Join as Customer
                 </h3>
-                <p className="text-xs sm:text-sm text-slate-500 font-medium mt-0.5">
+                <p className="text-xs sm:text-sm text-slate-600 font-medium mt-0.5">
                   Start your smart shopping journey today.
                 </p>
               </div>
             </div>
-            <div className="w-10 h-10 rounded-full bg-pink-50 text-[#FF007A] flex items-center justify-center group-hover:bg-[#FF007A] group-hover:text-white transition-colors shrink-0">
-              <ArrowRight className="w-5 h-5" />
+            <div className="w-9 h-9 rounded-full bg-[#FF007A] text-white flex items-center justify-center shrink-0 shadow-xs group-hover:scale-110 transition-transform">
+              <ArrowRight className="w-4 h-4" />
             </div>
           </motion.div>
 
-          {/* Card 2: Register as Vendor */}
+          {/* Card 2: Register as Vendor (Blue Tint #F0F7FF) */}
           <motion.div
-            whileHover={{ y: -4, scale: 1.01 }}
+            whileHover={{ y: -3, scale: 1.01 }}
             onClick={handleVendorCardClick}
-            className="bg-white rounded-3xl p-6 sm:p-7 border border-blue-100 shadow-[0_8px_24px_rgba(30,58,138,0.06)] hover:border-blue-300 hover:shadow-[0_12px_32px_rgba(30,58,138,0.12)] transition-all flex items-center justify-between cursor-pointer group"
+            className="bg-[#F0F7FF] rounded-3xl p-5 sm:p-6 border border-blue-200/80 shadow-[0_4px_20px_rgba(30,58,138,0.06)] hover:border-[#1E3A8A] transition-all flex items-center justify-between cursor-pointer group"
           >
             <div className="flex items-center gap-4">
-              <div className="w-14 h-14 rounded-2xl bg-blue-50 text-[#1E3A8A] flex items-center justify-center shrink-0 group-hover:bg-[#1E3A8A] group-hover:text-white transition-colors shadow-2xs">
+              <div className="w-14 h-14 rounded-full bg-[#1E3A8A] text-white flex items-center justify-center shrink-0 shadow-[0_4px_12px_rgba(30,58,138,0.3)]">
                 <Store className="w-7 h-7" />
               </div>
               <div>
-                <h3 className="text-lg sm:text-xl font-black text-[#0A0E2A] group-hover:text-[#1E3A8A] transition-colors">
+                <h3 className="text-lg sm:text-xl font-black text-[#1E3A8A]">
                   Register as Vendor
                 </h3>
-                <p className="text-xs sm:text-sm text-slate-500 font-medium mt-0.5">
+                <p className="text-xs sm:text-sm text-slate-600 font-medium mt-0.5">
                   Grow your business with more customers.
                 </p>
               </div>
             </div>
-            <div className="w-10 h-10 rounded-full bg-blue-50 text-[#1E3A8A] flex items-center justify-center group-hover:bg-[#1E3A8A] group-hover:text-white transition-colors shrink-0">
-              <ArrowRight className="w-5 h-5" />
+            <div className="w-9 h-9 rounded-full bg-[#1E3A8A] text-white flex items-center justify-center shrink-0 shadow-xs group-hover:scale-110 transition-transform">
+              <ArrowRight className="w-4 h-4" />
             </div>
           </motion.div>
         </div>
 
-        {/* Bottom Split Layout: Left Form + Right Support & Contact Details */}
-        <div id="enquiry-form" className="grid grid-cols-1 lg:grid-cols-12 gap-8 max-w-5xl mx-auto">
-          {/* Left Column: Contact Enquiry Form */}
-          <div className="lg:col-span-7 bg-white rounded-3xl p-6 sm:p-8 border border-pink-100 shadow-[0_10px_30px_rgba(0,0,0,0.04)]">
-            <h3 className="text-lg font-black text-[#0A0E2A] mb-5">Send Us a Message</h3>
-
+        {/* Bottom Split Layout: Left Form + Right Support & Contact Details from Mockup 8 */}
+        <div id="enquiry-form" className="grid grid-cols-1 lg:grid-cols-12 gap-8 max-w-4xl mx-auto items-center">
+          {/* Left Column: Contact Form */}
+          <div className="lg:col-span-6 bg-white rounded-3xl p-6 sm:p-7 border border-pink-100 shadow-[0_8px_30px_rgba(0,0,0,0.04)]">
             {isSubmitted ? (
               <motion.div
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 className="p-6 rounded-2xl bg-emerald-50 border border-emerald-200 text-center space-y-2"
               >
-                <CheckCircle2 className="w-12 h-12 text-emerald-600 mx-auto" />
+                <CheckCircle2 className="w-10 h-10 text-emerald-600 mx-auto" />
                 <h4 className="text-base font-black text-emerald-900">Enquiry Submitted!</h4>
                 <p className="text-xs text-emerald-700 font-medium">
                   We have received your message. Our team will get back to you shortly.
                 </p>
               </motion.div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-4">
+              <form onSubmit={handleSubmit} className="space-y-3.5">
                 {/* Your Name */}
                 <div>
-                  <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
-                    Your Name
-                  </label>
                   <input
                     type="text"
                     required
-                    placeholder="Enter your full name"
+                    placeholder="Your Name"
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 focus:bg-white focus:border-[#FF007A] focus:ring-2 focus:ring-pink-100 text-sm font-semibold outline-hidden transition-all"
+                    className="w-full px-4 py-3 rounded-xl bg-slate-50/80 border border-slate-200 focus:bg-white focus:border-[#FF007A] text-xs sm:text-sm font-semibold outline-hidden transition-all placeholder:text-slate-400"
                   />
                 </div>
 
                 {/* Mobile Number */}
                 <div>
-                  <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
-                    Mobile Number
-                  </label>
-                  <div className="relative">
-                    <span className="absolute left-3.5 top-1/2 -translate-y-1/2 text-xs font-bold text-slate-400">
-                      +91
-                    </span>
-                    <input
-                      type="tel"
-                      required
-                      placeholder="10 digit mobile number"
-                      maxLength={10}
-                      value={formData.mobile}
-                      onChange={(e) => setFormData({ ...formData, mobile: e.target.value })}
-                      className="w-full pl-12 pr-4 py-3 rounded-xl bg-slate-50 border border-slate-200 focus:bg-white focus:border-[#FF007A] focus:ring-2 focus:ring-pink-100 text-sm font-semibold outline-hidden transition-all"
-                    />
-                  </div>
+                  <input
+                    type="tel"
+                    required
+                    placeholder="Mobile Number"
+                    maxLength={10}
+                    value={formData.mobile}
+                    onChange={(e) => setFormData({ ...formData, mobile: e.target.value })}
+                    className="w-full px-4 py-3 rounded-xl bg-slate-50/80 border border-slate-200 focus:bg-white focus:border-[#FF007A] text-xs sm:text-sm font-semibold outline-hidden transition-all placeholder:text-slate-400"
+                  />
                 </div>
 
-                {/* Select Option */}
-                <div>
-                  <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
-                    Select Option
-                  </label>
+                {/* Select Option Dropdown */}
+                <div className="relative">
                   <select
                     value={formData.option}
                     onChange={(e) => setFormData({ ...formData, option: e.target.value })}
-                    className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 focus:bg-white focus:border-[#FF007A] focus:ring-2 focus:ring-pink-100 text-sm font-semibold outline-hidden transition-all"
+                    className="w-full px-4 py-3 rounded-xl bg-slate-50/80 border border-slate-200 focus:bg-white focus:border-[#FF007A] text-xs sm:text-sm font-semibold outline-hidden transition-all text-slate-700 appearance-none cursor-pointer"
                   >
-                    <option value="Customer Registration">Customer Registration (₹2,000 Coin)</option>
-                    <option value="Vendor Partner Registration">Vendor Partner Registration (Shop Owner)</option>
-                    <option value="Referral Network Partner">Referral Partner (7-Level Income)</option>
-                    <option value="General Enquiry">General Enquiry &amp; Support</option>
+                    <option value="Customer Registration">Select Option: Customer Registration</option>
+                    <option value="Vendor Partner Registration">Select Option: Vendor Partner Registration</option>
+                    <option value="Referral Network Partner">Select Option: Referral Partner (7-Level Income)</option>
+                    <option value="General Enquiry">Select Option: General Enquiry</option>
                   </select>
+                  <ChevronDown className="w-4 h-4 text-slate-400 absolute right-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
                 </div>
 
                 {/* Your Message */}
                 <div>
-                  <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
-                    Your Message
-                  </label>
                   <textarea
                     rows={3}
-                    placeholder="Write your query or shop details..."
+                    placeholder="Your Message"
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    className="w-full px-4 py-2.5 rounded-xl bg-slate-50 border border-slate-200 focus:bg-white focus:border-[#FF007A] focus:ring-2 focus:ring-pink-100 text-sm font-semibold outline-hidden transition-all resize-none"
+                    className="w-full px-4 py-2.5 rounded-xl bg-slate-50/80 border border-slate-200 focus:bg-white focus:border-[#FF007A] text-xs sm:text-sm font-semibold outline-hidden transition-all placeholder:text-slate-400 resize-none"
                   />
                 </div>
 
-                {/* Submit Button */}
+                {/* Full-width Hot Pink Submit Button */}
                 <motion.button
                   type="submit"
                   disabled={isSubmitting}
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  className="w-full py-3.5 rounded-xl bg-gradient-to-r from-[#FF007A] to-[#E11D48] hover:from-[#E11D48] hover:to-[#BE185D] text-white text-sm font-bold shadow-[0_8px_20px_rgba(255,0,122,0.3)] transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50"
+                  className="w-full py-3.5 rounded-full bg-gradient-to-r from-[#FF007A] to-[#E11D48] hover:from-[#E11D48] hover:to-[#BE185D] text-white text-sm font-bold shadow-[0_8px_20px_rgba(255,0,122,0.3)] transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50"
                 >
                   {isSubmitting ? (
                     <span>Submitting...</span>
                   ) : (
                     <>
                       <span>Submit</span>
-                      <Send className="w-4 h-4 ml-1" />
+                      <Send className="w-3.5 h-3.5 ml-1" />
                     </>
                   )}
                 </motion.button>
@@ -258,83 +240,60 @@ export const PromoContactJoin: React.FC<PromoContactJoinProps> = ({ onOpenJoinMo
             )}
           </div>
 
-          {/* Right Column: Customer Support Profile & Contact Card from Mockup 8 */}
-          <div className="lg:col-span-5 flex flex-col justify-between space-y-6">
-            {/* Support Agent Card */}
-            <div className="bg-white rounded-3xl p-6 border border-pink-100 shadow-[0_10px_30px_rgba(0,0,0,0.04)] text-center flex flex-col items-center">
-              <div className="relative mb-3">
-                <div className="w-24 h-24 rounded-full p-1 bg-gradient-to-tr from-pink-400 to-[#FF007A] shadow-md">
-                  <img
-                    src="/images/customer_support_woman.jpg"
-                    alt="Customer Support Representative"
-                    className="w-full h-full object-cover rounded-full"
-                  />
-                </div>
-                <div className="absolute bottom-0 right-0 w-6 h-6 rounded-full bg-emerald-500 border-2 border-white flex items-center justify-center">
-                  <Headphones className="w-3.5 h-3.5 text-white" />
-                </div>
+          {/* Right Column: Customer Support Woman + Contact Details Card from Mockup 8 */}
+          <div className="lg:col-span-6 flex flex-col items-center sm:items-start space-y-4">
+            {/* Title & Agent Image */}
+            <div className="flex items-center gap-4">
+              <div>
+                <h3 className="text-base sm:text-lg font-black text-[#0A0E2A]">
+                  We are here <br /> to help you!
+                </h3>
               </div>
-
-              <div className="text-xs font-bold text-emerald-600 bg-emerald-50 px-3 py-1 rounded-full border border-emerald-100 mb-1">
-                ● Active Support
+              <div className="w-24 h-24 rounded-full overflow-hidden border-2 border-pink-200 shadow-md">
+                <img
+                  src="/images/customer_support_woman.jpg"
+                  alt="Customer Support Representative"
+                  className="w-full h-full object-cover"
+                />
               </div>
-              <h4 className="text-base font-black text-[#0A0E2A]">We are here to help you!</h4>
-              <p className="text-xs text-slate-500 font-medium mt-0.5">
-                Our support team is available Mon - Sat from 9:00 AM to 7:00 PM
-              </p>
             </div>
 
-            {/* Direct Contact Details from Mockup 8 */}
-            <div className="bg-white rounded-3xl p-6 border border-pink-100 shadow-[0_10px_30px_rgba(0,0,0,0.04)] space-y-4">
+            {/* Contact Details Card with Pink Icons from Mockup 8 */}
+            <div className="w-full bg-white rounded-3xl p-5 border border-pink-100 shadow-[0_8px_25px_rgba(0,0,0,0.04)] space-y-3.5">
               {/* Phone */}
               <a
                 href="tel:+919876543210"
-                className="flex items-center gap-3.5 group p-2 rounded-2xl hover:bg-pink-50 transition-colors"
+                className="flex items-center gap-3 group"
               >
-                <div className="w-10 h-10 rounded-xl bg-pink-50 text-[#FF007A] group-hover:bg-[#FF007A] group-hover:text-white transition-colors flex items-center justify-center shrink-0">
-                  <Phone className="w-5 h-5" />
+                <div className="w-9 h-9 rounded-full bg-pink-50 text-[#FF007A] border border-pink-200 flex items-center justify-center shrink-0 group-hover:bg-[#FF007A] group-hover:text-white transition-colors">
+                  <Phone className="w-4 h-4" />
                 </div>
-                <div>
-                  <div className="text-[11px] font-bold text-slate-400 uppercase tracking-wider">
-                    Call Us Directly
-                  </div>
-                  <div className="text-sm font-black text-[#0A0E2A] group-hover:text-[#FF007A] transition-colors">
-                    +91 98765 43210
-                  </div>
-                </div>
+                <span className="text-sm font-black text-[#0A0E2A] group-hover:text-[#FF007A] transition-colors">
+                  +91 98765 43210
+                </span>
               </a>
 
               {/* Email */}
               <a
                 href="mailto:info@womup.in"
-                className="flex items-center gap-3.5 group p-2 rounded-2xl hover:bg-pink-50 transition-colors"
+                className="flex items-center gap-3 group"
               >
-                <div className="w-10 h-10 rounded-xl bg-pink-50 text-[#FF007A] group-hover:bg-[#FF007A] group-hover:text-white transition-colors flex items-center justify-center shrink-0">
-                  <Mail className="w-5 h-5" />
+                <div className="w-9 h-9 rounded-full bg-pink-50 text-[#FF007A] border border-pink-200 flex items-center justify-center shrink-0 group-hover:bg-[#FF007A] group-hover:text-white transition-colors">
+                  <Mail className="w-4 h-4" />
                 </div>
-                <div>
-                  <div className="text-[11px] font-bold text-slate-400 uppercase tracking-wider">
-                    Official Support Email
-                  </div>
-                  <div className="text-sm font-black text-[#0A0E2A] group-hover:text-[#FF007A] transition-colors">
-                    info@womup.in
-                  </div>
-                </div>
+                <span className="text-sm font-black text-[#0A0E2A] group-hover:text-[#FF007A] transition-colors">
+                  info@womup.in
+                </span>
               </a>
 
               {/* Location */}
-              <div className="flex items-center gap-3.5 p-2 rounded-2xl">
-                <div className="w-10 h-10 rounded-xl bg-blue-50 text-[#1E3A8A] flex items-center justify-center shrink-0">
-                  <MapPin className="w-5 h-5" />
+              <div className="flex items-center gap-3">
+                <div className="w-9 h-9 rounded-full bg-pink-50 text-[#FF007A] border border-pink-200 flex items-center justify-center shrink-0">
+                  <MapPin className="w-4 h-4" />
                 </div>
-                <div>
-                  <div className="text-[11px] font-bold text-slate-400 uppercase tracking-wider">
-                    Headquarters
-                  </div>
-                  <div className="text-sm font-black text-[#0A0E2A]">
-                    Mahesana, Gujarat, India
-                  </div>
-                </div>
+                <span className="text-sm font-black text-[#0A0E2A]">
+                  Mahesana, Gujarat, India
+                </span>
               </div>
             </div>
           </div>

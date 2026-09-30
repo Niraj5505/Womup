@@ -31,78 +31,78 @@ export const PromoMobileApp: React.FC<PromoMobileAppProps> = ({ onOpenJoinModal 
   const appFeatures = [
     {
       title: 'Get Monthly Shopping Coin',
-      desc: 'Instant ₹2,000 monthly allowance credited directly into your in-app wallet',
+      desc: 'Receive ₹2,000 Shopping Coin every single month',
       icon: Coins,
       iconColor: 'bg-blue-500 text-white',
     },
     {
       title: 'Find Nearby Shops',
-      desc: 'GPS-powered discovery of local verified merchants and exclusive coin discounts',
+      desc: 'Discover trusted local merchants right in your neighborhood',
       icon: MapPin,
       iconColor: 'bg-[#FF007A] text-white',
     },
     {
       title: 'Shop & Save',
-      desc: 'Redeem coins effortlessly at checkout with one simple tap or QR scan',
+      desc: 'Redeem coins effortlessly for instant discount on every purchase',
       icon: ShoppingBag,
       iconColor: 'bg-amber-500 text-white',
     },
     {
       title: 'Home Delivery (Vegetables)',
-      desc: 'Convenient fresh farm produce and vegetables delivered straight to your doorstep',
+      desc: 'Convenient fresh farm vegetables delivered right to your doorstep',
       icon: Truck,
-      iconColor: 'bg-teal-500 text-white',
+      iconColor: 'bg-blue-600 text-white',
     },
     {
       title: 'Refer & Earn',
-      desc: 'Share your personal referral link and track multi-level community earnings in real-time',
+      desc: 'Refer friends & family and build progressive 7-tier monthly income',
       icon: Users,
-      iconColor: 'bg-purple-600 text-white',
+      iconColor: 'bg-[#FF007A] text-white',
     },
     {
-      title: 'Track Orders & Savings',
-      desc: 'Complete digital passbook showing every coin spent and cumulative savings earned',
+      title: 'Track Orders',
+      desc: 'Live tracking of all your neighborhood store shopping transactions',
       icon: Clock,
-      iconColor: 'bg-indigo-500 text-white',
+      iconColor: 'bg-blue-500 text-white',
     },
   ]
 
   return (
     <section
       id="download-app"
-      className="py-16 sm:py-24 bg-gradient-to-b from-white via-pink-50/20 to-white relative overflow-hidden border-b border-pink-100/60"
+      className="py-14 sm:py-20 bg-gradient-to-b from-white via-pink-50/15 to-white relative overflow-hidden border-b border-pink-100/50"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-14">
+        {/* Section Header from 7_mobile_app.png */}
+        <div className="text-center max-w-3xl mx-auto mb-12">
           <h2 className="text-3xl sm:text-5xl font-black text-[#0A0E2A] tracking-tight">
             <span className="text-[#FF007A]">WOMUP</span> Mobile App
           </h2>
-          <p className="mt-2 text-sm sm:text-base text-slate-600 font-semibold tracking-wide">
+          <p className="mt-2 text-xs sm:text-sm md:text-base text-slate-600 font-semibold tracking-wide">
             Your Smart Shopping &amp; Earning Companion
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
           {/* Left Column: Dual Phone Mockups from Mockup 7 */}
           <div className="lg:col-span-6 flex justify-center items-center relative">
             <div className="relative flex items-center justify-center w-full max-w-lg">
               {/* Back Phone: Login Screen Mockup */}
               <motion.div
-                initial={{ opacity: 0, x: -30, rotate: -6 }}
-                whileInView={{ opacity: 1, x: 0, rotate: -6 }}
+                initial={{ opacity: 0, x: -20, rotate: -4 }}
+                whileInView={{ opacity: 1, x: 0, rotate: -4 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
-                className="w-56 sm:w-64 bg-slate-900 rounded-[38px] p-2.5 shadow-2xl border-4 border-slate-800 -mr-16 sm:-mr-20 z-10 hidden sm:block"
+                className="w-56 sm:w-64 bg-slate-900 rounded-[40px] p-2.5 shadow-2xl border-4 border-slate-800 -mr-16 sm:-mr-20 z-10 hidden sm:block"
               >
-                <div className="bg-white rounded-[30px] p-4 text-center h-[460px] flex flex-col justify-between overflow-hidden">
+                <div className="bg-white rounded-[32px] p-4 text-center h-[460px] flex flex-col justify-between overflow-hidden">
                   <div className="pt-8">
                     <img
                       src="/images/womup-logo.png"
                       alt="WOMUP Logo"
                       className="w-20 mx-auto object-contain mb-3"
                     />
-                    <div className="text-xs font-black text-[#0A0E2A]">WOMUP</div>
+                    <div className="text-sm font-black text-[#0A0E2A]">WOMUP</div>
                     <div className="text-[10px] text-slate-400">Save More • Shop Smarter</div>
                   </div>
 
@@ -113,7 +113,7 @@ export const PromoMobileApp: React.FC<PromoMobileAppProps> = ({ onOpenJoinModal 
                     <div className="h-9 rounded-xl bg-slate-100 border border-slate-200 flex items-center px-3 text-[11px] text-slate-400">
                       Password
                     </div>
-                    <div className="py-2.5 rounded-xl bg-[#FF007A] text-white text-xs font-bold shadow-md">
+                    <div className="py-2.5 rounded-xl bg-[#FF007A] text-white text-xs font-bold shadow-md cursor-pointer">
                       Login
                     </div>
                   </div>
@@ -126,13 +126,13 @@ export const PromoMobileApp: React.FC<PromoMobileAppProps> = ({ onOpenJoinModal 
 
               {/* Front Phone: Live App Dashboard Mockup */}
               <motion.div
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 25 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
-                className="w-64 sm:w-72 bg-slate-900 rounded-[42px] p-3 shadow-[0_25px_60px_rgba(255,0,122,0.2)] border-4 border-slate-800 z-20"
+                className="w-64 sm:w-72 bg-slate-900 rounded-[44px] p-3 shadow-[0_25px_60px_rgba(255,0,122,0.18)] border-4 border-slate-800 z-20"
               >
-                <div className="bg-[#FAF7FD] rounded-[34px] overflow-hidden text-[#0A0E2A] h-[490px] flex flex-col justify-between">
+                <div className="bg-[#FAF7FD] rounded-[36px] overflow-hidden text-[#0A0E2A] h-[480px] flex flex-col justify-between">
                   {/* Top Bar */}
                   <div>
                     <div className="h-6 bg-white px-5 flex items-center justify-between text-[10px] font-bold text-slate-500">
@@ -221,9 +221,9 @@ export const PromoMobileApp: React.FC<PromoMobileAppProps> = ({ onOpenJoinModal 
             </div>
           </div>
 
-          {/* Right Column: 6 Features List & App Download Buttons */}
-          <div className="lg:col-span-6 space-y-6">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          {/* Right Column: 6 Features List & App Download Buttons matching Mockup 7 */}
+          <div className="lg:col-span-6 space-y-4">
+            <div className="space-y-3">
               {appFeatures.map((feat, idx) => {
                 const Icon = feat.icon
                 return (
@@ -232,17 +232,17 @@ export const PromoMobileApp: React.FC<PromoMobileAppProps> = ({ onOpenJoinModal 
                     initial={{ opacity: 0, x: 15 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
-                    transition={{ delay: idx * 0.08 }}
-                    className="bg-white rounded-2xl p-3.5 border border-pink-100/90 shadow-[0_4px_16px_rgba(0,0,0,0.03)] hover:border-pink-300 transition-all flex items-start gap-3"
+                    transition={{ delay: idx * 0.06 }}
+                    className="flex items-center gap-3.5 group"
                   >
-                    <div className={`w-9 h-9 rounded-xl ${feat.iconColor} flex items-center justify-center shrink-0 shadow-xs`}>
-                      <Icon className="w-4 h-4" />
+                    <div className={`w-11 h-11 rounded-full ${feat.iconColor} flex items-center justify-center shrink-0 shadow-xs group-hover:scale-108 transition-transform`}>
+                      <Icon className="w-5 h-5" />
                     </div>
                     <div>
-                      <h3 className="text-xs sm:text-sm font-black text-[#0A0E2A] leading-snug">
+                      <h3 className="text-sm sm:text-base font-black text-[#0A0E2A] leading-snug">
                         {feat.title}
                       </h3>
-                      <p className="text-[11px] text-slate-500 font-medium mt-0.5 leading-snug">
+                      <p className="text-xs text-slate-500 font-medium">
                         {feat.desc}
                       </p>
                     </div>
@@ -251,7 +251,7 @@ export const PromoMobileApp: React.FC<PromoMobileAppProps> = ({ onOpenJoinModal 
               })}
             </div>
 
-            {/* App Store Download Badges from Mockup */}
+            {/* App Store Download Badges from Mockup 7 */}
             <div className="pt-4 border-t border-slate-100">
               <div className="text-xs font-black text-slate-800 uppercase tracking-wider mb-3">
                 Download Now
