@@ -2,14 +2,14 @@ import React from 'react'
 import { motion } from 'framer-motion'
 import {
   Gift,
-  ShoppingCart,
-  Percent,
-  Star,
-  ArrowRight,
+  Coins,
   Store,
+  Truck,
+  Users,
+  Wallet,
   ShoppingBag,
   CreditCard,
-  ChevronRight,
+  ArrowRight,
 } from 'lucide-react'
 
 interface PromoForCustomersProps {
@@ -30,38 +30,54 @@ export const PromoForCustomers: React.FC<PromoForCustomersProps> = ({ onOpenJoin
     }
   }
 
-  const benefits = [
+  const bulletPoints = [
     {
-      title: '₹2,000 Monthly Shopping Coin',
-      desc: 'Use up to 10-15% coin on every purchase across all partner stores',
-      icon: Gift,
-      iconBg: 'bg-emerald-500 text-white',
+      text: 'Use up to 10-15% coin on every purchase',
+      icon: Coins,
+      iconColor: 'bg-[#8B5CF6] text-white',
     },
     {
-      title: 'Shop at Nearby Local Stores',
-      desc: 'Continue purchasing from your favorite neighborhood kirana, medical, salon and more',
-      icon: ShoppingCart,
-      iconBg: 'bg-blue-600 text-white',
+      text: 'Shop at nearby trusted local stores',
+      icon: Store,
+      iconColor: 'bg-[#FF007A] text-white',
     },
     {
-      title: 'Real Savings on Every Purchase',
-      desc: 'Get genuine instant bill discounts with coins plus home delivery options',
-      icon: Percent,
-      iconBg: 'bg-purple-600 text-white',
+      text: 'Get home delivery (for vegetables)',
+      icon: Truck,
+      iconColor: 'bg-[#FF007A] text-white',
     },
     {
-      title: 'Extra Benefits and Rewards',
-      desc: 'Refer your friends and family to unlock progressive income up to 7 levels',
-      icon: Star,
-      iconBg: 'bg-[#FF007A] text-white',
+      text: 'Refer others and earn income',
+      icon: Users,
+      iconColor: 'bg-[#FF007A] text-white',
     },
   ]
 
-  const bottomPills = [
-    { title: 'Real Savings', icon: Percent },
-    { title: 'Local Shops', icon: Store },
-    { title: 'Wide Variety', icon: ShoppingBag },
-    { title: 'Easy Payment', icon: CreditCard },
+  const bottomCards = [
+    {
+      title: 'Real Savings',
+      icon: Wallet,
+      iconColor: 'text-[#FF007A]',
+      bgColor: 'bg-pink-50',
+    },
+    {
+      title: 'Local Shops',
+      icon: Store,
+      iconColor: 'text-[#FF007A]',
+      bgColor: 'bg-pink-50',
+    },
+    {
+      title: 'Wide Variety',
+      icon: ShoppingBag,
+      iconColor: 'text-[#10B981]',
+      bgColor: 'bg-emerald-50',
+    },
+    {
+      title: 'Easy Payment',
+      icon: CreditCard,
+      iconColor: 'text-[#2563EB]',
+      bgColor: 'bg-blue-50',
+    },
   ]
 
   return (
@@ -70,223 +86,137 @@ export const PromoForCustomers: React.FC<PromoForCustomersProps> = ({ onOpenJoin
       className="py-14 sm:py-20 bg-gradient-to-b from-white via-pink-50/20 to-white relative overflow-hidden border-b border-pink-100/50"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Section Header */}
+        {/* Section Header matching Mockup 3 */}
         <div className="text-center max-w-3xl mx-auto mb-12">
           <h2 className="text-3xl sm:text-5xl font-black text-[#0A0E2A] tracking-tight">
             For <span className="text-[#FF007A]">Customers</span>
           </h2>
-          <p className="mt-2 text-xs sm:text-sm md:text-base text-slate-600 font-semibold">
+          <p className="mt-2 text-xs sm:text-sm md:text-base text-slate-600 font-bold tracking-wide">
             Shop Smart &bull; Save Money &bull; Earn Income
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center mb-12">
-          {/* Left Column: 4 Benefit Cards + CTA + Vegetable cluster */}
-          <div className="lg:col-span-6 space-y-4">
-            {benefits.map((b, idx) => {
-              const Icon = b.icon
-              return (
-                <motion.div
-                  key={b.title}
-                  initial={{ opacity: 0, x: -15 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: idx * 0.08 }}
-                  className="bg-white rounded-3xl p-4 sm:p-5 border border-pink-100 shadow-[0_4px_16px_rgba(0,0,0,0.03)] hover:border-pink-300 hover:shadow-[0_8px_24px_rgba(255,0,122,0.08)] transition-all flex items-center gap-4"
-                >
-                  <div className={`w-12 h-12 rounded-2xl ${b.iconBg} flex items-center justify-center shrink-0 shadow-xs`}>
-                    <Icon className="w-6 h-6" />
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="text-base sm:text-lg font-black text-[#0A0E2A]">
-                      {b.title}
-                    </h3>
-                    <p className="text-xs sm:text-sm text-slate-600 font-semibold mt-0.5 leading-snug">
-                      {b.desc}
-                    </p>
-                  </div>
-                </motion.div>
-              )
-            })}
+        {/* Main Content: Left Woman with Phone pointing + Right Card with ₹2,000 Shopping Coin */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center mb-12 max-w-6xl mx-auto">
+          {/* Left Column: Indian Woman pointing at phone */}
+          <div className="lg:col-span-5 flex justify-center">
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="relative w-full max-w-sm sm:max-w-md"
+            >
+              {/* Soft ambient pink glow behind the portrait */}
+              <div className="absolute inset-0 bg-gradient-to-tr from-pink-300/30 via-purple-200/20 to-transparent rounded-3xl blur-2xl transform scale-95" />
 
-            {/* CTA Button from Mockup */}
-            <div className="pt-2">
-              <motion.button
-                type="button"
-                whileHover={{ scale: 1.03 }}
-                whileTap={{ scale: 0.97 }}
-                onClick={handleStartShopping}
-                className="w-full sm:w-auto px-8 py-3.5 rounded-full bg-gradient-to-r from-[#FF007A] to-[#E11D48] hover:from-[#E11D48] hover:to-[#BE185D] text-white text-sm sm:text-base font-bold shadow-[0_8px_25px_rgba(255,0,122,0.35)] transition-all flex items-center justify-center gap-2 cursor-pointer"
-              >
-                <span>Start Shopping Now</span>
-                <ArrowRight className="w-4 h-4 ml-1" />
-              </motion.button>
-            </div>
-
-            {/* Fresh Produce Banner from Mockup 3_for_customers.png */}
-            <div className="pt-4 flex items-center gap-3">
-              <div className="h-16 w-full rounded-2xl overflow-hidden shadow-xs border border-pink-100 relative">
+              <div className="relative rounded-3xl overflow-hidden shadow-[0_16px_40px_rgba(255,0,122,0.12)] border-4 border-white bg-white">
                 <img
-                  src="/images/categories/cat_vegetables.jpg"
-                  alt="Fresh farm produce"
-                  className="w-full h-full object-cover"
+                  src="/images/customer_woman_pointing.jpg"
+                  alt="WOMUP Happy Customer pointing to smartphone"
+                  className="w-full h-auto object-cover max-h-[500px]"
                 />
-                <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-transparent to-transparent flex items-center px-4">
-                  <span className="text-white text-xs font-black drop-shadow-sm">
-                    Fresh Farm Vegetables &bull; Home Delivery Available
-                  </span>
-                </div>
               </div>
-            </div>
+            </motion.div>
           </div>
 
-          {/* Right Column: Customer App Smartphone Mockup matching 3_for_customers.png */}
-          <div className="lg:col-span-6 flex justify-center items-center">
-            {/* Phone Frame */}
-            <div className="w-full max-w-[330px] sm:max-w-[350px] bg-slate-900 rounded-[44px] p-3 shadow-[0_25px_60px_rgba(0,0,0,0.18)] border-4 border-slate-800">
-              <div className="bg-[#FAF7FD] rounded-[36px] overflow-hidden border border-slate-200 text-[#0A0E2A]">
-                {/* Status Bar */}
-                <div className="h-6 bg-white px-6 flex items-center justify-between text-[10px] font-bold text-slate-500">
-                  <span>9:41</span>
-                  <div className="flex items-center gap-1.5">
-                    <span className="w-2 h-2 rounded-full bg-emerald-500" />
-                    <span>5G</span>
+          {/* Right Column: Benefit Card + Shopping Cart */}
+          <div className="lg:col-span-7">
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="relative bg-white rounded-3xl p-6 sm:p-8 border border-pink-100 shadow-[0_12px_40px_rgba(255,0,122,0.06)] overflow-hidden"
+            >
+              {/* Header inside card: Big Pink Gift Box + ₹2,000 Shopping Coin */}
+              <div className="flex items-center gap-4 sm:gap-5 pb-6 border-b border-pink-50">
+                <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-3xl bg-gradient-to-tr from-[#FF007A] to-[#E11D48] text-white flex items-center justify-center shrink-0 shadow-[0_8px_20px_rgba(255,0,122,0.3)]">
+                  <Gift className="w-9 h-9 sm:w-11 sm:h-11" />
+                </div>
+                <div>
+                  <div className="text-sm sm:text-base font-black text-[#0A0E2A] leading-tight">
+                    Get
                   </div>
-                </div>
-
-                {/* In-App Header: Manish Shah */}
-                <div className="p-3.5 bg-white border-b border-pink-50 flex items-center justify-between">
-                  <div className="flex items-center gap-2.5">
-                    <img
-                      src="/images/customer_man_avatar.jpg"
-                      alt="Manish Shah"
-                      className="w-9 h-9 rounded-full object-cover border border-pink-200"
-                    />
-                    <div>
-                      <div className="text-[10px] text-slate-500 font-medium">Hello</div>
-                      <div className="text-xs font-black text-[#0A0E2A]">Manish Shah</div>
-                    </div>
+                  <div className="text-3xl sm:text-4xl font-black text-[#FF007A] tracking-tight leading-none my-0.5">
+                    ₹2,000
                   </div>
-                  <span className="text-[10px] font-mono font-bold text-pink-600 bg-pink-50 px-2 py-0.5 rounded-full border border-pink-100">
-                    WM100258
-                  </span>
-                </div>
-
-                {/* My Shopping Coin Card (Exact from mockup 3_for_customers.png) */}
-                <div className="p-3.5">
-                  <div className="bg-gradient-to-r from-amber-400 via-amber-500 to-amber-600 rounded-2xl p-3.5 text-white shadow-md flex items-center justify-between">
-                    <div className="flex items-center gap-3">
-                      <div className="w-9 h-9 rounded-full bg-white/20 backdrop-blur-xs flex items-center justify-center font-black text-white text-base">
-                        ₹
-                      </div>
-                      <div>
-                        <div className="text-[10px] uppercase font-bold tracking-wider text-amber-100">
-                          My Shopping Coin
-                        </div>
-                        <div className="text-xl font-black">2,000</div>
-                      </div>
-                    </div>
-                    <ChevronRight className="w-5 h-5 text-white/80" />
+                  <div className="text-base sm:text-lg font-black text-[#0A0E2A] leading-tight">
+                    Shopping Coin <span className="font-extrabold text-slate-700">every month</span>
                   </div>
-                </div>
-
-                {/* 4 In-App Action Tabs */}
-                <div className="grid grid-cols-4 gap-1 px-3 pb-3 text-center">
-                  {[
-                    { label: 'Nearby Shops', active: true },
-                    { label: 'Orders', active: false },
-                    { label: 'Offers', active: false },
-                    { label: 'Wallet', active: false },
-                  ].map((tab) => (
-                    <div
-                      key={tab.label}
-                      className={`py-1.5 px-1 rounded-xl text-[10px] font-bold ${
-                        tab.active
-                          ? 'bg-pink-100 text-[#FF007A]'
-                          : 'bg-white text-slate-600 border border-slate-100'
-                      }`}
-                    >
-                      {tab.label}
-                    </div>
-                  ))}
-                </div>
-
-                {/* Nearby Shops List with Thumbnails from Mockup */}
-                <div className="px-3.5 pb-4 space-y-2">
-                  <div className="text-xs font-black text-slate-800">Nearby Shops</div>
-
-                  {[
-                    {
-                      name: 'Gokul Vegetables',
-                      dist: '0.5 km',
-                      img: '/images/categories/cat_vegetables.jpg',
-                      tag: 'Fresh Produce',
-                    },
-                    {
-                      name: 'Shree Kirana Store',
-                      dist: '1.2 km',
-                      img: '/images/categories/cat_grocery.jpg',
-                      tag: 'Daily Grocery',
-                    },
-                    {
-                      name: 'Jay Medical',
-                      dist: '1.3 km',
-                      img: '/images/categories/cat_medical.jpg',
-                      tag: 'Pharmacy',
-                    },
-                    {
-                      name: 'Beauty Salon',
-                      dist: '1.8 km',
-                      img: '/images/categories/cat_salon.jpg',
-                      tag: 'Grooming',
-                    },
-                  ].map((shop) => (
-                    <div
-                      key={shop.name}
-                      className="bg-white rounded-xl p-2 border border-slate-100 flex items-center justify-between shadow-2xs hover:border-pink-200 transition-all"
-                    >
-                      <div className="flex items-center gap-2.5">
-                        <img
-                          src={shop.img}
-                          alt={shop.name}
-                          className="w-8 h-8 rounded-lg object-cover"
-                        />
-                        <div>
-                          <div className="text-[11px] font-bold text-[#0A0E2A] leading-tight">
-                            {shop.name}
-                          </div>
-                          <div className="text-[9px] text-slate-500">{shop.tag}</div>
-                        </div>
-                      </div>
-                      <span className="text-[10px] font-bold text-[#FF007A] bg-pink-50 px-2 py-0.5 rounded-md">
-                        {shop.dist}
-                      </span>
-                    </div>
-                  ))}
                 </div>
               </div>
-            </div>
+
+              {/* 4 Bullet check items with circular icons */}
+              <div className="py-6 space-y-4">
+                {bulletPoints.map((item, idx) => {
+                  const Icon = item.icon
+                  return (
+                    <motion.div
+                      key={idx}
+                      initial={{ opacity: 0, x: 10 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: idx * 0.08 }}
+                      className="flex items-center gap-3.5"
+                    >
+                      <div className={`w-8 h-8 rounded-full ${item.iconColor} flex items-center justify-center shrink-0 shadow-xs`}>
+                        <Icon className="w-4 h-4" />
+                      </div>
+                      <span className="text-xs sm:text-sm md:text-base font-bold text-slate-800">
+                        {item.text}
+                      </span>
+                    </motion.div>
+                  )
+                })}
+              </div>
+
+              {/* Action Button & Shopping Cart with Vegetables */}
+              <div className="pt-2 flex flex-col sm:flex-row items-center justify-between gap-4">
+                <motion.button
+                  type="button"
+                  whileHover={{ scale: 1.04 }}
+                  whileTap={{ scale: 0.96 }}
+                  onClick={handleStartShopping}
+                  className="w-full sm:w-auto px-8 py-3.5 rounded-full bg-gradient-to-r from-[#FF007A] to-[#E11D48] hover:from-[#E11D48] hover:to-[#BE185D] text-white text-sm sm:text-base font-black shadow-[0_8px_25px_rgba(255,0,122,0.35)] transition-all flex items-center justify-center gap-2 cursor-pointer z-10"
+                >
+                  <span>Start Shopping Now</span>
+                  <ArrowRight className="w-4 h-4 ml-0.5" />
+                </motion.button>
+
+                {/* Shopping Cart Image on bottom-right of card */}
+                <div className="w-28 sm:w-36 h-auto shrink-0 -mb-4 sm:-mb-6 self-end">
+                  <img
+                    src="/images/vegetable_cart.jpg"
+                    alt="Shopping Cart Full of Fresh Vegetables"
+                    className="w-full h-auto object-contain drop-shadow-md"
+                  />
+                </div>
+              </div>
+            </motion.div>
           </div>
         </div>
 
-        {/* 4 Bottom Quick Pill Tags */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-4xl mx-auto">
-          {bottomPills.map((pill) => {
-            const Icon = pill.icon
-            return (
-              <div
-                key={pill.title}
-                className="bg-white rounded-2xl py-3 px-4 border border-pink-100 shadow-2xs flex items-center justify-center gap-2.5 text-center group hover:border-pink-300 transition-all"
-              >
-                <div className="w-7 h-7 rounded-lg bg-pink-50 text-[#FF007A] flex items-center justify-center group-hover:bg-[#FF007A] group-hover:text-white transition-colors">
-                  <Icon className="w-4 h-4" />
+        {/* 4 Bottom Cards in a Single Unified White Pill Bar */}
+        <div className="max-w-4xl mx-auto bg-white rounded-3xl border border-pink-100 shadow-[0_8px_30px_rgba(0,0,0,0.04)] p-3 sm:p-4">
+          <div className="grid grid-cols-2 sm:grid-cols-4 divide-y sm:divide-y-0 sm:divide-x divide-slate-100">
+            {bottomCards.map((card, idx) => {
+              const Icon = card.icon
+              return (
+                <div
+                  key={idx}
+                  className="flex flex-col items-center justify-center text-center p-3 group hover:bg-pink-50/30 rounded-2xl transition-colors"
+                >
+                  <div className={`w-11 h-11 rounded-2xl ${card.bgColor} ${card.iconColor} flex items-center justify-center mb-1.5 shadow-2xs group-hover:scale-110 transition-transform`}>
+                    <Icon className="w-5 h-5" />
+                  </div>
+                  <div className="text-xs sm:text-sm font-black text-[#0A0E2A]">
+                    {card.title}
+                  </div>
                 </div>
-                <span className="text-xs sm:text-sm font-black text-[#0A0E2A]">
-                  {pill.title}
-                </span>
-              </div>
-            )
-          })}
+              )
+            })}
+          </div>
         </div>
       </div>
     </section>

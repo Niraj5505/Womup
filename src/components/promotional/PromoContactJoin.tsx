@@ -3,10 +3,10 @@ import { motion } from 'framer-motion'
 import {
   User,
   Store,
+  TrendingUp,
   Phone,
   Mail,
   MapPin,
-  ArrowRight,
   Send,
   CheckCircle2,
   ChevronDown,
@@ -83,6 +83,12 @@ export const PromoContactJoin: React.FC<PromoContactJoinProps> = ({ onOpenJoinMo
     if (formElement) formElement.scrollIntoView({ behavior: 'smooth' })
   }
 
+  const handleBusinessPlanClick = () => {
+    setFormData((prev) => ({ ...prev, option: 'Explore Business Plan (7-Level Income)' }))
+    const formElement = document.getElementById('enquiry-form')
+    if (formElement) formElement.scrollIntoView({ behavior: 'smooth' })
+  }
+
   return (
     <section
       id="contact"
@@ -94,59 +100,53 @@ export const PromoContactJoin: React.FC<PromoContactJoinProps> = ({ onOpenJoinMo
           <h2 className="text-3xl sm:text-5xl font-black text-[#0A0E2A] tracking-tight">
             Be a Part of <span className="text-[#FF007A]">WOMUP</span>
           </h2>
-          <p className="mt-2 text-xs sm:text-sm md:text-base text-slate-600 font-semibold tracking-wide">
+          <p className="mt-2 text-xs sm:text-sm md:text-base text-slate-600 font-bold tracking-wide">
             Together for a Smarter, Healthier and Prosperous Community
           </p>
         </div>
 
-        {/* Top 2 Action Selection Cards from Mockup 8 (Soft Tinted Backgrounds) */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 max-w-4xl mx-auto mb-12">
-          {/* Card 1: Join as Customer (Pink Tint #FFF5F8) */}
+        {/* Top 3 Action Selection Cards from Mockup 8 */}
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 max-w-4xl mx-auto mb-12">
+          {/* Card 1: Join as Customer (Blue icon) */}
           <motion.div
-            whileHover={{ y: -3, scale: 1.01 }}
+            whileHover={{ y: -3, scale: 1.02 }}
             onClick={handleCustomerCardClick}
-            className="bg-[#FFF5F8] rounded-3xl p-5 sm:p-6 border border-pink-200/80 shadow-[0_4px_20px_rgba(255,0,122,0.06)] hover:border-[#FF007A] transition-all flex items-center justify-between cursor-pointer group"
+            className="bg-white/80 backdrop-blur-xs rounded-3xl p-5 border border-blue-100 shadow-[0_4px_20px_rgba(37,99,235,0.06)] hover:border-blue-300 transition-all flex flex-col items-center text-center cursor-pointer group"
           >
-            <div className="flex items-center gap-4">
-              <div className="w-14 h-14 rounded-full bg-[#FF007A] text-white flex items-center justify-center shrink-0 shadow-[0_4px_12px_rgba(255,0,122,0.3)]">
-                <User className="w-7 h-7" />
-              </div>
-              <div>
-                <h3 className="text-lg sm:text-xl font-black text-[#FF007A]">
-                  Join as Customer
-                </h3>
-                <p className="text-xs sm:text-sm text-slate-600 font-medium mt-0.5">
-                  Start your smart shopping journey today.
-                </p>
-              </div>
+            <div className="w-14 h-14 rounded-2xl bg-blue-50 text-[#1E3A8A] flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+              <User className="w-7 h-7" />
             </div>
-            <div className="w-9 h-9 rounded-full bg-[#FF007A] text-white flex items-center justify-center shrink-0 shadow-xs group-hover:scale-110 transition-transform">
-              <ArrowRight className="w-4 h-4" />
-            </div>
+            <h3 className="text-base sm:text-lg font-black text-[#0A0E2A] leading-tight">
+              Join as <br /> Customer
+            </h3>
           </motion.div>
 
-          {/* Card 2: Register as Vendor (Blue Tint #F0F7FF) */}
+          {/* Card 2: Register as Vendor (Pink icon) */}
           <motion.div
-            whileHover={{ y: -3, scale: 1.01 }}
+            whileHover={{ y: -3, scale: 1.02 }}
             onClick={handleVendorCardClick}
-            className="bg-[#F0F7FF] rounded-3xl p-5 sm:p-6 border border-blue-200/80 shadow-[0_4px_20px_rgba(30,58,138,0.06)] hover:border-[#1E3A8A] transition-all flex items-center justify-between cursor-pointer group"
+            className="bg-white/80 backdrop-blur-xs rounded-3xl p-5 border border-pink-100 shadow-[0_4px_20px_rgba(255,0,122,0.06)] hover:border-pink-300 transition-all flex flex-col items-center text-center cursor-pointer group"
           >
-            <div className="flex items-center gap-4">
-              <div className="w-14 h-14 rounded-full bg-[#1E3A8A] text-white flex items-center justify-center shrink-0 shadow-[0_4px_12px_rgba(30,58,138,0.3)]">
-                <Store className="w-7 h-7" />
-              </div>
-              <div>
-                <h3 className="text-lg sm:text-xl font-black text-[#1E3A8A]">
-                  Register as Vendor
-                </h3>
-                <p className="text-xs sm:text-sm text-slate-600 font-medium mt-0.5">
-                  Grow your business with more customers.
-                </p>
-              </div>
+            <div className="w-14 h-14 rounded-2xl bg-pink-50 text-[#FF007A] flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+              <Store className="w-7 h-7" />
             </div>
-            <div className="w-9 h-9 rounded-full bg-[#1E3A8A] text-white flex items-center justify-center shrink-0 shadow-xs group-hover:scale-110 transition-transform">
-              <ArrowRight className="w-4 h-4" />
+            <h3 className="text-base sm:text-lg font-black text-[#0A0E2A] leading-tight">
+              Register as <br /> Vendor
+            </h3>
+          </motion.div>
+
+          {/* Card 3: Explore Business Plan (Pink/Red icon) */}
+          <motion.div
+            whileHover={{ y: -3, scale: 1.02 }}
+            onClick={handleBusinessPlanClick}
+            className="bg-white/80 backdrop-blur-xs rounded-3xl p-5 border border-purple-100 shadow-[0_4px_20px_rgba(168,85,247,0.06)] hover:border-purple-300 transition-all flex flex-col items-center text-center cursor-pointer group"
+          >
+            <div className="w-14 h-14 rounded-2xl bg-rose-50 text-[#E11D48] flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+              <TrendingUp className="w-7 h-7" />
             </div>
+            <h3 className="text-base sm:text-lg font-black text-[#0A0E2A] leading-tight">
+              Explore <br /> Business Plan
+            </h3>
           </motion.div>
         </div>
 
@@ -202,7 +202,7 @@ export const PromoContactJoin: React.FC<PromoContactJoinProps> = ({ onOpenJoinMo
                   >
                     <option value="Customer Registration">Select Option: Customer Registration</option>
                     <option value="Vendor Partner Registration">Select Option: Vendor Partner Registration</option>
-                    <option value="Referral Network Partner">Select Option: Referral Partner (7-Level Income)</option>
+                    <option value="Explore Business Plan (7-Level Income)">Select Option: Explore Business Plan</option>
                     <option value="General Enquiry">Select Option: General Enquiry</option>
                   </select>
                   <ChevronDown className="w-4 h-4 text-slate-400 absolute right-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
@@ -249,7 +249,7 @@ export const PromoContactJoin: React.FC<PromoContactJoinProps> = ({ onOpenJoinMo
                   We are here <br /> to help you!
                 </h3>
               </div>
-              <div className="w-24 h-24 rounded-full overflow-hidden border-2 border-pink-200 shadow-md">
+              <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full overflow-hidden border-2 border-pink-200 shadow-md">
                 <img
                   src="/images/customer_support_woman.jpg"
                   alt="Customer Support Representative"

@@ -8,6 +8,9 @@ import {
   Users,
   Clock,
   ChevronRight,
+  Store,
+  FileText,
+  User,
 } from 'lucide-react'
 
 interface PromoMobileAppProps {
@@ -28,42 +31,37 @@ export const PromoMobileApp: React.FC<PromoMobileAppProps> = ({ onOpenJoinModal 
     }
   }
 
+  // 6 Features matching Mockup 7
   const appFeatures = [
     {
       title: 'Get Monthly Shopping Coin',
-      desc: 'Receive ₹2,000 Shopping Coin every single month',
       icon: Coins,
-      iconColor: 'bg-blue-500 text-white',
+      iconBg: 'bg-[#2563EB]',
     },
     {
       title: 'Find Nearby Shops',
-      desc: 'Discover trusted local merchants right in your neighborhood',
       icon: MapPin,
-      iconColor: 'bg-[#FF007A] text-white',
+      iconBg: 'bg-[#FF007A]',
     },
     {
       title: 'Shop & Save',
-      desc: 'Redeem coins effortlessly for instant discount on every purchase',
       icon: ShoppingBag,
-      iconColor: 'bg-amber-500 text-white',
+      iconBg: 'bg-[#E11D48]',
     },
     {
       title: 'Home Delivery (Vegetables)',
-      desc: 'Convenient fresh farm vegetables delivered right to your doorstep',
       icon: Truck,
-      iconColor: 'bg-blue-600 text-white',
+      iconBg: 'bg-[#2563EB]',
     },
     {
       title: 'Refer & Earn',
-      desc: 'Refer friends & family and build progressive 7-tier monthly income',
       icon: Users,
-      iconColor: 'bg-[#FF007A] text-white',
+      iconBg: 'bg-[#FF007A]',
     },
     {
       title: 'Track Orders',
-      desc: 'Live tracking of all your neighborhood store shopping transactions',
       icon: Clock,
-      iconColor: 'bg-blue-500 text-white',
+      iconBg: 'bg-[#2563EB]',
     },
   ]
 
@@ -73,19 +71,19 @@ export const PromoMobileApp: React.FC<PromoMobileAppProps> = ({ onOpenJoinModal 
       className="py-14 sm:py-20 bg-gradient-to-b from-white via-pink-50/15 to-white relative overflow-hidden border-b border-pink-100/50"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Section Header from 7_mobile_app.png */}
+        {/* Section Header from Mockup 7 */}
         <div className="text-center max-w-3xl mx-auto mb-12">
           <h2 className="text-3xl sm:text-5xl font-black text-[#0A0E2A] tracking-tight">
             <span className="text-[#FF007A]">WOMUP</span> Mobile App
           </h2>
-          <p className="mt-2 text-xs sm:text-sm md:text-base text-slate-600 font-semibold tracking-wide">
+          <p className="mt-2 text-xs sm:text-sm md:text-base text-slate-600 font-bold tracking-wide">
             Your Smart Shopping &amp; Earning Companion
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center max-w-6xl mx-auto">
           {/* Left Column: Dual Phone Mockups from Mockup 7 */}
-          <div className="lg:col-span-6 flex justify-center items-center relative">
+          <div className="lg:col-span-7 flex justify-center items-center relative">
             <div className="relative flex items-center justify-center w-full max-w-lg">
               {/* Back Phone: Login Screen Mockup */}
               <motion.div
@@ -124,7 +122,7 @@ export const PromoMobileApp: React.FC<PromoMobileAppProps> = ({ onOpenJoinModal 
                 </div>
               </motion.div>
 
-              {/* Front Phone: Live App Dashboard Mockup */}
+              {/* Front Phone: Live App Dashboard Mockup matching Mockup 7 */}
               <motion.div
                 initial={{ opacity: 0, y: 25 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -152,69 +150,102 @@ export const PromoMobileApp: React.FC<PromoMobileAppProps> = ({ onOpenJoinModal 
                           className="w-8 h-8 rounded-full object-cover border border-pink-200"
                         />
                         <div>
-                          <div className="text-[10px] text-slate-400">Hello</div>
+                          <div className="text-[10px] text-slate-400 font-medium">Hello</div>
                           <div className="text-xs font-bold text-[#0A0E2A]">Manish Shah</div>
                         </div>
                       </div>
                       <span className="text-[9px] font-mono font-bold text-pink-600 bg-pink-50 px-2 py-0.5 rounded-full border border-pink-100">
-                        ₹2,000 Coins
+                        WM100258
                       </span>
                     </div>
 
-                    {/* Coin Balance Card */}
+                    {/* Coin Balance Card: My Coin 2,000 > */}
                     <div className="p-3">
                       <div className="bg-gradient-to-r from-amber-400 via-amber-500 to-amber-600 rounded-2xl p-3 text-white shadow-sm flex items-center justify-between">
-                        <div className="flex items-center gap-2">
-                          <div className="w-7 h-7 rounded-full bg-white/20 flex items-center justify-center font-bold text-white text-xs">
-                            ₹
+                        <div className="flex items-center gap-2.5">
+                          <div className="w-8 h-8 rounded-full bg-white/25 flex items-center justify-center font-bold text-white text-sm">
+                            🪙
                           </div>
                           <div>
                             <div className="text-[9px] uppercase tracking-wider text-amber-100 font-bold">
-                              Shopping Coin
+                              My Coin
                             </div>
-                            <div className="text-base font-black">2,000</div>
+                            <div className="text-lg font-black leading-tight">2,000</div>
                           </div>
                         </div>
                         <ChevronRight className="w-4 h-4 text-white/80" />
                       </div>
                     </div>
 
+                    {/* Category mini row */}
+                    <div className="grid grid-cols-4 gap-1 px-3 pb-2 text-center">
+                      {[
+                        { label: 'Vegetables', icon: '🥦' },
+                        { label: 'Grocery', icon: '🛒' },
+                        { label: 'Medical', icon: '💊' },
+                        { label: 'Salon', icon: '✂️' },
+                      ].map((item) => (
+                        <div
+                          key={item.label}
+                          className="bg-white rounded-xl py-1 px-0.5 border border-slate-100 shadow-2xs"
+                        >
+                          <div className="text-xs">{item.icon}</div>
+                          <div className="text-[8px] font-bold text-slate-700">{item.label}</div>
+                        </div>
+                      ))}
+                    </div>
+
                     {/* Nearby Shops Section */}
                     <div className="px-3 space-y-1.5">
-                      <div className="text-[11px] font-black text-slate-800 flex items-center gap-1">
-                        <MapPin className="w-3 h-3 text-[#FF007A]" />
-                        <span>Nearby Partner Shops</span>
+                      <div className="text-[11px] font-black text-slate-800">
+                        Nearby Shops
                       </div>
 
                       {[
-                        { name: 'Gokul Vegetables', dist: '0.5 km', off: '15% Off' },
-                        { name: 'Shree Kirana Store', dist: '1.2 km', off: '10% Off' },
-                        { name: 'Jay Medical Store', dist: '1.5 km', off: '10% Off' },
+                        { name: 'Gokul Vegetables', dist: '0.5 km', tag: 'Vegetables' },
+                        { name: 'Shree Kirana Store', dist: '1.2 km', tag: 'Grocery' },
+                        { name: 'Jay Medical Store', dist: '1.5 km', tag: 'Medical' },
                       ].map((shop) => (
                         <div
                           key={shop.name}
-                          className="bg-white rounded-xl p-2 border border-slate-100 flex items-center justify-between shadow-2xs"
+                          className="bg-white rounded-xl p-1.5 px-2 border border-slate-100 flex items-center justify-between shadow-2xs"
                         >
                           <div>
-                            <div className="text-[11px] font-bold text-[#0A0E2A] leading-tight">
+                            <div className="text-[10px] font-bold text-[#0A0E2A] leading-tight">
                               {shop.name}
                             </div>
-                            <div className="text-[9px] text-slate-400">{shop.dist} away</div>
+                            <div className="text-[8px] text-slate-400">{shop.tag}</div>
                           </div>
                           <span className="text-[9px] font-bold px-1.5 py-0.5 rounded-md bg-pink-50 text-[#FF007A]">
-                            {shop.off}
+                            {shop.dist}
                           </span>
                         </div>
                       ))}
                     </div>
                   </div>
 
-                  {/* App Bottom Navigation */}
-                  <div className="bg-white border-t border-slate-100 px-3 py-2 flex items-center justify-around text-[9px] font-bold text-slate-500">
-                    <span className="text-[#FF007A]">Home</span>
-                    <span>Pay</span>
-                    <span>Orders</span>
-                    <span>Wallet</span>
+                  {/* App Bottom Navigation with 5 tabs: Home, Shops, Orders, Coin, Profile */}
+                  <div className="bg-white border-t border-slate-100 px-2 py-1.5 flex items-center justify-around text-[8px] font-bold text-slate-500">
+                    <span className="text-[#FF007A] flex flex-col items-center">
+                      <span className="text-[10px]">🏠</span>
+                      <span>Home</span>
+                    </span>
+                    <span className="flex flex-col items-center">
+                      <Store className="w-2.5 h-2.5 text-slate-400" />
+                      <span>Shops</span>
+                    </span>
+                    <span className="flex flex-col items-center">
+                      <FileText className="w-2.5 h-2.5 text-slate-400" />
+                      <span>Orders</span>
+                    </span>
+                    <span className="flex flex-col items-center">
+                      <Coins className="w-2.5 h-2.5 text-slate-400" />
+                      <span>Coin</span>
+                    </span>
+                    <span className="flex flex-col items-center">
+                      <User className="w-2.5 h-2.5 text-slate-400" />
+                      <span>Profile</span>
+                    </span>
                   </div>
                 </div>
               </motion.div>
@@ -222,8 +253,8 @@ export const PromoMobileApp: React.FC<PromoMobileAppProps> = ({ onOpenJoinModal 
           </div>
 
           {/* Right Column: 6 Features List & App Download Buttons matching Mockup 7 */}
-          <div className="lg:col-span-6 space-y-4">
-            <div className="space-y-3">
+          <div className="lg:col-span-5 space-y-4">
+            <div className="space-y-3.5">
               {appFeatures.map((feat, idx) => {
                 const Icon = feat.icon
                 return (
@@ -235,17 +266,12 @@ export const PromoMobileApp: React.FC<PromoMobileAppProps> = ({ onOpenJoinModal 
                     transition={{ delay: idx * 0.06 }}
                     className="flex items-center gap-3.5 group"
                   >
-                    <div className={`w-11 h-11 rounded-full ${feat.iconColor} flex items-center justify-center shrink-0 shadow-xs group-hover:scale-108 transition-transform`}>
+                    <div className={`w-10 h-10 rounded-full ${feat.iconBg} text-white flex items-center justify-center shrink-0 shadow-xs group-hover:scale-108 transition-transform`}>
                       <Icon className="w-5 h-5" />
                     </div>
-                    <div>
-                      <h3 className="text-sm sm:text-base font-black text-[#0A0E2A] leading-snug">
-                        {feat.title}
-                      </h3>
-                      <p className="text-xs text-slate-500 font-medium">
-                        {feat.desc}
-                      </p>
-                    </div>
+                    <span className="text-sm sm:text-base font-bold text-slate-800">
+                      {feat.title}
+                    </span>
                   </motion.div>
                 )
               })}

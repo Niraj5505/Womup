@@ -28,13 +28,13 @@ export const PromoHowItWorks: React.FC<PromoHowItWorksProps> = ({ onOpenJoinModa
     },
     {
       num: '2',
-      title: 'Get Coin',
+      title: 'Get Coins',
       desc: 'Receive ₹2,000 Shopping Coin every month',
     },
     {
       num: '3',
       title: 'Shop',
-      desc: 'Use coin at nearby shops',
+      desc: 'Use coins + Pay balance amount at nearby shops',
     },
     {
       num: '4',
@@ -49,12 +49,12 @@ export const PromoHowItWorks: React.FC<PromoHowItWorksProps> = ({ onOpenJoinModa
       className="py-14 sm:py-20 bg-gradient-to-b from-white via-[#FCF8FB] to-white relative overflow-hidden border-b border-pink-100/50"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Section Header from Mockup */}
+        {/* Section Header from Mockup 2 */}
         <div className="text-center max-w-3xl mx-auto mb-12">
           <h2 className="text-3xl sm:text-5xl font-black text-[#0A0E2A] tracking-tight">
             How <span className="text-[#FF007A]">WOMUP</span> Works?
           </h2>
-          <p className="mt-2.5 text-xs sm:text-sm md:text-base text-slate-600 font-semibold max-w-xl mx-auto leading-relaxed">
+          <p className="mt-2.5 text-xs sm:text-sm md:text-base text-slate-600 font-bold max-w-xl mx-auto leading-relaxed">
             A simple platform connecting Customers and Local Vendors for Smart Shopping and Earning Opportunities.
           </p>
         </div>
@@ -140,7 +140,7 @@ export const PromoHowItWorks: React.FC<PromoHowItWorksProps> = ({ onOpenJoinModa
               </div>
             </motion.div>
 
-            {/* Right: Vendor Circle */}
+            {/* Right: Vendor Circle with Stall Canopy */}
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
@@ -150,8 +150,8 @@ export const PromoHowItWorks: React.FC<PromoHowItWorksProps> = ({ onOpenJoinModa
               <div className="w-32 h-32 sm:w-40 sm:h-40 rounded-full p-1.5 bg-gradient-to-tr from-blue-500 to-[#1E3A8A] shadow-[0_10px_25px_rgba(30,58,138,0.22)]">
                 <div className="w-full h-full rounded-full overflow-hidden bg-white">
                   <img
-                    src="/images/vendor_shopkeeper.jpg"
-                    alt="Vendor"
+                    src="/images/vendor_stall_avatar.jpg"
+                    alt="Vendor with Stall"
                     className="w-full h-full object-cover group-hover:scale-108 transition-transform duration-300"
                   />
                 </div>
@@ -166,7 +166,7 @@ export const PromoHowItWorks: React.FC<PromoHowItWorksProps> = ({ onOpenJoinModa
           </div>
         </div>
 
-        {/* 4 Numbered Steps from Mockup (Join, Get Coin, Shop, Earn) */}
+        {/* 4 Numbered Steps from Mockup 2 (Join, Get Coins, Shop, Earn) */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-5xl mx-auto mb-10">
           {steps.map((s, idx) => (
             <motion.div
@@ -193,7 +193,7 @@ export const PromoHowItWorks: React.FC<PromoHowItWorksProps> = ({ onOpenJoinModa
           ))}
         </div>
 
-        {/* Bottom CTA Button */}
+        {/* Bottom CTA Button: Join Now */}
         <div className="flex justify-center">
           <motion.button
             type="button"
@@ -202,7 +202,7 @@ export const PromoHowItWorks: React.FC<PromoHowItWorksProps> = ({ onOpenJoinModa
             onClick={handleAction}
             className="px-9 py-3.5 rounded-full bg-gradient-to-r from-[#FF007A] to-[#E11D48] hover:from-[#E11D48] hover:to-[#BE185D] text-white text-sm sm:text-base font-bold shadow-[0_8px_25px_rgba(255,0,122,0.35)] transition-all flex items-center gap-2 cursor-pointer"
           >
-            <span>Get Started Now</span>
+            <span>Join Now</span>
             <ArrowRight className="w-4 h-4 ml-1" />
           </motion.button>
         </div>

@@ -2,7 +2,7 @@ import React from 'react'
 import { motion } from 'framer-motion'
 import {
   Users,
-  ShieldBan,
+  CircleDollarSign,
   ShoppingCart,
   TrendingUp,
   ArrowRight,
@@ -28,6 +28,33 @@ export const PromoIncomeOpportunity: React.FC<PromoIncomeOpportunityProps> = ({
     }
   }
 
+  const guaranteeCards = [
+    {
+      title: '7 Level Referral Income',
+      icon: Users,
+      iconColor: 'text-[#8B5CF6]',
+      bgColor: 'bg-purple-50',
+    },
+    {
+      title: 'No Investment Required',
+      icon: CircleDollarSign,
+      iconColor: 'text-[#10B981]',
+      bgColor: 'bg-emerald-50',
+    },
+    {
+      title: 'Only Real Purchases',
+      icon: ShoppingCart,
+      iconColor: 'text-[#F97316]',
+      bgColor: 'bg-orange-50',
+    },
+    {
+      title: 'Long Term Income',
+      icon: TrendingUp,
+      iconColor: 'text-[#10B981]',
+      bgColor: 'bg-emerald-50',
+    },
+  ]
+
   return (
     <section
       id="income"
@@ -48,7 +75,7 @@ export const PromoIncomeOpportunity: React.FC<PromoIncomeOpportunityProps> = ({
         <div className="max-w-5xl mx-auto bg-white rounded-3xl p-6 sm:p-10 border border-pink-100 shadow-[0_12px_36px_rgba(255,0,122,0.06)] mb-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             {/* Left: Text & High Numbers */}
-            <div className="lg:col-span-7 space-y-4 text-center lg:text-left">
+            <div className="lg:col-span-7 space-y-3 text-center lg:text-left">
               <p className="text-base sm:text-lg font-bold text-slate-700">
                 By simply shopping <br />
                 and referring others
@@ -58,10 +85,10 @@ export const PromoIncomeOpportunity: React.FC<PromoIncomeOpportunityProps> = ({
                 <span className="text-2xl sm:text-3xl font-black text-[#0A0E2A] block sm:inline mr-2">
                   Earn
                 </span>
-                <span className="text-3xl sm:text-5xl lg:text-[52px] font-black text-[#FF007A] tracking-tight block">
-                  ₹30,000 <span className="text-2xl sm:text-3xl text-[#FF007A]">to</span>
+                <span className="text-3xl sm:text-5xl lg:text-[54px] font-black text-[#FF007A] tracking-tight block leading-tight">
+                  ₹30,000 <span className="text-2xl sm:text-3xl font-black text-[#FF007A]">to</span>
                 </span>
-                <span className="text-4xl sm:text-6xl lg:text-[58px] font-black text-[#FF007A] tracking-tight block">
+                <span className="text-4xl sm:text-6xl lg:text-[62px] font-black text-[#FF007A] tracking-tight block leading-tight">
                   ₹3,00,000
                 </span>
                 <span className="text-xl sm:text-2xl font-black text-[#0A0E2A] block mt-1">
@@ -75,11 +102,11 @@ export const PromoIncomeOpportunity: React.FC<PromoIncomeOpportunityProps> = ({
               {/* 5 Gradient Rising Bars */}
               <div className="w-full flex items-end justify-between gap-3 relative z-10">
                 {[
-                  { height: '25%', color: 'from-amber-400 to-amber-500' },
-                  { height: '42%', color: 'from-rose-400 to-pink-500' },
-                  { height: '58%', color: 'from-pink-500 to-[#FF007A]' },
-                  { height: '76%', color: 'from-purple-500 to-indigo-600' },
-                  { height: '98%', color: 'from-blue-600 to-indigo-800' },
+                  { height: '28%', color: 'from-pink-300 to-pink-400' },
+                  { height: '45%', color: 'from-pink-400 to-[#FF007A]' },
+                  { height: '62%', color: 'from-[#FF007A] to-purple-500' },
+                  { height: '80%', color: 'from-purple-500 to-indigo-600' },
+                  { height: '100%', color: 'from-indigo-600 to-blue-600' },
                 ].map((bar, i) => (
                   <motion.div
                     key={i}
@@ -119,48 +146,25 @@ export const PromoIncomeOpportunity: React.FC<PromoIncomeOpportunityProps> = ({
           </div>
         </div>
 
-        {/* 4 Bottom Guarantee Columns in Single White Card with Dividers matching Mockup */}
-        <div className="max-w-5xl mx-auto bg-white rounded-3xl border border-pink-100 shadow-[0_8px_30px_rgba(0,0,0,0.04)] p-4 sm:p-5 mb-8">
+        {/* 4 Bottom Guarantee Columns in Single White Card with Dividers matching Mockup 5 */}
+        <div className="max-w-4xl mx-auto bg-white rounded-3xl border border-pink-100 shadow-[0_8px_30px_rgba(0,0,0,0.04)] p-3 sm:p-4 mb-8">
           <div className="grid grid-cols-2 sm:grid-cols-4 divide-y sm:divide-y-0 sm:divide-x divide-slate-100">
-            {/* 1. 7 Level Referral Income */}
-            <div className="flex flex-col items-center justify-center text-center p-3">
-              <div className="w-10 h-10 rounded-full bg-purple-50 text-purple-600 flex items-center justify-center mb-2 shadow-2xs">
-                <Users className="w-5 h-5" />
-              </div>
-              <div className="text-xs sm:text-sm font-black text-[#0A0E2A] leading-tight">
-                7 Level <br /> Referral Income
-              </div>
-            </div>
-
-            {/* 2. No Investment Required */}
-            <div className="flex flex-col items-center justify-center text-center p-3">
-              <div className="w-10 h-10 rounded-full bg-rose-50 text-rose-600 flex items-center justify-center mb-2 shadow-2xs">
-                <ShieldBan className="w-5 h-5" />
-              </div>
-              <div className="text-xs sm:text-sm font-black text-[#0A0E2A] leading-tight">
-                No Investment <br /> Required
-              </div>
-            </div>
-
-            {/* 3. Only Real Purchases */}
-            <div className="flex flex-col items-center justify-center text-center p-3">
-              <div className="w-10 h-10 rounded-full bg-amber-50 text-amber-600 flex items-center justify-center mb-2 shadow-2xs">
-                <ShoppingCart className="w-5 h-5" />
-              </div>
-              <div className="text-xs sm:text-sm font-black text-[#0A0E2A] leading-tight">
-                Only Real <br /> Purchases
-              </div>
-            </div>
-
-            {/* 4. Long Term Income */}
-            <div className="flex flex-col items-center justify-center text-center p-3">
-              <div className="w-10 h-10 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center mb-2 shadow-2xs">
-                <TrendingUp className="w-5 h-5" />
-              </div>
-              <div className="text-xs sm:text-sm font-black text-[#0A0E2A] leading-tight">
-                Long Term <br /> Income
-              </div>
-            </div>
+            {guaranteeCards.map((card, idx) => {
+              const Icon = card.icon
+              return (
+                <div
+                  key={idx}
+                  className="flex flex-col items-center justify-center text-center p-3 group hover:bg-pink-50/30 rounded-2xl transition-colors"
+                >
+                  <div className={`w-11 h-11 rounded-2xl ${card.bgColor} ${card.iconColor} flex items-center justify-center mb-1.5 shadow-2xs group-hover:scale-110 transition-transform`}>
+                    <Icon className="w-5 h-5" />
+                  </div>
+                  <div className="text-xs sm:text-sm font-black text-[#0A0E2A] leading-tight">
+                    {card.title}
+                  </div>
+                </div>
+              )
+            })}
           </div>
         </div>
 
@@ -171,7 +175,7 @@ export const PromoIncomeOpportunity: React.FC<PromoIncomeOpportunityProps> = ({
             whileHover={{ scale: 1.04 }}
             whileTap={{ scale: 0.96 }}
             onClick={handleKnowMore}
-            className="px-9 py-3.5 rounded-full bg-gradient-to-r from-[#FF007A] to-[#E11D48] hover:from-[#E11D48] hover:to-[#BE185D] text-white text-sm sm:text-base font-bold shadow-[0_8px_25px_rgba(255,0,122,0.35)] transition-all flex items-center gap-2 cursor-pointer"
+            className="px-10 py-3.5 rounded-full bg-gradient-to-r from-[#FF007A] to-[#E11D48] hover:from-[#E11D48] hover:to-[#BE185D] text-white text-sm sm:text-base font-bold shadow-[0_8px_25px_rgba(255,0,122,0.35)] transition-all flex items-center gap-2 cursor-pointer"
           >
             <span>Know More</span>
             <ArrowRight className="w-4 h-4 ml-1" />
