@@ -6,18 +6,18 @@ interface PromoCategoriesProps {
 }
 
 const categories = [
-  { name: 'Vegetables', img: '/images/categories/vegetables.jpg', emoji: '🥦' },
-  { name: 'Grocery', img: '/images/categories/grocery.jpg', emoji: '🛒' },
-  { name: 'Medical', img: '/images/categories/medical.jpg', emoji: '💊' },
-  { name: 'Salon', img: '/images/categories/salon.jpg', emoji: '✂️' },
-  { name: 'Garments', img: '/images/categories/garments.jpg', emoji: '👗' },
-  { name: 'Electronics', img: '/images/categories/electronics.jpg', emoji: '💻' },
-  { name: 'Footwear', img: '/images/categories/footwear.jpg', emoji: '👟' },
-  { name: 'Stationery', img: '/images/categories/stationery.jpg', emoji: '📚' },
-  { name: 'Restaurant', img: '/images/categories/restaurant.jpg', emoji: '🍽️' },
-  { name: 'Sweet Shop', img: '/images/categories/sweet.jpg', emoji: '🍮' },
-  { name: 'Hardware', img: '/images/categories/hardware.jpg', emoji: '🔧' },
-  { name: 'More', img: '', emoji: '🏪' },
+  { name: 'Vegetables', img: '/images/categories/cat_vegetables.jpg', emoji: '🥦' },
+  { name: 'Grocery', img: '/images/categories/cat_grocery.jpg', emoji: '🛒' },
+  { name: 'Medical', img: '/images/categories/cat_medical.jpg', emoji: '💊' },
+  { name: 'Salon', img: '/images/categories/cat_salon.jpg', emoji: '✂️' },
+  { name: 'Garments', img: '/images/categories/cat_garments.jpg', emoji: '👗' },
+  { name: 'Electronics', img: '/images/categories/cat_electronics.jpg', emoji: '💻' },
+  { name: 'Footwear', img: '/images/categories/cat_footwear.jpg', emoji: '👟' },
+  { name: 'Stationery', img: '/images/categories/cat_stationery.jpg', emoji: '📚' },
+  { name: 'Restaurant', img: '/images/categories/cat_restaurant.jpg', emoji: '🍽️' },
+  { name: 'Sweet Shop', img: '/images/categories/cat_sweetshop.jpg', emoji: '🍮' },
+  { name: 'Hardware', img: '/images/categories/cat_hardware.jpg', emoji: '🔧' },
+  { name: 'More', img: '/images/categories/cat_more.png', emoji: '🏪' },
 ]
 
 export const PromoCategories: React.FC<PromoCategoriesProps> = ({ onOpenJoinModal }) => {
