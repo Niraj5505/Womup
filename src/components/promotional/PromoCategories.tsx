@@ -1,134 +1,116 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import { ArrowRight } from 'lucide-react'
 
 interface PromoCategoriesProps {
   onOpenJoinModal?: () => void
 }
 
+const categories = [
+  { name: 'Vegetables', img: '/images/categories/vegetables.jpg', emoji: '🥦' },
+  { name: 'Grocery', img: '/images/categories/grocery.jpg', emoji: '🛒' },
+  { name: 'Medical', img: '/images/categories/medical.jpg', emoji: '💊' },
+  { name: 'Salon', img: '/images/categories/salon.jpg', emoji: '✂️' },
+  { name: 'Garments', img: '/images/categories/garments.jpg', emoji: '👗' },
+  { name: 'Electronics', img: '/images/categories/electronics.jpg', emoji: '💻' },
+  { name: 'Footwear', img: '/images/categories/footwear.jpg', emoji: '👟' },
+  { name: 'Stationery', img: '/images/categories/stationery.jpg', emoji: '📚' },
+  { name: 'Restaurant', img: '/images/categories/restaurant.jpg', emoji: '🍽️' },
+  { name: 'Sweet Shop', img: '/images/categories/sweet.jpg', emoji: '🍮' },
+  { name: 'Hardware', img: '/images/categories/hardware.jpg', emoji: '🔧' },
+  { name: 'More', img: '', emoji: '🏪' },
+]
+
 export const PromoCategories: React.FC<PromoCategoriesProps> = ({ onOpenJoinModal }) => {
-  const scrollTo = (id: string) => {
-    const el = document.querySelector(id)
-    if (el) el.scrollIntoView({ behavior: 'smooth' })
-  }
-
   const handleViewAll = () => {
-    if (onOpenJoinModal) {
-      onOpenJoinModal()
-    } else {
-      scrollTo('#contact')
-    }
+    if (onOpenJoinModal) onOpenJoinModal()
+    else document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })
   }
-
-  // 12 Exact Categories from Mockup 6
-  const categories = [
-    {
-      name: 'Vegetables',
-      image: '/images/categories/exact_vegetables.png',
-    },
-    {
-      name: 'Grocery',
-      image: '/images/categories/exact_grocery.png',
-    },
-    {
-      name: 'Medical',
-      image: '/images/categories/exact_medical.png',
-    },
-    {
-      name: 'Salon',
-      image: '/images/categories/exact_salon.png',
-    },
-    {
-      name: 'Garments',
-      image: '/images/categories/exact_garments.png',
-    },
-    {
-      name: 'Electronics',
-      image: '/images/categories/exact_electronics.png',
-    },
-    {
-      name: 'Footwear',
-      image: '/images/categories/exact_footwear.png',
-    },
-    {
-      name: 'Stationery',
-      image: '/images/categories/exact_stationery.png',
-    },
-    {
-      name: 'Restaurant',
-      image: '/images/categories/exact_restaurant.png',
-    },
-    {
-      name: 'Sweet Shop',
-      image: '/images/categories/exact_sweetshop.png',
-    },
-    {
-      name: 'Hardware',
-      image: '/images/categories/exact_hardware.png',
-    },
-    {
-      name: 'More',
-      image: '/images/categories/exact_more.png',
-    },
-  ]
 
   return (
-    <section
-      id="categories"
-      className="py-16 sm:py-24 bg-gradient-to-b from-white via-pink-50/15 to-white relative overflow-hidden border-b border-pink-100/60"
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Section Header matching Mockup 6 */}
-        <div className="text-center max-w-3xl mx-auto mb-12">
-          <h2 className="text-3xl sm:text-5xl font-black text-[#0A0E2A] tracking-tight">
-            Wide Range of <span className="text-[#FF007A]">Local Shops</span>
-          </h2>
-          <p className="mt-2 text-sm sm:text-base text-slate-600 font-bold tracking-wide">
+    <section id="categories" className="relative py-16 sm:py-24 overflow-hidden bg-categories">
+      <div className="section-divider absolute top-0 left-0 right-0" />
+      <div className="absolute top-0 left-0 w-80 h-80 pointer-events-none" style={{ background: 'radial-gradient(circle, rgba(255,0,122,0.06) 0%, transparent 70%)', transform: 'translate(-20%,-20%)' }} />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-8 relative z-10">
+        {/* Header */}
+        <div className="text-center mb-10">
+          <motion.h2
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-3xl sm:text-5xl font-black tracking-tight mb-2"
+            style={{ color: '#0A0E2A' }}
+          >
+            Wide Range of <span style={{ color: '#FF007A' }}>Local Shops</span>
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="text-sm sm:text-base font-semibold"
+            style={{ color: '#6B7280' }}
+          >
             Everything you need, near you
-          </p>
+          </motion.p>
         </div>
 
-        {/* 12 Category Grid (4 cols on lg, 3 on md, 2 on sm) */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 max-w-5xl mx-auto mb-12">
-          {categories.map((cat, idx) => (
+        {/* 4×3 grid */}
+        <div className="grid grid-cols-3 sm:grid-cols-4 gap-3 sm:gap-4 max-w-5xl mx-auto mb-10">
+          {categories.map((cat, i) => (
             <motion.div
-              key={cat.name}
-              initial={{ opacity: 0, y: 15 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              key={i}
+              initial={{ opacity: 0, scale: 0.92 }}
+              whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              transition={{ delay: idx * 0.04 }}
-              whileHover={{ y: -4, scale: 1.02 }}
-              onClick={handleViewAll}
-              className="bg-white rounded-3xl p-3.5 sm:p-4 border border-pink-100 shadow-[0_4px_16px_rgba(0,0,0,0.03)] hover:border-pink-300 hover:shadow-[0_12px_28px_rgba(255,0,122,0.12)] transition-all flex flex-col items-center text-center cursor-pointer group"
+              transition={{ delay: i * 0.04 }}
+              whileHover={{ y: -4, scale: 1.03 }}
+              className="rounded-2xl overflow-hidden group cursor-pointer glass border border-slate-100 hover:border-pink-200 transition-all"
+              style={{ boxShadow: '0 2px 12px rgba(0,0,0,0.05)' }}
             >
-              {/* Image Box */}
-              <div className="w-full aspect-4/3 rounded-2xl overflow-hidden mb-3 bg-slate-50 border border-slate-100 flex items-center justify-center p-1">
-                <img
-                  src={cat.image}
-                  alt={cat.name}
-                  className="w-full h-full object-contain group-hover:scale-108 transition-transform duration-300"
-                />
+              {/* Image */}
+              <div className="relative overflow-hidden" style={{ aspectRatio: '1 / 1', background: '#f9f0f5' }}>
+                {cat.img ? (
+                  <img
+                    src={cat.img}
+                    alt={cat.name}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    onError={e => {
+                      const t = e.target as HTMLImageElement
+                      t.style.display = 'none'
+                      t.nextElementSibling?.classList.remove('hidden')
+                    }}
+                  />
+                ) : null}
+                <div className={`${cat.img ? 'hidden' : ''} w-full h-full flex items-center justify-center text-4xl`}>
+                  {cat.emoji}
+                </div>
+                {/* "More" card special style */}
+                {cat.name === 'More' && (
+                  <div className="absolute inset-0 flex items-center justify-center text-4xl" style={{ background: 'linear-gradient(135deg,#fff0f5,#f5f0ff)' }}>
+                    🏪
+                  </div>
+                )}
               </div>
-
-              {/* Bold Category Name from Mockup */}
-              <h3 className="text-sm sm:text-base font-black text-[#0A0E2A] group-hover:text-[#FF007A] transition-colors">
-                {cat.name}
-              </h3>
+              {/* Label */}
+              <div className="py-2 px-2 text-center">
+                <span className="text-xs sm:text-sm font-black" style={{ color: '#0A0E2A' }}>{cat.name}</span>
+              </div>
             </motion.div>
           ))}
         </div>
 
-        {/* Bottom CTA Button: View All Shops in Pink Pill */}
+        {/* View All button */}
         <div className="flex justify-center">
           <motion.button
-            type="button"
-            whileHover={{ scale: 1.04 }}
+            whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.96 }}
             onClick={handleViewAll}
-            className="px-10 py-3.5 rounded-full bg-gradient-to-r from-[#FF007A] to-[#E11D48] hover:from-[#E11D48] hover:to-[#BE185D] text-white text-sm sm:text-base font-bold shadow-[0_8px_25px_rgba(255,0,122,0.35)] transition-all flex items-center gap-2 cursor-pointer"
+            type="button"
+            className="px-10 py-3.5 rounded-full text-white font-black text-base cursor-pointer"
+            style={{ background: 'linear-gradient(135deg,#FF007A,#c7005f)', boxShadow: '0 6px 22px rgba(255,0,122,0.38)' }}
           >
-            <span>View All Shops</span>
-            <ArrowRight className="w-4 h-4" />
+            View All Shops
           </motion.button>
         </div>
       </div>

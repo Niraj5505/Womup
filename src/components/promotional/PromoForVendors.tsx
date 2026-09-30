@@ -1,191 +1,145 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import {
-  Users,
-  TrendingUp,
-  Coins,
-  QrCode,
-  ShieldCheck,
-  Building2,
-  ChevronRight,
-  Footprints,
-  BarChart3,
-  Monitor,
-} from 'lucide-react'
 
 interface PromoForVendorsProps {
   onOpenJoinModal?: () => void
 }
 
+const CheckCircle = () => (
+  <svg viewBox="0 0 24 24" fill="none" className="w-5 h-5 shrink-0" stroke="#FF007A" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+    <circle cx="12" cy="12" r="10" /><polyline points="9 12 11 14 15 10" />
+  </svg>
+)
+
+const bullets = [
+  'Get more customers from WOMUP network',
+  'Increase daily sales',
+  'No extra investment',
+  'Easy QR based billing',
+  'Timely settlement',
+  'Be part of a growing community',
+]
+
+const bottomCards = [
+  { emoji: '👣', label: 'More Footfall' },
+  { emoji: '📈', label: 'Higher Sales' },
+  { emoji: '👥', label: 'Trusted Customers' },
+  { emoji: '💻', label: 'Digital Business' },
+]
+
 export const PromoForVendors: React.FC<PromoForVendorsProps> = ({ onOpenJoinModal }) => {
-  const scrollTo = (id: string) => {
-    const el = document.querySelector(id)
-    if (el) el.scrollIntoView({ behavior: 'smooth' })
+  const handleAction = () => {
+    if (onOpenJoinModal) onOpenJoinModal()
+    else document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })
   }
-
-  const handleVendorRegister = () => {
-    if (onOpenJoinModal) {
-      onOpenJoinModal()
-    } else {
-      scrollTo('#contact')
-    }
-  }
-
-  // 6 Exact Bullets from Mockup 4
-  const vendorBenefits = [
-    {
-      title: 'Get more customers from WOMUP network',
-      icon: Users,
-    },
-    {
-      title: 'Increase daily sales',
-      icon: TrendingUp,
-    },
-    {
-      title: 'No extra investment',
-      icon: Coins,
-    },
-    {
-      title: 'Easy QR based billing',
-      icon: QrCode,
-    },
-    {
-      title: 'Timely settlement',
-      icon: ShieldCheck,
-    },
-    {
-      title: 'Be part of a growing community',
-      icon: Building2,
-    },
-  ]
-
-  // 4 Bottom cards matching Mockup 4
-  const bottomCards = [
-    {
-      title: 'More Footfall',
-      icon: Footprints,
-      iconColor: 'text-[#8B5CF6]',
-      bgColor: 'bg-purple-50',
-    },
-    {
-      title: 'Higher Sales',
-      icon: BarChart3,
-      iconColor: 'text-[#FF007A]',
-      bgColor: 'bg-pink-50',
-    },
-    {
-      title: 'Trusted Customers',
-      icon: Users,
-      iconColor: 'text-[#E11D48]',
-      bgColor: 'bg-rose-50',
-    },
-    {
-      title: 'Digital Business',
-      icon: Monitor,
-      iconColor: 'text-[#2563EB]',
-      bgColor: 'bg-blue-50',
-    },
-  ]
 
   return (
-    <section
-      id="for-vendors"
-      className="py-14 sm:py-20 bg-gradient-to-b from-white via-blue-50/15 to-white relative overflow-hidden border-b border-blue-100/50"
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Section Header matching Mockup 4 */}
-        <div className="text-center max-w-3xl mx-auto mb-12">
-          <h2 className="text-3xl sm:text-5xl font-black text-[#0A0E2A] tracking-tight">
+    <section id="for-vendors" className="relative py-16 sm:py-24 overflow-hidden bg-vendors">
+      <div className="section-divider absolute top-0 left-0 right-0" />
+      <div className="absolute bottom-0 right-0 w-80 h-80 pointer-events-none" style={{ background: 'radial-gradient(circle, rgba(7,31,82,0.06) 0%, transparent 70%)', transform: 'translate(20%,20%)' }} />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-8 relative z-10">
+        {/* Header */}
+        <div className="text-center mb-10">
+          <motion.h2
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-3xl sm:text-5xl font-black tracking-tight mb-2"
+            style={{ color: '#0A0E2A' }}
+          >
             For Vendors
-          </h2>
-          <p className="mt-2 text-xs sm:text-sm md:text-base text-slate-600 font-bold tracking-wide">
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="text-sm sm:text-base font-semibold"
+            style={{ color: '#6B7280' }}
+          >
             More Customers &bull; Higher Sales &bull; Digital Growth
-          </p>
+          </motion.p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center mb-12 max-w-6xl mx-auto">
-          {/* Left Column: Unified 6-benefit Card + CTA Button */}
-          <div className="lg:col-span-6 space-y-6">
-            {/* Single Unified White Benefit Card from Mockup 4 */}
-            <div className="bg-white rounded-3xl p-6 sm:p-7 border border-pink-100 shadow-[0_8px_30px_rgba(0,0,0,0.04)] space-y-4">
-              {vendorBenefits.map((item, idx) => {
-                const Icon = item.icon
-                return (
-                  <motion.div
-                    key={item.title}
-                    initial={{ opacity: 0, x: -10 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: idx * 0.06 }}
-                    className="flex items-center gap-3.5 group"
-                  >
-                    <div className="w-10 h-10 rounded-full bg-gradient-to-tr from-[#FF007A] to-[#E11D48] text-white flex items-center justify-center shrink-0 shadow-xs group-hover:scale-108 transition-transform">
-                      <Icon className="w-5 h-5" />
-                    </div>
-                    <span className="text-xs sm:text-sm md:text-base font-bold text-slate-800">
-                      {item.title}
-                    </span>
-                  </motion.div>
-                )
-              })}
-            </div>
+        {/* Main layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-center mb-10 max-w-6xl mx-auto">
 
-            {/* CTA Button: Register as Vendor > */}
-            <div className="flex justify-center lg:justify-start">
-              <motion.button
-                type="button"
-                whileHover={{ scale: 1.03 }}
-                whileTap={{ scale: 0.97 }}
-                onClick={handleVendorRegister}
-                className="w-full sm:w-auto px-9 py-3.5 rounded-full bg-gradient-to-r from-[#FF007A] to-[#E11D48] hover:from-[#E11D48] hover:to-[#BE185D] text-white text-sm sm:text-base font-bold shadow-[0_8px_25px_rgba(255,0,122,0.35)] transition-all flex items-center justify-center gap-2 cursor-pointer"
-              >
-                <span>Register as Vendor</span>
-                <ChevronRight className="w-5 h-5 ml-0.5" />
-              </motion.button>
-            </div>
+          {/* LEFT — benefits list */}
+          <div className="lg:col-span-6">
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.55 }}
+              className="space-y-4"
+            >
+              {bullets.map((b, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, x: -10 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.06 }}
+                  className="flex items-center gap-3"
+                >
+                  <CheckCircle />
+                  <span className="text-sm sm:text-base font-semibold" style={{ color: '#374151' }}>{b}</span>
+                </motion.div>
+              ))}
+
+              <div className="pt-4">
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.96 }}
+                  onClick={handleAction}
+                  type="button"
+                  className="px-9 py-3.5 rounded-full text-white font-black text-sm cursor-pointer flex items-center gap-2"
+                  style={{ background: 'linear-gradient(135deg,#FF007A,#c7005f)', boxShadow: '0 6px 22px rgba(255,0,122,0.38)' }}
+                >
+                  Register as Vendor <span>›</span>
+                </motion.button>
+              </div>
+            </motion.div>
           </div>
 
-          {/* Right Column: Indian Merchant Shopkeeper Photo */}
+          {/* RIGHT — Shopkeeper photo */}
           <div className="lg:col-span-6 flex justify-center">
             <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="relative w-full max-w-md"
+              transition={{ duration: 0.55 }}
+              className="relative w-full max-w-sm"
             >
-              <div className="absolute inset-0 bg-gradient-to-tr from-blue-300/25 via-pink-200/20 to-transparent rounded-3xl blur-2xl transform scale-95" />
-              <div className="relative rounded-3xl overflow-hidden shadow-[0_16px_40px_rgba(30,58,138,0.12)] border-4 border-white bg-white">
+              <div className="rounded-3xl overflow-hidden border-4 border-white shadow-2xl">
                 <img
                   src="/images/vendor_shopkeeper.jpg"
-                  alt="WOMUP Partner Merchant Shopkeeper"
-                  className="w-full h-auto object-cover max-h-[500px]"
+                  alt="WOMUP Vendor"
+                  className="w-full h-auto object-cover"
+                  style={{ maxHeight: 480 }}
                 />
               </div>
             </motion.div>
           </div>
         </div>
 
-        {/* 4 Bottom Cards in a Single Unified White Pill Bar */}
-        <div className="max-w-4xl mx-auto bg-white rounded-3xl border border-pink-100 shadow-[0_8px_30px_rgba(0,0,0,0.04)] p-3 sm:p-4">
-          <div className="grid grid-cols-2 sm:grid-cols-4 divide-y sm:divide-y-0 sm:divide-x divide-slate-100">
-            {bottomCards.map((card, idx) => {
-              const Icon = card.icon
-              return (
-                <div
-                  key={idx}
-                  className="flex flex-col items-center justify-center text-center p-3 group hover:bg-blue-50/30 rounded-2xl transition-colors"
-                >
-                  <div className={`w-11 h-11 rounded-2xl ${card.bgColor} ${card.iconColor} flex items-center justify-center mb-1.5 shadow-2xs group-hover:scale-110 transition-transform`}>
-                    <Icon className="w-5 h-5" />
-                  </div>
-                  <div className="text-xs sm:text-sm font-black text-[#0A0E2A]">
-                    {card.title}
-                  </div>
-                </div>
-              )
-            })}
-          </div>
+        {/* 4 Bottom cards */}
+        <div className="max-w-4xl mx-auto grid grid-cols-2 sm:grid-cols-4 gap-3">
+          {bottomCards.map((c, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.06 }}
+              className="rounded-2xl p-4 text-center glass border border-slate-100 hover:border-pink-200 transition-all group"
+              style={{ boxShadow: '0 2px 12px rgba(0,0,0,0.04)' }}
+            >
+              <div className="text-2xl mb-1.5 group-hover:scale-110 transition-transform">{c.emoji}</div>
+              <div className="text-xs font-black" style={{ color: '#0A0E2A' }}>{c.label}</div>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>

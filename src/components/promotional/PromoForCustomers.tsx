@@ -1,222 +1,171 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import {
-  Gift,
-  Coins,
-  Store,
-  Truck,
-  Users,
-  Wallet,
-  ShoppingBag,
-  CreditCard,
-  ArrowRight,
-} from 'lucide-react'
 
 interface PromoForCustomersProps {
   onOpenJoinModal?: () => void
 }
 
+// SVG Icons matching reference
+const CheckCircle = ({ color = '#FF007A' }) => (
+  <svg viewBox="0 0 24 24" fill="none" className="w-5 h-5 shrink-0" stroke={color} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+    <circle cx="12" cy="12" r="10" /><polyline points="9 12 11 14 15 10" />
+  </svg>
+)
+
+const bulletData = [
+  { text: 'Use up to 10-15% coin on every purchase' },
+  { text: 'Shop at nearby trusted local stores' },
+  { text: 'Get home delivery (for vegetables)' },
+  { text: 'Refer others and earn income' },
+]
+
+const bottomCards = [
+  { emoji: '💳', label: 'Real Savings' },
+  { emoji: '🏪', label: 'Local Shops' },
+  { emoji: '🛍️', label: 'Wide Variety' },
+  { emoji: '📱', label: 'Easy Pay' },
+]
+
 export const PromoForCustomers: React.FC<PromoForCustomersProps> = ({ onOpenJoinModal }) => {
-  const scrollTo = (id: string) => {
-    const el = document.querySelector(id)
-    if (el) el.scrollIntoView({ behavior: 'smooth' })
+  const handleStart = () => {
+    if (onOpenJoinModal) onOpenJoinModal()
+    else document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })
   }
-
-  const handleStartShopping = () => {
-    if (onOpenJoinModal) {
-      onOpenJoinModal()
-    } else {
-      scrollTo('#contact')
-    }
-  }
-
-  const bulletPoints = [
-    {
-      text: 'Use up to 10-15% coin on every purchase',
-      icon: Coins,
-      iconColor: 'bg-[#8B5CF6] text-white',
-    },
-    {
-      text: 'Shop at nearby trusted local stores',
-      icon: Store,
-      iconColor: 'bg-[#FF007A] text-white',
-    },
-    {
-      text: 'Get home delivery (for vegetables)',
-      icon: Truck,
-      iconColor: 'bg-[#FF007A] text-white',
-    },
-    {
-      text: 'Refer others and earn income',
-      icon: Users,
-      iconColor: 'bg-[#FF007A] text-white',
-    },
-  ]
-
-  const bottomCards = [
-    {
-      title: 'Real Savings',
-      icon: Wallet,
-      iconColor: 'text-[#FF007A]',
-      bgColor: 'bg-pink-50',
-    },
-    {
-      title: 'Local Shops',
-      icon: Store,
-      iconColor: 'text-[#FF007A]',
-      bgColor: 'bg-pink-50',
-    },
-    {
-      title: 'Wide Variety',
-      icon: ShoppingBag,
-      iconColor: 'text-[#10B981]',
-      bgColor: 'bg-emerald-50',
-    },
-    {
-      title: 'Easy Payment',
-      icon: CreditCard,
-      iconColor: 'text-[#2563EB]',
-      bgColor: 'bg-blue-50',
-    },
-  ]
 
   return (
-    <section
-      id="for-customers"
-      className="py-14 sm:py-20 bg-gradient-to-b from-white via-pink-50/20 to-white relative overflow-hidden border-b border-pink-100/50"
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Section Header matching Mockup 3 */}
-        <div className="text-center max-w-3xl mx-auto mb-12">
-          <h2 className="text-3xl sm:text-5xl font-black text-[#0A0E2A] tracking-tight">
-            For <span className="text-[#FF007A]">Customers</span>
-          </h2>
-          <p className="mt-2 text-xs sm:text-sm md:text-base text-slate-600 font-bold tracking-wide">
+    <section id="for-customers" className="relative py-16 sm:py-24 overflow-hidden bg-customers">
+      <div className="section-divider absolute top-0 left-0 right-0" />
+      <div className="absolute top-0 right-0 w-80 h-80 pointer-events-none" style={{ background: 'radial-gradient(circle, rgba(255,0,122,0.09) 0%, transparent 70%)', transform: 'translate(25%,-20%)' }} />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-8 relative z-10">
+        {/* Header */}
+        <div className="text-center mb-10">
+          <motion.h2
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-3xl sm:text-5xl font-black tracking-tight mb-2"
+            style={{ color: '#FF007A' }}
+          >
+            For Customers
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="text-sm sm:text-base font-semibold"
+            style={{ color: '#6B7280' }}
+          >
             Shop Smart &bull; Save Money &bull; Earn Income
-          </p>
+          </motion.p>
         </div>
 
-        {/* Main Content: Left Woman with Phone pointing + Right Card with ₹2,000 Shopping Coin */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center mb-12 max-w-6xl mx-auto">
-          {/* Left Column: Indian Woman pointing at phone */}
+        {/* Main layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-center mb-10 max-w-6xl mx-auto">
+
+          {/* LEFT — Woman photo */}
           <div className="lg:col-span-5 flex justify-center">
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="relative w-full max-w-sm sm:max-w-md"
+              transition={{ duration: 0.55 }}
+              className="relative w-full max-w-sm"
             >
-              {/* Soft ambient pink glow behind the portrait */}
-              <div className="absolute inset-0 bg-gradient-to-tr from-pink-300/30 via-purple-200/20 to-transparent rounded-3xl blur-2xl transform scale-95" />
-
-              <div className="relative rounded-3xl overflow-hidden shadow-[0_16px_40px_rgba(255,0,122,0.12)] border-4 border-white bg-white">
+              <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse, rgba(255,0,122,0.20) 0%, transparent 70%)' }} />
+              <div className="relative rounded-3xl overflow-hidden border-4 border-white shadow-2xl">
                 <img
                   src="/images/customer_woman_pointing.jpg"
-                  alt="WOMUP Happy Customer pointing to smartphone"
-                  className="w-full h-auto object-cover max-h-[500px]"
+                  alt="WOMUP Customer"
+                  className="w-full h-auto object-cover"
+                  style={{ maxHeight: 500 }}
                 />
               </div>
             </motion.div>
           </div>
 
-          {/* Right Column: Benefit Card + Shopping Cart */}
+          {/* RIGHT — Benefit card */}
           <div className="lg:col-span-7">
             <motion.div
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="relative bg-white rounded-3xl p-6 sm:p-8 border border-pink-100 shadow-[0_12px_40px_rgba(255,0,122,0.06)] overflow-hidden"
+              transition={{ duration: 0.55 }}
+              className="rounded-3xl p-7 sm:p-8 glass border border-pink-100"
+              style={{ boxShadow: '0 12px 40px rgba(255,0,122,0.08)' }}
             >
-              {/* Header inside card: Big Pink Gift Box + ₹2,000 Shopping Coin */}
-              <div className="flex items-center gap-4 sm:gap-5 pb-6 border-b border-pink-50">
-                <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-3xl bg-gradient-to-tr from-[#FF007A] to-[#E11D48] text-white flex items-center justify-center shrink-0 shadow-[0_8px_20px_rgba(255,0,122,0.3)]">
-                  <Gift className="w-9 h-9 sm:w-11 sm:h-11" />
+              {/* ₹2,000 coin header */}
+              <div className="flex items-center gap-5 pb-6 mb-6" style={{ borderBottom: '1.5px solid rgba(255,0,122,0.10)' }}>
+                <div
+                  className="w-20 h-20 rounded-3xl text-white flex items-center justify-center text-3xl shrink-0 shadow-lg"
+                  style={{ background: 'linear-gradient(135deg,#FF007A,#c7005f)', boxShadow: '0 8px 24px rgba(255,0,122,0.38)' }}
+                >
+                  🎁
                 </div>
                 <div>
-                  <div className="text-sm sm:text-base font-black text-[#0A0E2A] leading-tight">
-                    Get
-                  </div>
-                  <div className="text-3xl sm:text-4xl font-black text-[#FF007A] tracking-tight leading-none my-0.5">
-                    ₹2,000
-                  </div>
-                  <div className="text-base sm:text-lg font-black text-[#0A0E2A] leading-tight">
-                    Shopping Coin <span className="font-extrabold text-slate-700">every month</span>
+                  <div className="text-xs font-bold uppercase tracking-widest mb-0.5" style={{ color: '#9CA3AF' }}>Get</div>
+                  <div className="text-4xl font-black leading-none" style={{ color: '#FF007A' }}>₹2,000</div>
+                  <div className="text-base font-bold" style={{ color: '#0A0E2A' }}>
+                    Shopping Coin <span className="font-medium text-sm" style={{ color: '#374151' }}>every month</span>
                   </div>
                 </div>
               </div>
 
-              {/* 4 Bullet check items with circular icons */}
-              <div className="py-6 space-y-4">
-                {bulletPoints.map((item, idx) => {
-                  const Icon = item.icon
-                  return (
-                    <motion.div
-                      key={idx}
-                      initial={{ opacity: 0, x: 10 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: idx * 0.08 }}
-                      className="flex items-center gap-3.5"
-                    >
-                      <div className={`w-8 h-8 rounded-full ${item.iconColor} flex items-center justify-center shrink-0 shadow-xs`}>
-                        <Icon className="w-4 h-4" />
-                      </div>
-                      <span className="text-xs sm:text-sm md:text-base font-bold text-slate-800">
-                        {item.text}
-                      </span>
-                    </motion.div>
-                  )
-                })}
+              {/* Bullet list */}
+              <div className="space-y-4 mb-7">
+                {bulletData.map((b, i) => (
+                  <motion.div
+                    key={i}
+                    initial={{ opacity: 0, x: 8 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: i * 0.06 }}
+                    className="flex items-center gap-3"
+                  >
+                    <CheckCircle color="#FF007A" />
+                    <span className="text-sm sm:text-base font-semibold" style={{ color: '#374151' }}>{b.text}</span>
+                  </motion.div>
+                ))}
               </div>
 
-              {/* Action Button & Shopping Cart with Vegetables */}
-              <div className="pt-2 flex flex-col sm:flex-row items-center justify-between gap-4">
+              {/* CTA row */}
+              <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
                 <motion.button
-                  type="button"
                   whileHover={{ scale: 1.04 }}
                   whileTap={{ scale: 0.96 }}
-                  onClick={handleStartShopping}
-                  className="w-full sm:w-auto px-8 py-3.5 rounded-full bg-gradient-to-r from-[#FF007A] to-[#E11D48] hover:from-[#E11D48] hover:to-[#BE185D] text-white text-sm sm:text-base font-black shadow-[0_8px_25px_rgba(255,0,122,0.35)] transition-all flex items-center justify-center gap-2 cursor-pointer z-10"
+                  onClick={handleStart}
+                  type="button"
+                  className="w-full sm:w-auto px-8 py-3.5 rounded-full text-white font-black text-sm cursor-pointer"
+                  style={{ background: 'linear-gradient(135deg,#FF007A,#c7005f)', boxShadow: '0 6px 22px rgba(255,0,122,0.38)' }}
                 >
-                  <span>Start Shopping Now</span>
-                  <ArrowRight className="w-4 h-4 ml-0.5" />
+                  Start Shopping Now →
                 </motion.button>
-
-                {/* Shopping Cart Image on bottom-right of card */}
-                <div className="w-28 sm:w-36 h-auto shrink-0 -mb-4 sm:-mb-6 self-end">
-                  <img
-                    src="/images/vegetable_cart.jpg"
-                    alt="Shopping Cart Full of Fresh Vegetables"
-                    className="w-full h-auto object-contain drop-shadow-md"
-                  />
+                {/* Grocery cart image */}
+                <div className="w-28 h-auto shrink-0">
+                  <img src="/images/vegetable_cart.jpg" alt="Grocery" className="w-full h-auto object-contain drop-shadow-lg" />
                 </div>
               </div>
             </motion.div>
           </div>
         </div>
 
-        {/* 4 Bottom Cards in a Single Unified White Pill Bar */}
-        <div className="max-w-4xl mx-auto bg-white rounded-3xl border border-pink-100 shadow-[0_8px_30px_rgba(0,0,0,0.04)] p-3 sm:p-4">
-          <div className="grid grid-cols-2 sm:grid-cols-4 divide-y sm:divide-y-0 sm:divide-x divide-slate-100">
-            {bottomCards.map((card, idx) => {
-              const Icon = card.icon
-              return (
-                <div
-                  key={idx}
-                  className="flex flex-col items-center justify-center text-center p-3 group hover:bg-pink-50/30 rounded-2xl transition-colors"
-                >
-                  <div className={`w-11 h-11 rounded-2xl ${card.bgColor} ${card.iconColor} flex items-center justify-center mb-1.5 shadow-2xs group-hover:scale-110 transition-transform`}>
-                    <Icon className="w-5 h-5" />
-                  </div>
-                  <div className="text-xs sm:text-sm font-black text-[#0A0E2A]">
-                    {card.title}
-                  </div>
-                </div>
-              )
-            })}
-          </div>
+        {/* 4 Bottom cards */}
+        <div className="max-w-4xl mx-auto grid grid-cols-2 sm:grid-cols-4 gap-3">
+          {bottomCards.map((c, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.06 }}
+              className="rounded-2xl p-4 text-center glass border border-pink-100 hover:border-pink-300 transition-all group"
+              style={{ boxShadow: '0 2px 12px rgba(255,0,122,0.05)' }}
+            >
+              <div className="text-2xl mb-1.5 group-hover:scale-110 transition-transform">{c.emoji}</div>
+              <div className="text-xs font-black" style={{ color: '#0A0E2A' }}>{c.label}</div>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>

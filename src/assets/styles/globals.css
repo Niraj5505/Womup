@@ -1,82 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;0,14..32,800;0,14..32,900;1,14..32,400&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    --color-womup-bg: #FAF7FD;
-    --color-womup-surface: #FFFFFF;
-    --color-womup-pink-vibrant: #FF1E7A;
-    --color-womup-rose: #F43F5E;
-    --color-womup-purple: #7C3AED;
-    --color-womup-violet: #6366F1;
-    --color-womup-gold: #F59E0B;
-    --color-womup-amber: #FBBF24;
-    --color-womup-emerald: #10B981;
-    --color-womup-dark: #0A0724;
-    --color-womup-text-primary: #0A0724;
-    --color-womup-text-secondary: #475569;
-    --color-womup-border: #E8E3F5;
+    --pink: #FF007A;
+    --pink-dk: #E11D48;
+    --navy: #0A0E2A;
+    --purple: #7C3AED;
+    --blue: #1E3A8A;
   }
 
-  * {
-    border-color: #E8E3F5;
-  }
+  * { box-sizing: border-box; }
 
   html {
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background-color: #FAF7FD;
-    color: #0A0724;
   }
 
   body {
-    background-color: #FAF7FD;
-    color: #0A0724;
-    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-family: 'Inter', system-ui, sans-serif;
+    background: #fff;
+    color: #0A0E2A;
     overflow-x: hidden;
   }
 
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Inter', system-ui, sans-serif;
-    letter-spacing: -0.025em;
-    color: #0A0724;
+    color: #0A0E2A;
   }
 }
 
-/* Crisp refined scrollbar with subtle brand tint */
-::-webkit-scrollbar {
-  width: 7px;
-  height: 7px;
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #fdf4f8; }
+::-webkit-scrollbar-thumb { background: #fda4c5; border-radius: 99px; }
+::-webkit-scrollbar-thumb:hover { background: #FF007A; }
+
+/* ── Section BGs exactly matching reference ── */
+.bg-hero       { background: linear-gradient(135deg, #fde8f2 0%, #f3eafd 45%, #e8f4fd 100%); }
+.bg-how        { background: #fff; }
+.bg-customers  { background: linear-gradient(135deg, #fff5f9 0%, #f9f0ff 50%, #eff6ff 100%); }
+.bg-vendors    { background: #fff; }
+.bg-income     { background: linear-gradient(135deg, #fff5f9 0%, #f5f3ff 60%, #eff6ff 100%); }
+.bg-categories { background: #fff; }
+.bg-app        { background: linear-gradient(135deg, #fff5f9 0%, #f5f0ff 50%, #eff6ff 100%); }
+.bg-contact    { background: linear-gradient(135deg, #fde8f2 0%, #f5eafd 50%, #ece8ff 100%); }
+
+/* ── Dividers ── */
+.section-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(255,0,122,0.18) 50%, transparent 100%);
 }
 
-::-webkit-scrollbar-track {
-  background: #FAF7FD;
+/* ── Animations ── */
+@keyframes floatY {
+  0%,100% { transform: translateY(0); }
+  50%      { transform: translateY(-8px); }
 }
-
-::-webkit-scrollbar-thumb {
-  background: #D8B4FE;
-  border-radius: 9999px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #A855F7;
-}
-
-/* Currency & Indian Rupee symbol utility */
-.font-inr {
-  font-family: 'Inter', system-ui, sans-serif;
-  font-feature-settings: 'cv01' on;
-}
-
-/* Ambient gradient animation */
 @keyframes pulseSlow {
-  0%, 100% { opacity: 0.5; transform: scale(1); }
-  50% { opacity: 0.8; transform: scale(1.05); }
+  0%,100% { opacity:.5; transform:scale(1); }
+  50%      { opacity:.9; transform:scale(1.08); }
 }
+.animate-float { animation: floatY 4s ease-in-out infinite; }
+.animate-pulse-slow { animation: pulseSlow 6s ease-in-out infinite; }
 
-.animate-pulse-slow {
-  animation: pulseSlow 8s ease-in-out infinite;
+/* ── White Glassmorphism card ── */
+.glass {
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
 }
-

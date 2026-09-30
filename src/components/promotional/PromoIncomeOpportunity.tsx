@@ -1,184 +1,149 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import {
-  Users,
-  CircleDollarSign,
-  ShoppingCart,
-  TrendingUp,
-  ArrowRight,
-} from 'lucide-react'
 
 interface PromoIncomeOpportunityProps {
   onOpenJoinModal?: () => void
 }
 
-export const PromoIncomeOpportunity: React.FC<PromoIncomeOpportunityProps> = ({
-  onOpenJoinModal,
-}) => {
-  const scrollTo = (id: string) => {
-    const el = document.querySelector(id)
-    if (el) el.scrollIntoView({ behavior: 'smooth' })
-  }
+const bottomCards = [
+  { emoji: '🌐', label: '7 Level Referral Income' },
+  { emoji: '💰', label: 'No Investment Required' },
+  { emoji: '🛒', label: 'Only Real Purchases' },
+  { emoji: '📊', label: 'Long Term Income' },
+]
 
+// Bar chart matching reference — 5 bars increasing from left to right
+const BarChart = () => (
+  <div className="flex items-end justify-center gap-2 h-48 sm:h-60">
+    {[30, 45, 60, 75, 100].map((h, i) => (
+      <motion.div
+        key={i}
+        initial={{ height: 0 }}
+        whileInView={{ height: `${h}%` }}
+        viewport={{ once: true }}
+        transition={{ delay: i * 0.1, duration: 0.6, ease: 'easeOut' }}
+        className="w-10 sm:w-14 rounded-t-xl relative"
+        style={{
+          background: i < 4
+            ? 'linear-gradient(180deg, rgba(255,0,122,0.3) 0%, rgba(255,0,122,0.15) 100%)'
+            : 'linear-gradient(180deg, #FF007A 0%, #c7005f 100%)',
+          alignSelf: 'flex-end',
+        }}
+      />
+    ))}
+    {/* Arrow overlay */}
+  </div>
+)
+
+export const PromoIncomeOpportunity: React.FC<PromoIncomeOpportunityProps> = ({ onOpenJoinModal }) => {
   const handleKnowMore = () => {
-    if (onOpenJoinModal) {
-      onOpenJoinModal()
-    } else {
-      scrollTo('#contact')
-    }
+    if (onOpenJoinModal) onOpenJoinModal()
+    else document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })
   }
-
-  const guaranteeCards = [
-    {
-      title: '7 Level Referral Income',
-      icon: Users,
-      iconColor: 'text-[#8B5CF6]',
-      bgColor: 'bg-purple-50',
-    },
-    {
-      title: 'No Investment Required',
-      icon: CircleDollarSign,
-      iconColor: 'text-[#10B981]',
-      bgColor: 'bg-emerald-50',
-    },
-    {
-      title: 'Only Real Purchases',
-      icon: ShoppingCart,
-      iconColor: 'text-[#F97316]',
-      bgColor: 'bg-orange-50',
-    },
-    {
-      title: 'Long Term Income',
-      icon: TrendingUp,
-      iconColor: 'text-[#10B981]',
-      bgColor: 'bg-emerald-50',
-    },
-  ]
 
   return (
-    <section
-      id="income"
-      className="py-14 sm:py-20 bg-gradient-to-b from-white via-pink-50/20 to-white relative overflow-hidden border-b border-pink-100/50"
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Section Header from 5_income_opportunity.png */}
-        <div className="text-center max-w-3xl mx-auto mb-10">
-          <h2 className="text-3xl sm:text-5xl font-black text-[#0A0E2A] tracking-tight">
-            Income <span className="text-[#FF007A]">Opportunity</span>
-          </h2>
-          <p className="mt-2 text-xs sm:text-sm md:text-base text-slate-600 font-bold tracking-wide">
+    <section id="income" className="relative py-16 sm:py-24 overflow-hidden bg-income">
+      <div className="section-divider absolute top-0 left-0 right-0" />
+      <div className="absolute top-0 right-0 w-96 h-96 pointer-events-none" style={{ background: 'radial-gradient(circle, rgba(255,0,122,0.09) 0%, transparent 70%)', transform: 'translate(25%,-25%)' }} />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-8 relative z-10">
+        {/* Header */}
+        <div className="text-center mb-10">
+          <motion.h2
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-3xl sm:text-5xl font-black tracking-tight mb-2"
+            style={{ color: '#0A0E2A' }}
+          >
+            Income <span style={{ color: '#FF007A' }}>O</span>pportunity
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="text-sm sm:text-base font-semibold"
+            style={{ color: '#6B7280' }}
+          >
             Shop &bull; Refer &bull; Earn
-          </p>
+          </motion.p>
         </div>
 
-        {/* Central Display Card matching Mockup 5 */}
-        <div className="max-w-5xl mx-auto bg-white rounded-3xl p-6 sm:p-10 border border-pink-100 shadow-[0_12px_36px_rgba(255,0,122,0.06)] mb-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-            {/* Left: Text & High Numbers */}
-            <div className="lg:col-span-7 space-y-3 text-center lg:text-left">
-              <p className="text-base sm:text-lg font-bold text-slate-700">
-                By simply shopping <br />
-                and referring others
-              </p>
+        {/* Main content card */}
+        <div className="max-w-5xl mx-auto mb-10">
+          <motion.div
+            initial={{ opacity: 0, y: 18 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="rounded-3xl p-8 sm:p-10 glass border border-pink-100"
+            style={{ boxShadow: '0 12px 40px rgba(255,0,122,0.08)' }}
+          >
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
 
+              {/* LEFT text */}
               <div>
-                <span className="text-2xl sm:text-3xl font-black text-[#0A0E2A] block sm:inline mr-2">
-                  Earn
-                </span>
-                <span className="text-3xl sm:text-5xl lg:text-[54px] font-black text-[#FF007A] tracking-tight block leading-tight">
-                  ₹30,000 <span className="text-2xl sm:text-3xl font-black text-[#FF007A]">to</span>
-                </span>
-                <span className="text-4xl sm:text-6xl lg:text-[62px] font-black text-[#FF007A] tracking-tight block leading-tight">
-                  ₹3,00,000
-                </span>
-                <span className="text-xl sm:text-2xl font-black text-[#0A0E2A] block mt-1">
-                  per month
-                </span>
-              </div>
-            </div>
-
-            {/* Right: 3D Ascending Bars with Upward Curving Arrow from 5_income_opportunity.png */}
-            <div className="lg:col-span-5 relative flex items-end justify-center h-64 sm:h-72 px-4 pb-4">
-              {/* 5 Gradient Rising Bars */}
-              <div className="w-full flex items-end justify-between gap-3 relative z-10">
-                {[
-                  { height: '28%', color: 'from-pink-300 to-pink-400' },
-                  { height: '45%', color: 'from-pink-400 to-[#FF007A]' },
-                  { height: '62%', color: 'from-[#FF007A] to-purple-500' },
-                  { height: '80%', color: 'from-purple-500 to-indigo-600' },
-                  { height: '100%', color: 'from-indigo-600 to-blue-600' },
-                ].map((bar, i) => (
-                  <motion.div
-                    key={i}
-                    initial={{ height: 0 }}
-                    whileInView={{ height: bar.height }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.7, delay: i * 0.12 }}
-                    className={`flex-1 rounded-t-xl bg-gradient-to-t ${bar.color} shadow-md relative`}
-                  >
-                    <div className="absolute top-1 left-1 right-1 h-1.5 rounded-full bg-white/40" />
-                  </motion.div>
-                ))}
-              </div>
-
-              {/* Big Upward Curving Arrow from Mockup */}
-              <svg
-                className="absolute inset-0 w-full h-full pointer-events-none z-20"
-                viewBox="0 0 240 200"
-                fill="none"
-              >
-                <defs>
-                  <linearGradient id="purpleArrow" x1="0%" y1="100%" x2="100%" y2="0%">
-                    <stop offset="0%" stopColor="#8B5CF6" />
-                    <stop offset="100%" stopColor="#4F46E5" />
-                  </linearGradient>
-                </defs>
-                <path
-                  d="M 30,170 Q 130,150 200,40"
-                  stroke="url(#purpleArrow)"
-                  strokeWidth="8"
-                  strokeLinecap="round"
-                  fill="none"
-                />
-                <polygon points="215,30 205,52 188,40" fill="#4F46E5" />
-              </svg>
-            </div>
-          </div>
-        </div>
-
-        {/* 4 Bottom Guarantee Columns in Single White Card with Dividers matching Mockup 5 */}
-        <div className="max-w-4xl mx-auto bg-white rounded-3xl border border-pink-100 shadow-[0_8px_30px_rgba(0,0,0,0.04)] p-3 sm:p-4 mb-8">
-          <div className="grid grid-cols-2 sm:grid-cols-4 divide-y sm:divide-y-0 sm:divide-x divide-slate-100">
-            {guaranteeCards.map((card, idx) => {
-              const Icon = card.icon
-              return (
-                <div
-                  key={idx}
-                  className="flex flex-col items-center justify-center text-center p-3 group hover:bg-pink-50/30 rounded-2xl transition-colors"
-                >
-                  <div className={`w-11 h-11 rounded-2xl ${card.bgColor} ${card.iconColor} flex items-center justify-center mb-1.5 shadow-2xs group-hover:scale-110 transition-transform`}>
-                    <Icon className="w-5 h-5" />
+                <p className="text-base font-semibold mb-4" style={{ color: '#374151' }}>
+                  By simply shopping and referring others
+                </p>
+                <div>
+                  <div className="text-base font-bold mb-1" style={{ color: '#374151' }}>Earn</div>
+                  <div className="font-black leading-tight" style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', color: '#FF007A' }}>
+                    ₹30,000 to<br />₹3,00,000
                   </div>
-                  <div className="text-xs sm:text-sm font-black text-[#0A0E2A] leading-tight">
-                    {card.title}
-                  </div>
+                  <div className="text-xl font-black mt-1" style={{ color: '#0A0E2A' }}>per month</div>
                 </div>
-              )
-            })}
-          </div>
+              </div>
+
+              {/* RIGHT bar chart with arrow */}
+              <div className="relative">
+                {/* Upward arrow overlay */}
+                <div className="absolute right-4 top-0 z-10">
+                  <svg viewBox="0 0 60 120" className="w-10 h-24" fill="none">
+                    <defs>
+                      <linearGradient id="arrowGrad" x1="0" y1="1" x2="0" y2="0">
+                        <stop offset="0%" stopColor="#FF007A" />
+                        <stop offset="100%" stopColor="#FF6EC7" />
+                      </linearGradient>
+                    </defs>
+                    <path d="M 30,110 L 30,15 L 15,30 M 30,15 L 45,30" stroke="url(#arrowGrad)" strokeWidth="5" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </div>
+                <BarChart />
+              </div>
+            </div>
+          </motion.div>
         </div>
 
-        {/* CTA Button: Know More */}
+        {/* 4 Bottom cards */}
+        <div className="max-w-4xl mx-auto grid grid-cols-2 sm:grid-cols-4 gap-3 mb-10">
+          {bottomCards.map((c, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.06 }}
+              className="rounded-2xl p-4 sm:p-5 text-center glass border border-pink-100 group hover:border-pink-300 transition-all"
+              style={{ boxShadow: '0 2px 12px rgba(255,0,122,0.05)' }}
+            >
+              <div className="text-2xl sm:text-3xl mb-2 group-hover:scale-110 transition-transform">{c.emoji}</div>
+              <div className="text-[11px] sm:text-xs font-black leading-snug" style={{ color: '#0A0E2A' }}>{c.label}</div>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Know More CTA */}
         <div className="flex justify-center">
           <motion.button
-            type="button"
-            whileHover={{ scale: 1.04 }}
+            whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.96 }}
             onClick={handleKnowMore}
-            className="px-10 py-3.5 rounded-full bg-gradient-to-r from-[#FF007A] to-[#E11D48] hover:from-[#E11D48] hover:to-[#BE185D] text-white text-sm sm:text-base font-bold shadow-[0_8px_25px_rgba(255,0,122,0.35)] transition-all flex items-center gap-2 cursor-pointer"
+            type="button"
+            className="px-10 py-3.5 rounded-full text-white font-black text-base cursor-pointer"
+            style={{ background: 'linear-gradient(135deg,#FF007A,#c7005f)', boxShadow: '0 6px 22px rgba(255,0,122,0.38)' }}
           >
-            <span>Know More</span>
-            <ArrowRight className="w-4 h-4 ml-1" />
+            Know More
           </motion.button>
         </div>
       </div>

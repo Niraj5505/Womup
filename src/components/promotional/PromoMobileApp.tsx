@@ -1,323 +1,194 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import {
-  Coins,
-  MapPin,
-  ShoppingBag,
-  Truck,
-  Users,
-  Clock,
-  ChevronRight,
-  Store,
-  FileText,
-  User,
-} from 'lucide-react'
 
 interface PromoMobileAppProps {
   onOpenJoinModal?: () => void
 }
 
-export const PromoMobileApp: React.FC<PromoMobileAppProps> = ({ onOpenJoinModal }) => {
-  const scrollTo = (id: string) => {
-    const el = document.querySelector(id)
-    if (el) el.scrollIntoView({ behavior: 'smooth' })
-  }
+const appFeatures = [
+  { emoji: '🎁', label: 'Get Monthly Shopping Coin' },
+  { emoji: '📍', label: 'Find Nearby Shops' },
+  { emoji: '🛒', label: 'Shop & Save' },
+  { emoji: '🚚', label: 'Home Delivery (Vegetables)' },
+  { emoji: '👥', label: 'Refer & Earn' },
+  { emoji: '📦', label: 'Track Orders' },
+]
 
-  const handleDownloadAction = () => {
-    if (onOpenJoinModal) {
-      onOpenJoinModal()
-    } else {
-      scrollTo('#contact')
-    }
-  }
-
-  // 6 Features matching Mockup 7
-  const appFeatures = [
-    {
-      title: 'Get Monthly Shopping Coin',
-      icon: Coins,
-      iconBg: 'bg-[#2563EB]',
-    },
-    {
-      title: 'Find Nearby Shops',
-      icon: MapPin,
-      iconBg: 'bg-[#FF007A]',
-    },
-    {
-      title: 'Shop & Save',
-      icon: ShoppingBag,
-      iconBg: 'bg-[#E11D48]',
-    },
-    {
-      title: 'Home Delivery (Vegetables)',
-      icon: Truck,
-      iconBg: 'bg-[#2563EB]',
-    },
-    {
-      title: 'Refer & Earn',
-      icon: Users,
-      iconBg: 'bg-[#FF007A]',
-    },
-    {
-      title: 'Track Orders',
-      icon: Clock,
-      iconBg: 'bg-[#2563EB]',
-    },
-  ]
-
+export const PromoMobileApp: React.FC<PromoMobileAppProps> = () => {
   return (
-    <section
-      id="download-app"
-      className="py-14 sm:py-20 bg-gradient-to-b from-white via-pink-50/15 to-white relative overflow-hidden border-b border-pink-100/50"
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Section Header from Mockup 7 */}
-        <div className="text-center max-w-3xl mx-auto mb-12">
-          <h2 className="text-3xl sm:text-5xl font-black text-[#0A0E2A] tracking-tight">
-            <span className="text-[#FF007A]">WOMUP</span> Mobile App
-          </h2>
-          <p className="mt-2 text-xs sm:text-sm md:text-base text-slate-600 font-bold tracking-wide">
+    <section id="download-app" className="relative py-16 sm:py-24 overflow-hidden bg-app">
+      <div className="section-divider absolute top-0 left-0 right-0" />
+      <div className="absolute bottom-0 right-0 w-96 h-96 pointer-events-none" style={{ background: 'radial-gradient(circle, rgba(255,0,122,0.09) 0%, transparent 70%)', transform: 'translate(20%,20%)' }} />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-8 relative z-10">
+        {/* Header */}
+        <div className="text-center mb-12">
+          <motion.h2
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-3xl sm:text-5xl font-black tracking-tight mb-2"
+            style={{ color: '#0A0E2A' }}
+          >
+            <span style={{ color: '#FF007A' }}>WOMUP</span> Mobile App
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="text-sm sm:text-base font-semibold"
+            style={{ color: '#6B7280' }}
+          >
             Your Smart Shopping &amp; Earning Companion
-          </p>
+          </motion.p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center max-w-6xl mx-auto">
-          {/* Left Column: Dual Phone Mockups from Mockup 7 */}
-          <div className="lg:col-span-7 flex justify-center items-center relative">
-            <div className="relative flex items-center justify-center w-full max-w-lg">
-              {/* Back Phone: Login Screen Mockup */}
-              <motion.div
-                initial={{ opacity: 0, x: -20, rotate: -4 }}
-                whileInView={{ opacity: 1, x: 0, rotate: -4 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-                className="w-56 sm:w-64 bg-slate-900 rounded-[40px] p-2.5 shadow-2xl border-4 border-slate-800 -mr-16 sm:-mr-20 z-10 hidden sm:block"
-              >
-                <div className="bg-white rounded-[32px] p-4 text-center h-[460px] flex flex-col justify-between overflow-hidden">
-                  <div className="pt-8">
-                    <img
-                      src="/images/womup-logo.png"
-                      alt="WOMUP Logo"
-                      className="w-20 mx-auto object-contain mb-3"
-                    />
-                    <div className="text-sm font-black text-[#0A0E2A]">WOMUP</div>
-                    <div className="text-[10px] text-slate-400">Save More • Shop Smarter</div>
-                  </div>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
 
-                  <div className="space-y-2 py-4">
-                    <div className="h-9 rounded-xl bg-slate-100 border border-slate-200 flex items-center px-3 text-[11px] text-slate-400">
-                      Mobile Number
-                    </div>
-                    <div className="h-9 rounded-xl bg-slate-100 border border-slate-200 flex items-center px-3 text-[11px] text-slate-400">
-                      Password
-                    </div>
-                    <div className="py-2.5 rounded-xl bg-[#FF007A] text-white text-xs font-bold shadow-md cursor-pointer">
-                      Login
-                    </div>
+          {/* LEFT — Phone mockups */}
+          <div className="lg:col-span-6 flex justify-center items-end gap-2 sm:gap-4">
+            {/* Phone 1 — Login screen */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.55 }}
+              className="relative z-10"
+              style={{ filter: 'drop-shadow(0 16px 32px rgba(255,0,122,0.18))' }}
+            >
+              <div className="w-32 sm:w-40 rounded-[2rem] overflow-hidden border-4 border-white shadow-2xl" style={{ aspectRatio: '9/18', background: 'linear-gradient(170deg,#0A0E2A,#673DE6)' }}>
+                <div className="p-3 h-full flex flex-col">
+                  {/* Notch */}
+                  <div className="w-8 h-1.5 bg-white/20 rounded-full mx-auto mb-2" />
+                  {/* Logo */}
+                  <div className="flex flex-col items-center gap-1 mb-4">
+                    <div className="w-10 h-10 rounded-xl bg-white/20 flex items-center justify-center text-white font-black text-base">W</div>
+                    <div className="text-white font-black text-[9px]">WOMUP</div>
+                    <div className="text-white/60 text-[7px]">Empowerment Shopping Earning</div>
                   </div>
-
-                  <div className="text-[10px] text-slate-500 pb-2">
-                    New user? <span className="text-[#FF007A] font-bold">Create Account</span>
+                  {/* Form */}
+                  <div className="space-y-1.5 mb-2">
+                    <div className="bg-white/10 rounded-lg px-2 py-1.5 text-[8px] text-white/60">Mobile Number</div>
+                    <div className="bg-white/10 rounded-lg px-2 py-1.5 text-[8px] text-white/60">Password</div>
+                    <div className="bg-gradient-to-r from-pink-500 to-rose-500 rounded-lg px-2 py-1.5 text-[8px] text-white font-black text-center">Login</div>
                   </div>
+                  <div className="text-center text-[7px] text-white/50 mt-auto">Create Account</div>
                 </div>
-              </motion.div>
+              </div>
+            </motion.div>
 
-              {/* Front Phone: Live App Dashboard Mockup matching Mockup 7 */}
-              <motion.div
-                initial={{ opacity: 0, y: 25 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-                className="w-64 sm:w-72 bg-slate-900 rounded-[44px] p-3 shadow-[0_25px_60px_rgba(255,0,122,0.18)] border-4 border-slate-800 z-20"
-              >
-                <div className="bg-[#FAF7FD] rounded-[36px] overflow-hidden text-[#0A0E2A] h-[480px] flex flex-col justify-between">
-                  {/* Top Bar */}
-                  <div>
-                    <div className="h-6 bg-white px-5 flex items-center justify-between text-[10px] font-bold text-slate-500">
-                      <span>9:41</span>
-                      <div className="flex items-center gap-1">
-                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
-                        <span>5G</span>
-                      </div>
+            {/* Phone 2 — Dashboard (main, taller) */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.55, delay: 0.1 }}
+              className="relative z-20"
+              style={{ filter: 'drop-shadow(0 20px 48px rgba(255,0,122,0.20))' }}
+            >
+              <div className="w-40 sm:w-52 rounded-[2rem] overflow-hidden border-4 border-white shadow-2xl" style={{ aspectRatio: '9/19', background: '#fff' }}>
+                <div className="p-3 h-full flex flex-col bg-gray-50">
+                  {/* Status bar */}
+                  <div className="w-6 h-1.5 bg-gray-200 rounded-full mx-auto mb-2" />
+                  {/* User row */}
+                  <div className="flex items-center gap-2 mb-2.5">
+                    <div className="w-8 h-8 rounded-full bg-pink-100 flex items-center justify-center text-xs font-black" style={{ color: '#FF007A' }}>👤</div>
+                    <div>
+                      <div className="text-[9px] font-black" style={{ color: '#0A0E2A' }}>Manish Shah</div>
+                      <div className="text-[7px]" style={{ color: '#9CA3AF' }}>Mehsana, Gujarat</div>
                     </div>
-
-                    {/* App Header */}
-                    <div className="p-3 bg-white border-b border-pink-50 flex items-center justify-between">
-                      <div className="flex items-center gap-2">
-                        <img
-                          src="/images/customer_man_avatar.jpg"
-                          alt="Manish Shah"
-                          className="w-8 h-8 rounded-full object-cover border border-pink-200"
-                        />
+                  </div>
+                  {/* Coin card */}
+                  <div className="rounded-xl p-2.5 mb-2.5 text-white" style={{ background: 'linear-gradient(135deg,#FF007A,#c7005f)' }}>
+                    <div className="text-[8px] font-bold mb-0.5 opacity-90">Shopping Coin</div>
+                    <div className="text-xl font-black">₹ 2,000</div>
+                    <div className="text-[7px] opacity-70 mt-0.5">Valid this month</div>
+                  </div>
+                  {/* Quick links */}
+                  <div className="grid grid-cols-4 gap-1 mb-2.5">
+                    {['🥦','💊','👗','🏪'].map((e, i) => (
+                      <div key={i} className="bg-white rounded-lg p-1.5 text-center shadow-sm">
+                        <div className="text-xs">{e}</div>
+                        <div className="text-[6px] mt-0.5" style={{ color: '#6B7280' }}>Shop</div>
+                      </div>
+                    ))}
+                  </div>
+                  {/* Nearby shops label */}
+                  <div className="text-[8px] font-black mb-1.5" style={{ color: '#0A0E2A' }}>Nearby Shops</div>
+                  <div className="space-y-1 flex-1">
+                    {['Ekta Vegetables', 'Drew Pharma Store', 'Jay Medical Store'].map((s, i) => (
+                      <div key={i} className="flex items-center gap-1.5 bg-white rounded-lg px-1.5 py-1 shadow-sm">
+                        <div className="w-5 h-5 rounded bg-pink-50 flex items-center justify-center text-[9px]">🏪</div>
                         <div>
-                          <div className="text-[10px] text-slate-400 font-medium">Hello</div>
-                          <div className="text-xs font-bold text-[#0A0E2A]">Manish Shah</div>
+                          <div className="text-[7px] font-bold" style={{ color: '#0A0E2A' }}>{s}</div>
+                          <div className="text-[6px]" style={{ color: '#9CA3AF' }}>{i + 1}.{i + 2} km</div>
                         </div>
                       </div>
-                      <span className="text-[9px] font-mono font-bold text-pink-600 bg-pink-50 px-2 py-0.5 rounded-full border border-pink-100">
-                        WM100258
-                      </span>
-                    </div>
-
-                    {/* Coin Balance Card: My Coin 2,000 > */}
-                    <div className="p-3">
-                      <div className="bg-gradient-to-r from-amber-400 via-amber-500 to-amber-600 rounded-2xl p-3 text-white shadow-sm flex items-center justify-between">
-                        <div className="flex items-center gap-2.5">
-                          <div className="w-8 h-8 rounded-full bg-white/25 flex items-center justify-center font-bold text-white text-sm">
-                            🪙
-                          </div>
-                          <div>
-                            <div className="text-[9px] uppercase tracking-wider text-amber-100 font-bold">
-                              My Coin
-                            </div>
-                            <div className="text-lg font-black leading-tight">2,000</div>
-                          </div>
-                        </div>
-                        <ChevronRight className="w-4 h-4 text-white/80" />
-                      </div>
-                    </div>
-
-                    {/* Category mini row */}
-                    <div className="grid grid-cols-4 gap-1 px-3 pb-2 text-center">
-                      {[
-                        { label: 'Vegetables', icon: '🥦' },
-                        { label: 'Grocery', icon: '🛒' },
-                        { label: 'Medical', icon: '💊' },
-                        { label: 'Salon', icon: '✂️' },
-                      ].map((item) => (
-                        <div
-                          key={item.label}
-                          className="bg-white rounded-xl py-1 px-0.5 border border-slate-100 shadow-2xs"
-                        >
-                          <div className="text-xs">{item.icon}</div>
-                          <div className="text-[8px] font-bold text-slate-700">{item.label}</div>
-                        </div>
-                      ))}
-                    </div>
-
-                    {/* Nearby Shops Section */}
-                    <div className="px-3 space-y-1.5">
-                      <div className="text-[11px] font-black text-slate-800">
-                        Nearby Shops
-                      </div>
-
-                      {[
-                        { name: 'Gokul Vegetables', dist: '0.5 km', tag: 'Vegetables' },
-                        { name: 'Shree Kirana Store', dist: '1.2 km', tag: 'Grocery' },
-                        { name: 'Jay Medical Store', dist: '1.5 km', tag: 'Medical' },
-                      ].map((shop) => (
-                        <div
-                          key={shop.name}
-                          className="bg-white rounded-xl p-1.5 px-2 border border-slate-100 flex items-center justify-between shadow-2xs"
-                        >
-                          <div>
-                            <div className="text-[10px] font-bold text-[#0A0E2A] leading-tight">
-                              {shop.name}
-                            </div>
-                            <div className="text-[8px] text-slate-400">{shop.tag}</div>
-                          </div>
-                          <span className="text-[9px] font-bold px-1.5 py-0.5 rounded-md bg-pink-50 text-[#FF007A]">
-                            {shop.dist}
-                          </span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* App Bottom Navigation with 5 tabs: Home, Shops, Orders, Coin, Profile */}
-                  <div className="bg-white border-t border-slate-100 px-2 py-1.5 flex items-center justify-around text-[8px] font-bold text-slate-500">
-                    <span className="text-[#FF007A] flex flex-col items-center">
-                      <span className="text-[10px]">🏠</span>
-                      <span>Home</span>
-                    </span>
-                    <span className="flex flex-col items-center">
-                      <Store className="w-2.5 h-2.5 text-slate-400" />
-                      <span>Shops</span>
-                    </span>
-                    <span className="flex flex-col items-center">
-                      <FileText className="w-2.5 h-2.5 text-slate-400" />
-                      <span>Orders</span>
-                    </span>
-                    <span className="flex flex-col items-center">
-                      <Coins className="w-2.5 h-2.5 text-slate-400" />
-                      <span>Coin</span>
-                    </span>
-                    <span className="flex flex-col items-center">
-                      <User className="w-2.5 h-2.5 text-slate-400" />
-                      <span>Profile</span>
-                    </span>
+                    ))}
                   </div>
                 </div>
-              </motion.div>
-            </div>
+              </div>
+            </motion.div>
           </div>
 
-          {/* Right Column: 6 Features List & App Download Buttons matching Mockup 7 */}
-          <div className="lg:col-span-5 space-y-4">
-            <div className="space-y-3.5">
-              {appFeatures.map((feat, idx) => {
-                const Icon = feat.icon
-                return (
-                  <motion.div
-                    key={feat.title}
-                    initial={{ opacity: 0, x: 15 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: idx * 0.06 }}
-                    className="flex items-center gap-3.5 group"
+          {/* RIGHT — Features list + Download */}
+          <div className="lg:col-span-6 space-y-5">
+            <div className="space-y-3">
+              {appFeatures.map((f, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, x: 16 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.06 }}
+                  className="flex items-center gap-3 p-3.5 rounded-2xl glass border border-pink-100 group hover:border-pink-300 transition-all"
+                  style={{ boxShadow: '0 2px 10px rgba(255,0,122,0.05)' }}
+                >
+                  <div
+                    className="w-10 h-10 rounded-xl text-white flex items-center justify-center text-base shrink-0 group-hover:scale-105 transition-transform"
+                    style={{ background: 'linear-gradient(135deg,#FF007A,#c7005f)' }}
                   >
-                    <div className={`w-10 h-10 rounded-full ${feat.iconBg} text-white flex items-center justify-center shrink-0 shadow-xs group-hover:scale-108 transition-transform`}>
-                      <Icon className="w-5 h-5" />
-                    </div>
-                    <span className="text-sm sm:text-base font-bold text-slate-800">
-                      {feat.title}
-                    </span>
-                  </motion.div>
-                )
-              })}
+                    {f.emoji}
+                  </div>
+                  <span className="text-sm font-semibold" style={{ color: '#374151' }}>{f.label}</span>
+                </motion.div>
+              ))}
             </div>
 
-            {/* App Store Download Badges from Mockup 7 */}
-            <div className="pt-4 border-t border-slate-100">
-              <div className="text-xs font-black text-slate-800 uppercase tracking-wider mb-3">
-                Download Now
-              </div>
+            {/* Download Now label */}
+            <div className="text-base font-black" style={{ color: '#0A0E2A' }}>Download Now</div>
 
-              <div className="flex flex-wrap items-center gap-3">
-                {/* Google Play Button */}
-                <button
-                  type="button"
-                  onClick={handleDownloadAction}
-                  className="px-5 py-2.5 rounded-xl bg-slate-900 hover:bg-black text-white flex items-center gap-3 shadow-md hover:scale-105 transition-all cursor-pointer"
-                >
-                  <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
-                    <path d="M3.609 1.814L13.793 12 3.61 22.186c-.366-.37-.61-.91-.61-1.528V3.342c0-.618.244-1.158.61-1.528zM15.207 13.414l2.122 2.121-12.02 6.94 9.898-9.061zM15.207 10.586L5.309 1.525l12.02 6.94-2.122 2.121zM18.737 12l2.673 1.543c.787.454.787 1.196 0 1.65L18.737 12z" />
-                  </svg>
-                  <div className="text-left">
-                    <div className="text-[9px] uppercase font-bold text-slate-400 leading-tight">
-                      GET IT ON
-                    </div>
-                    <div className="text-xs font-bold leading-tight">Google Play</div>
-                  </div>
-                </button>
-
-                {/* Apple App Store Button */}
-                <button
-                  type="button"
-                  onClick={handleDownloadAction}
-                  className="px-5 py-2.5 rounded-xl bg-slate-900 hover:bg-black text-white flex items-center gap-3 shadow-md hover:scale-105 transition-all cursor-pointer"
-                >
-                  <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
-                    <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.37c.64-.78 1.08-1.86.96-2.95-1 .04-2.14.67-2.81 1.45-.58.67-1.1 1.76-.96 2.83 1.12.09 2.19-.55 2.81-1.33z" />
-                  </svg>
-                  <div className="text-left">
-                    <div className="text-[9px] uppercase font-bold text-slate-400 leading-tight">
-                      DOWNLOAD ON THE
-                    </div>
-                    <div className="text-xs font-bold leading-tight">App Store</div>
-                  </div>
-                </button>
-              </div>
+            {/* Store badges */}
+            <div className="flex flex-col sm:flex-row gap-3">
+              <motion.a
+                href="#download-app"
+                whileHover={{ scale: 1.04 }}
+                whileTap={{ scale: 0.96 }}
+                className="flex items-center gap-2.5 px-5 py-3 rounded-2xl cursor-pointer text-white"
+                style={{ background: '#000', boxShadow: '0 4px 16px rgba(0,0,0,0.20)' }}
+                onClick={e => { e.preventDefault(); document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' }) }}
+              >
+                <span className="text-2xl">▶</span>
+                <div>
+                  <div className="text-[9px] opacity-70">Get it on</div>
+                  <div className="text-sm font-black">Google Play</div>
+                </div>
+              </motion.a>
+              <motion.a
+                href="#download-app"
+                whileHover={{ scale: 1.04 }}
+                whileTap={{ scale: 0.96 }}
+                className="flex items-center gap-2.5 px-5 py-3 rounded-2xl cursor-pointer text-white"
+                style={{ background: '#000', boxShadow: '0 4px 16px rgba(0,0,0,0.20)' }}
+                onClick={e => { e.preventDefault(); document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' }) }}
+              >
+                <span className="text-2xl"></span>
+                <div>
+                  <div className="text-[9px] opacity-70">Download on the</div>
+                  <div className="text-sm font-black">App Store</div>
+                </div>
+              </motion.a>
             </div>
           </div>
         </div>
