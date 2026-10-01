@@ -1067,31 +1067,407 @@
 }
 
 /* ----------------------------------------------------
-   7. RESPONSIVE BREAKPOINTS
+   7. COMPREHENSIVE MOBILE RESPONSIVENESS SUITE
    ---------------------------------------------------- */
+
+/* Global Overflow & Touch Protection */
+html, body, #root, .page-wrapper {
+  max-width: 100vw;
+  overflow-x: hidden !important;
+  box-sizing: border-box;
+  -webkit-overflow-scrolling: touch;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* iOS Safari form zoom prevention */
 @media (max-width: 768px) {
-  .calc-result-banner {
+  input, select, textarea {
+    font-size: 16px !important;
+  }
+}
+
+/* Tablet & Mobile Breakpoint (<= 900px) */
+@media (max-width: 900px) {
+  .navbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(255, 255, 255, 0.97);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(226, 232, 240, 0.85);
+  }
+
+  .nav-container {
+    padding: 0 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .nav-menu {
+    position: fixed;
+    top: 68px;
+    left: 0;
+    right: 0;
+    background: #ffffff;
+    padding: 24px 20px 32px 20px;
+    box-shadow: 0 24px 48px rgba(15, 23, 42, 0.16);
+    border-bottom: 3px solid #ff1475;
+    transform: translateY(-120%);
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    max-height: calc(100vh - 68px);
+    overflow-y: auto;
+    z-index: 99;
+  }
+
+  .nav-menu.open {
+    transform: translateY(0);
+  }
+
+  .nav-list {
+    display: flex;
     flex-direction: column;
+    gap: 12px;
+    width: 100%;
+  }
+
+  .nav-link {
+    font-size: 16px;
+    font-weight: 700;
+    padding: 10px 14px;
+    border-radius: 10px;
+    display: block;
+    width: 100%;
+    color: #1e293b;
+    transition: background 0.2s, color 0.2s;
+  }
+
+  .nav-link:hover,
+  .nav-link.active {
+    background: rgba(255, 20, 117, 0.08);
+    color: #e60067;
+  }
+
+  .mobile-toggle {
+    width: 44px;
+    height: 44px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    cursor: pointer;
+    padding: 0;
+    margin-left: 8px;
+    transition: background 0.2s;
+  }
+
+  .mobile-toggle:hover {
+    background: #f1f5f9;
+  }
+
+  .mobile-toggle span {
+    width: 22px;
+    height: 2.5px;
+    background: #0f172a;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+  }
+
+  .mobile-toggle.active span:nth-child(1) {
+    transform: translateY(7.5px) rotate(45deg);
+  }
+  .mobile-toggle.active span:nth-child(2) {
+    opacity: 0;
+  }
+  .mobile-toggle.active span:nth-child(3) {
+    transform: translateY(-7.5px) rotate(-45deg);
+  }
+
+  .btn-download {
+    padding: 9px 18px;
+    font-size: 14px;
+  }
+}
+
+/* Smartphone Breakpoint (<= 680px) */
+@media (max-width: 680px) {
+  /* Hero */
+  .hero-section {
+    padding: 16px 14px 28px 14px;
+  }
+  .hero-heading {
+    font-size: clamp(2rem, 8vw, 2.7rem) !important;
+    line-height: 1.15;
+  }
+  .hero-subtext {
+    font-size: 1rem;
+    line-height: 1.45;
+    margin-bottom: 20px;
+  }
+  .hero-cta-group {
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+  }
+  .btn-join,
+  .btn-video {
+    width: 100%;
+    justify-content: center;
+    padding: 13px 20px;
+    font-size: 15px;
+  }
+  .floating-badges {
+    display: none;
+  }
+  .features-card {
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+    padding: 18px 14px !important;
+  }
+
+  /* How It Works Diagram */
+  .hiw-diagram-section {
+    flex-direction: column;
+    align-items: center;
     gap: 16px;
   }
-  .result-divider {
-    width: 60%;
-    height: 1px;
+  .entity-circle {
+    width: 160px;
+    height: 160px;
+  }
+  .loop-container {
+    width: 120px;
+    height: 120px;
+  }
+  .diagram-center-loop {
+    margin: 8px 0;
+    transform: rotate(90deg);
+  }
+  .center-brand-box {
+    transform: rotate(-90deg);
+  }
+  .hiw-steps-section {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
   }
   .hiw-step-highlight-banner {
     flex-direction: column;
     text-align: center;
+    gap: 10px;
   }
+
+  /* Income Calculator */
+  .io-calc-card {
+    padding: 20px 16px !important;
+    border-radius: 20px !important;
+    margin: 24px 0 20px 0 !important;
+  }
+  .calc-title {
+    font-size: 19px !important;
+    line-height: 1.25 !important;
+  }
+  .calc-subtitle {
+    font-size: 13px !important;
+    margin-bottom: 16px !important;
+  }
+  .control-label-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+  .control-value-highlight {
+    font-size: 15px;
+  }
+  .calc-spend-pills {
+    gap: 8px;
+  }
+  .spend-pill {
+    flex: 1 1 100%;
+    min-width: unset;
+    padding: 9px 12px;
+    font-size: 13px;
+  }
+  .calc-result-banner {
+    flex-direction: column !important;
+    padding: 18px 14px !important;
+    gap: 14px !important;
+    border-radius: 16px !important;
+  }
+  .result-divider {
+    width: 100% !important;
+    height: 1px !important;
+  }
+  .res-amount {
+    font-size: 24px !important;
+  }
+  .calc-table-container {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    border-radius: 12px;
+  }
+  .calc-table {
+    min-width: 320px;
+    font-size: 12px;
+  }
+  .calc-table th,
+  .calc-table td {
+    padding: 8px 10px;
+  }
+
+  /* Income Opportunity Card & Graph */
+  .io-earnings-card {
+    padding: 20px 16px !important;
+    border-radius: 20px !important;
+  }
+  .amount-val-1 {
+    font-size: 2rem !important;
+  }
+  .amount-val-2 {
+    font-size: 2.3rem !important;
+  }
+  .io-chart-wrapper {
+    padding: 4px;
+    max-width: 100%;
+    overflow: hidden;
+  }
+  .io-chart-svg {
+    max-width: 330px;
+  }
+  .io-features-card {
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+    padding: 16px 14px !important;
+  }
+
+  /* Modals */
+  .modal-box {
+    width: calc(100% - 24px) !important;
+    padding: 24px 16px !important;
+    border-radius: 20px !important;
+    max-height: 88vh !important;
+    overflow-y: auto !important;
+  }
+  .modal-close {
+    top: 12px !important;
+    right: 12px !important;
+    width: 34px !important;
+    height: 34px !important;
+    font-size: 22px !important;
+  }
+  .store-buttons {
+    flex-direction: column !important;
+    gap: 10px !important;
+  }
+  .btn-store {
+    width: 100% !important;
+    justify-content: center !important;
+  }
+
+  /* Toast & BackToTop */
   .toast-notification {
-    left: 20px;
-    right: 20px;
-    bottom: 20px;
-    max-width: calc(100% - 40px);
+    left: 16px !important;
+    right: 16px !important;
+    bottom: 16px !important;
+    max-width: calc(100% - 32px) !important;
   }
   .back-to-top-btn {
-    bottom: 20px;
-    right: 20px;
-    left: auto;
+    bottom: 16px !important;
+    right: 16px !important;
+    left: auto !important;
   }
 }
+
+/* Small Smartphone Breakpoint (<= 480px) */
+@media (max-width: 480px) {
+  /* For Customers */
+  .phone-frame {
+    width: 100% !important;
+    max-width: 290px !important;
+    height: 520px !important;
+    border-radius: 36px !important;
+    margin: 0 auto;
+  }
+  .app-screen {
+    padding: 10px 12px;
+  }
+  .fc-vegetables-banner {
+    width: 100%;
+    max-width: 360px;
+    margin-top: 14px;
+  }
+
+  /* Shop Categories */
+  .sc-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 10px !important;
+  }
+  .sc-card {
+    padding: 8px 6px 10px 6px !important;
+    border-radius: 14px !important;
+  }
+  .sc-img-wrap {
+    height: 84px !important;
+    border-radius: 10px !important;
+  }
+  .sc-card-title {
+    font-size: 0.88rem !important;
+    margin-top: 6px !important;
+  }
+
+  /* Mobile App Page Double Phone */
+  .ma-mockup-wrapper {
+    min-height: 380px !important;
+    overflow: hidden !important;
+    padding: 10px 0 !important;
+  }
+  .phone-splash {
+    width: 160px !important;
+    height: 330px !important;
+    transform: rotate(-2deg) translateY(10px) translateX(10px) !important;
+  }
+  .phone-dashboard {
+    width: 175px !important;
+    height: 350px !important;
+    transform: translateX(-5px) translateY(-5px) !important;
+  }
+  .store-badges-row {
+    flex-direction: column !important;
+    width: 100% !important;
+    gap: 10px !important;
+    align-items: center !important;
+  }
+  .store-badge-btn {
+    width: 100% !important;
+    max-width: 260px !important;
+    justify-content: center !important;
+  }
+
+  /* Contact Page */
+  .pathway-cards-row {
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+  }
+  .support-rep-card {
+    flex-direction: column-reverse !important;
+    text-align: center !important;
+    gap: 12px !important;
+  }
+  .support-rep-visual {
+    width: 90px !important;
+    height: 85px !important;
+    margin: 0 auto;
+  }
+  .contact-details-card {
+    padding: 18px 14px !important;
+  }
+}
+
 
