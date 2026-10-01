@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How WOMUP Works - Smart Shopping & Earning Platform</title>
+  <meta name="description" content="A simple platform connecting Customers and Local Vendors for Smart Shopping and Earning Opportunities with WOMUP.">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="how-it-works.css">
+</head>
+<body>
+
+  <!-- Main Website Container -->
+  <div class="page-wrapper">
+    
+    <!-- Top Navigation Bar -->
+    <header class="navbar" id="navbar">
+      <div class="nav-container">
+        
+        <!-- Logo -->
+        <a href="index.html" class="logo-link" aria-label="WOMUP Home">
+          <div class="logo-wrapper">
+            <img src="assets/womup-logo.png" alt="WOMUP" class="site-logo">
+          </div>
+        </a>
+
+        <!-- Desktop Navigation Links -->
+        <nav class="nav-menu" id="navMenu">
+          <ul class="nav-list">
+            <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+            <li class="nav-item"><a href="how-it-works.html" class="nav-link active">How It Works</a></li>
+            <li class="nav-item"><a href="for-customers.html" class="nav-link">For Customers</a></li>
+            <li class="nav-item"><a href="for-vendors.html" class="nav-link">For Vendors</a></li>
+            <li class="nav-item"><a href="shop-categories.html" class="nav-link">Shop Categories</a></li>
+            <li class="nav-item"><a href="income-opportunity.html" class="nav-link">Income</a></li>
+            <li class="nav-item"><a href="womup-mobile-app.html" class="nav-link">Mobile App</a></li>
+            <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+          </ul>
+        </nav>
+
+        <!-- CTA Button -->
+        <div class="nav-action">
+          <button class="btn-download" id="downloadBtn">Download App</button>
+          
+          <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle Navigation">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+
+      </div>
+    </header>
+
+    <!-- How It Works Main Content -->
+    <main class="how-it-works-page">
+      
+      <!-- Background Ambient Glows -->
+      <div class="hiw-bg-glow glow-top-left"></div>
+      <div class="hiw-bg-glow glow-top-right"></div>
+      <div class="hiw-bg-glow glow-bottom-left"></div>
+      <div class="hiw-bg-glow glow-bottom-right"></div>
+
+      <div class="hiw-container">
+        
+        <!-- Header Title Section -->
+        <section class="hiw-header">
+          <h1 class="hiw-main-title">
+            How <span class="title-womup">WOMUP</span> Works?
+          </h1>
+          <p class="hiw-subtitle">
+            A simple platform connecting Customers and Local Vendors<br>
+            for Smart Shopping and Earning Opportunities.
+          </p>
+        </section>
+
+        <!-- Center Diagram: Customer <-> Exchange Loop <-> Vendor -->
+        <section class="hiw-diagram-section">
+          
+          <!-- Left: Customer Circle -->
+          <div class="diagram-entity customer-entity">
+            <div class="entity-circle circle-customer">
+              <div class="circle-inner-bg pink-bg"></div>
+              <img src="assets/customer_user_transparent.png" alt="WOMUP Customer" class="entity-img customer-img">
+            </div>
+            <div class="entity-info">
+              <h3 class="entity-title customer-title">Customer</h3>
+              <p class="entity-tagline">Shop & Save</p>
+            </div>
+          </div>
+
+          <!-- Center: Circulating Arrows Ring with WOMUP Logo -->
+          <div class="diagram-center-loop">
+            <div class="loop-container">
+              <!-- SVG Circulating Arrows Ring -->
+              <svg class="circulating-arrows-svg" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <!-- Top Arrow: Pink to Blue -->
+                  <linearGradient id="topCurveGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stop-color="#ff1475" />
+                    <stop offset="50%" stop-color="#9333ea" />
+                    <stop offset="100%" stop-color="#3b82f6" />
+                  </linearGradient>
+                  <!-- Bottom Arrow: Blue to Pink -->
+                  <linearGradient id="bottomCurveGrad" x1="100%" y1="100%" x2="0%" y2="100%">
+                    <stop offset="0%" stop-color="#3b82f6" />
+                    <stop offset="50%" stop-color="#9333ea" />
+                    <stop offset="100%" stop-color="#ff1475" />
+                  </linearGradient>
+                </defs>
+
+                <!-- Top clockwise arc (Left to Right) -->
+                <path d="M 28 88 A 74 74 0 0 1 172 88" 
+                      stroke="url(#topCurveGrad)" stroke-width="8" stroke-linecap="round" fill="none" />
+                <!-- Arrowhead pointing downwards at right -->
+                <polygon points="172,106 186,84 162,88" fill="#3b82f6" />
+
+                <!-- Bottom clockwise arc (Right to Left) -->
+                <path d="M 172 112 A 74 74 0 0 1 28 112" 
+                      stroke="url(#bottomCurveGrad)" stroke-width="8" stroke-linecap="round" fill="none" />
+                <!-- Arrowhead pointing upwards at left -->
+                <polygon points="28,94 14,116 38,112" fill="#ff1475" />
+              </svg>
+
+              <!-- Central WOMUP Logo inside ring -->
+              <div class="center-brand-box">
+                <img src="assets/womup-logo.png" alt="WOMUP" class="center-logo-img">
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Vendor Circle -->
+          <div class="diagram-entity vendor-entity">
+            <div class="entity-circle circle-vendor">
+              <div class="circle-inner-bg blue-bg"></div>
+              <img src="assets/vendor_shopkeeper.jpg" alt="WOMUP Vendor" class="entity-img vendor-img">
+            </div>
+            <div class="entity-info">
+              <h3 class="entity-title vendor-title">Vendor</h3>
+              <p class="entity-tagline">Grow Business</p>
+            </div>
+          </div>
+
+        </section>
+
+        <!-- 4 Step Process Cards -->
+        <section class="hiw-steps-section">
+          
+          <!-- Step 1: Join -->
+          <div class="step-card">
+            <div class="step-badge">1</div>
+            <h4 class="step-title">Join</h4>
+            <p class="step-description">
+              Register on<br>
+              WOMUP App
+            </p>
+          </div>
+
+          <!-- Step 2: Get Coins -->
+          <div class="step-card">
+            <div class="step-badge">2</div>
+            <h4 class="step-title">Get Coins</h4>
+            <p class="step-description">
+              Receive &#8377;2,000<br>
+              Shopping Coin<br>
+              every month
+            </p>
+          </div>
+
+          <!-- Step 3: Shop -->
+          <div class="step-card">
+            <div class="step-badge">3</div>
+            <h4 class="step-title">Shop</h4>
+            <p class="step-description">
+              Use coins + Pay<br>
+              balance amount<br>
+              at nearby shops
+            </p>
+          </div>
+
+          <!-- Step 4: Earn -->
+          <div class="step-card">
+            <div class="step-badge">4</div>
+            <h4 class="step-title">Earn</h4>
+            <p class="step-description">
+              Refer others &amp;<br>
+              get income up<br>
+              to 7 levels
+            </p>
+          </div>
+
+        </section>
+
+        <!-- Bottom Centered Action Button -->
+        <section class="hiw-cta-section">
+          <button class="btn-join-large" id="joinNowBtn">Join Now</button>
+        </section>
+
+      </div>
+    </main>
+
+  </div>
+
+  <!-- App Download Modal -->
+  <div class="modal-backdrop" id="appModal" aria-hidden="true">
+    <div class="modal-box app-download-box">
+      <button class="modal-close" id="appModalClose" aria-label="Close Modal">&times;</button>
+      <div class="modal-header">
+        <div class="app-icon-badge">
+          <img src="assets/womup-logo.png" alt="WOMUP" class="modal-logo-img">
+        </div>
+        <h3>Download WOMUP App</h3>
+        <p>Start saving and earning on your everyday shopping!</p>
+      </div>
+      <div class="store-buttons">
+        <a href="#" class="store-btn google-play">
+          <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+            <path d="M3.6 1.8c-.3.3-.5.8-.5 1.4v17.6c0 .6.2 1.1.5 1.4l.1.1 9.9-9.9v-.2L3.7 1.7l-.1.1zM17 15.6l-3.5-3.5 3.5-3.5 4 2.3c1.1.6 1.1 1.7 0 2.4l-4 2.3zM13.5 12.1L3.6 22c.4.4 1 .5 1.7.1l11.7-6.7-3.5-3.3zM13.5 11.9L17 8.6 5.3 1.9C4.6 1.5 4 1.6 3.6 2l9.9 9.9z"/>
+          </svg>
+          <div>
+            <span class="store-tag">GET IT ON</span>
+            <span class="store-name">Google Play</span>
+          </div>
+        </a>
+        <a href="#" class="store-btn app-store">
+          <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+            <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.38c.62-.75 1.04-1.8 1.01-2.85-.9.04-2 .6-2.65 1.35-.58.66-1.09 1.73-1.04 2.76 1 .08 2.06-.51 2.68-1.26z"/>
+          </svg>
+          <div>
+            <span class="store-tag">Download on the</span>
+            <span class="store-name">App Store</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
