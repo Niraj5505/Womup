@@ -7,7 +7,7 @@ export default function Footer() {
       <div className="footer-container">
         <div className="footer-brand">
           <div className="logo-wrapper">
-            <img src="/assets/womup-logo-white.svg?v=2" alt="WOMUP" className="footer-logo" />
+            <img src="/assets/womup-logo-white.png?v=3" alt="WOMUP" className="footer-logo" />
           </div>
           <p className="footer-tagline">Smart Shopping &bull; Better Living &bull; Save & Earn Everyday</p>
         </div>
@@ -30,4 +30,6 @@ export default function Footer() {
     </footer>
   );
 }
+
+
 

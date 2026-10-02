@@ -120,15 +120,13 @@ body {
 }
 
 .site-logo {
-  height: 52px;
+  height: 48px;
   width: auto;
   max-width: 100%;
   object-fit: contain;
   display: block;
-  image-rendering: -webkit-optimize-contrast;
-  image-rendering: crisp-edges;
-  /* SVGs don't need image-rendering, they're always crisp */
-  /* Keep only for raster fallbacks */
+  border-radius: 8px;
+  transition: transform 0.2s ease;
 }
 
 .footer-logo {
@@ -136,6 +134,7 @@ body {
   width: auto;
   object-fit: contain;
   display: block;
+  border-radius: 8px;
 }
 
 .logo-icon {

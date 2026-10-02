@@ -15,7 +15,7 @@ export default function Navbar() {
         {/* Logo */}
         <Link to="/" className="logo-link" aria-label="WOMUP Home" onClick={closeMobileMenu}>
           <div className="logo-wrapper">
-            <img src="/assets/womup-logo.svg?v=2" alt="WOMUP" className="site-logo" />
+            <img src="/assets/womup-logo.png?v=3" alt="WOMUP" className="site-logo" />
           </div>
         </Link>
 
@@ -86,4 +86,6 @@ export default function Navbar() {
     </header>
   );
 }
+
+
 
