@@ -125,16 +125,15 @@ body {
   max-width: 100%;
   object-fit: contain;
   display: block;
-  border-radius: 8px;
   transition: transform 0.2s ease;
 }
 
 .footer-logo {
-  height: 48px;
+  height: 52px;
   width: auto;
   object-fit: contain;
   display: block;
-  border-radius: 8px;
+  transition: transform 0.2s ease;
 }
 
 .logo-icon {
@@ -923,9 +922,9 @@ body {
 }
 
 .modal-logo-img {
-  width: 52px;
+  width: 58px;
   height: auto;
-  max-height: 42px;
+  max-height: 52px;
   object-fit: contain;
   display: block;
 }
@@ -1339,9 +1338,9 @@ body {
 }
 
 .center-logo-img {
-  width: 68px;
+  width: 64px;
   height: auto;
-  max-height: 48px;
+  max-height: 54px;
   object-fit: contain;
   display: block;
 }

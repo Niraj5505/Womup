@@ -21,7 +21,7 @@ export default function AppModal() {
         </button>
         <div className="modal-header">
           <div className="app-icon-badge">
-            <img src="/assets/womup-logo.png?v=3" alt="WOMUP" className="modal-logo-img" />
+            <img src="/assets/womup-logo.png?v=4" alt="WOMUP" className="modal-logo-img" />
           </div>
           <h3>Download WOMUP App</h3>
           <p>Start saving and earning on your everyday shopping!</p>
@@ -50,6 +50,7 @@ export default function AppModal() {
     </div>
   );
 }
+
 
 
 
