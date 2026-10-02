@@ -49,11 +49,95 @@ export default function HeroSection() {
 
         {/* Right Visual Column */}
         <div className="hero-visual">
-          {/* Stacked Floating Pills on Upper Right */}
-          <div className="floating-badges">
-            <div className="badge-pill badge-save" onClick={openAppModal}>Save</div>
-            <div className="badge-pill badge-shop" onClick={openAppModal}>Shop</div>
-            <div className="badge-pill badge-earn" onClick={openAppModal}>Earn</div>
+          {/* Stacked Floating Pills on Upper Right (Shop • Save • Earn) */}
+          <div className="floating-badges" aria-label="Quick Highlights">
+            {/* 1. SAVE BADGE */}
+            <div 
+              className="badge-pill badge-save" 
+              onClick={() => {
+                const el = document.getElementById('customers') || document.getElementById('how-it-works');
+                if (el) el.scrollIntoView({ behavior: 'smooth' });
+                else openAppModal();
+              }}
+              title="Save on Every Purchase with WOMUP"
+              role="button"
+              tabIndex={0}
+            >
+              <span className="badge-icon-circle">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z" />
+                  <circle cx="7" cy="7" r="1.5" fill="currentColor" />
+                </svg>
+              </span>
+              <div className="badge-content">
+                <span className="badge-title">Save</span>
+                <span className="badge-tag">Up to 20% Off</span>
+              </div>
+              <span className="badge-chevron" aria-hidden="true">
+                <svg viewBox="0 0 16 16" fill="currentColor">
+                  <path fillRule="evenodd" d="M6.22 3.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L9.94 8 6.22 4.28a.75.75 0 0 1 0-1.06z" clipRule="evenodd" />
+                </svg>
+              </span>
+            </div>
+
+            {/* 2. SHOP BADGE */}
+            <div 
+              className="badge-pill badge-shop" 
+              onClick={() => {
+                const el = document.getElementById('categories');
+                if (el) el.scrollIntoView({ behavior: 'smooth' });
+                else openAppModal();
+              }}
+              title="Shop at 10,000+ Local Stores"
+              role="button"
+              tabIndex={0}
+            >
+              <span className="badge-icon-circle">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
+                  <line x1="3" y1="6" x2="21" y2="6" />
+                  <path d="M16 10a4 4 0 0 1-8 0" />
+                </svg>
+              </span>
+              <div className="badge-content">
+                <span className="badge-title">Shop</span>
+                <span className="badge-tag">Local Stores</span>
+              </div>
+              <span className="badge-chevron" aria-hidden="true">
+                <svg viewBox="0 0 16 16" fill="currentColor">
+                  <path fillRule="evenodd" d="M6.22 3.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L9.94 8 6.22 4.28a.75.75 0 0 1 0-1.06z" clipRule="evenodd" />
+                </svg>
+              </span>
+            </div>
+
+            {/* 3. EARN BADGE */}
+            <div 
+              className="badge-pill badge-earn" 
+              onClick={() => {
+                const el = document.getElementById('income');
+                if (el) el.scrollIntoView({ behavior: 'smooth' });
+                else openAppModal();
+              }}
+              title="Earn Monthly Referral Income"
+              role="button"
+              tabIndex={0}
+            >
+              <span className="badge-icon-circle">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
+                  <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" />
+                  <polyline points="17 6 23 6 23 12" />
+                </svg>
+              </span>
+              <div className="badge-content">
+                <span className="badge-title">Earn</span>
+                <span className="badge-tag">&#8377;30K-&#8377;3L/mo</span>
+              </div>
+              <span className="badge-chevron" aria-hidden="true">
+                <svg viewBox="0 0 16 16" fill="currentColor">
+                  <path fillRule="evenodd" d="M6.22 3.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L9.94 8 6.22 4.28a.75.75 0 0 1 0-1.06z" clipRule="evenodd" />
+                </svg>
+              </span>
+            </div>
           </div>
 
           {/* Hero Image of smiling woman with smartphone & veggies */}

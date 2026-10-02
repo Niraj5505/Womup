@@ -1225,7 +1225,12 @@ html, body, #root, .page-wrapper {
     font-size: 15px;
   }
   .floating-badges {
-    display: none;
+    display: flex !important;
+    top: 15px;
+    right: 12px;
+    gap: 8px;
+    transform: scale(0.85);
+    transform-origin: top right;
   }
   .features-card {
     grid-template-columns: 1fr !important;
