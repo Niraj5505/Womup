@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 90" width="160" height="90">
+  <defs>
+    <linearGradient id="wGradLeftW" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ff8fcb"/>
+      <stop offset="100%" stop-color="#f06ba0"/>
+    </linearGradient>
+    <linearGradient id="wGradRightW" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#f09cc8"/>
+      <stop offset="100%" stop-color="#a589f0"/>
+    </linearGradient>
+    <linearGradient id="arrowGradW" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#9d82f5"/>
+      <stop offset="100%" stop-color="#6e5ce0"/>
+    </linearGradient>
+    <filter id="glowW">
+      <feGaussianBlur stdDeviation="1.5" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Left V of W -->
+  <path
+    d="M 10,12 L 34,62 L 58,20"
+    fill="none"
+    stroke="url(#wGradLeftW)"
+    stroke-width="8"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    filter="url(#glowW)"
+  />
+
+  <!-- Right V of W -->
+  <path
+    d="M 58,20 L 82,62 L 100,28"
+    fill="none"
+    stroke="url(#wGradRightW)"
+    stroke-width="8"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    filter="url(#glowW)"
+  />
+
+  <!-- Arrow shaft -->
+  <line
+    x1="100" y1="28"
+    x2="118" y2="10"
+    stroke="url(#arrowGradW)"
+    stroke-width="7"
+    stroke-linecap="round"
+    filter="url(#glowW)"
+  />
+
+  <!-- Arrow head -->
+  <polygon
+    points="118,10  108,9  116,2  125,9"
+    fill="url(#arrowGradW)"
+    filter="url(#glowW)"
+  />
+
+  <!-- WOMUP wordmark — white for dark backgrounds -->
+  <text
+    x="10"
+    y="84"
+    font-family="'Montserrat', 'Arial Black', 'Trebuchet MS', sans-serif"
+    font-weight="900"
+    font-size="17"
+    letter-spacing="4"
+    fill="#ffffff"
+  >WOMUP</text>
+</svg>
