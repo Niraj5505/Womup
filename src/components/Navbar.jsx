@@ -15,7 +15,7 @@ export default function Navbar() {
         {/* Logo */}
         <Link to="/" className="logo-link" aria-label="WOMUP Home" onClick={closeMobileMenu}>
           <div className="logo-wrapper">
-            <img src="/assets/womup-logo.png" alt="WOMUP" className="site-logo" />
+            <img src="/assets/womup-logo.svg" alt="WOMUP" className="site-logo" />
           </div>
         </Link>
 

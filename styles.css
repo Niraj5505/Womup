@@ -120,11 +120,15 @@ body {
 }
 
 .site-logo {
-  height: 44px;
+  height: 52px;
   width: auto;
   max-width: 100%;
   object-fit: contain;
   display: block;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  /* SVGs don't need image-rendering, they're always crisp */
+  /* Keep only for raster fallbacks */
 }
 
 .footer-logo {
