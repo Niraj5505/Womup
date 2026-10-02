@@ -164,8 +164,8 @@
 }
 
 @keyframes centerPulse {
-  0%, 100% { transform: scale(1); box-shadow: 0 8px 24px rgba(255, 20, 117, 0.25); }
-  50% { transform: scale(1.07); box-shadow: 0 12px 32px rgba(255, 20, 117, 0.45); }
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.04); }
 }
 
 /* Customer & Vendor Circles Subtle Hover & Float */
