@@ -112,7 +112,7 @@ export default function HowItWorksSection({ isPage = false }) {
               </svg>
 
               <div className="center-brand-box">
-                <img src="/assets/womup-logo.png" alt="WOMUP" className="center-logo-img" />
+                <img src="/assets/womup-logo.svg" alt="WOMUP" className="center-logo-img" />
               </div>
             </div>
           </div>
