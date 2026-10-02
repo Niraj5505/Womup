@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+﻿import React, { useState, useEffect } from 'react';
 
 export default function BackToTop() {
   const [isVisible, setIsVisible] = useState(false);
@@ -68,3 +68,4 @@ export default function BackToTop() {
     </button>
   );
 }
+

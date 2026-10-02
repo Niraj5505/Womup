@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+﻿import React, { useState, useMemo } from 'react';
 import { useModal } from '../context/ModalContext';
 
 export default function IncomeOpportunitySection({ isPage = false }) {
@@ -403,3 +403,4 @@ export default function IncomeOpportunitySection({ isPage = false }) {
     </section>
   );
 }
+

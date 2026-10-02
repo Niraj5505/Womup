@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+﻿import React, { useEffect } from 'react';
 import ContactSection from '../components/ContactSection';
 
 export default function Contact() {
@@ -12,3 +12,4 @@ export default function Contact() {
     </main>
   );
 }
+

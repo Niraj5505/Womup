@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import { useModal } from '../context/ModalContext';
 
 export default function AppModal() {
@@ -21,7 +21,7 @@ export default function AppModal() {
         </button>
         <div className="modal-header">
           <div className="app-icon-badge">
-            <img src="/assets/womup-logo.svg" alt="WOMUP" className="modal-logo-img" />
+            <img src="/assets/womup-logo.svg?v=2" alt="WOMUP" className="modal-logo-img" />
           </div>
           <h3>Download WOMUP App</h3>
           <p>Start saving and earning on your everyday shopping!</p>
@@ -50,3 +50,4 @@ export default function AppModal() {
     </div>
   );
 }
+

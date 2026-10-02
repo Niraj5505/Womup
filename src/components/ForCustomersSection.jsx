@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+﻿import React, { useState } from 'react';
 import { useModal } from '../context/ModalContext';
 
 export default function ForCustomersSection({ isPage = false }) {
@@ -447,3 +447,4 @@ export default function ForCustomersSection({ isPage = false }) {
     </section>
   );
 }
+

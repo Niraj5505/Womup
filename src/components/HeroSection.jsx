@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import { useModal } from '../context/ModalContext';
 
 export default function HeroSection() {
@@ -243,3 +243,4 @@ export default function HeroSection() {
     </section>
   );
 }
+

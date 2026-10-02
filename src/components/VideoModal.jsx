@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import { useModal } from '../context/ModalContext';
 
 export default function VideoModal() {
@@ -37,3 +37,4 @@ export default function VideoModal() {
     </div>
   );
 }
+

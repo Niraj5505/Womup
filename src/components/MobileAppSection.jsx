@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import { useModal } from '../context/ModalContext';
 
 export default function MobileAppSection({ isPage = false }) {
@@ -71,7 +71,7 @@ export default function MobileAppSection({ isPage = false }) {
                   {/* Center Branding */}
                   <div className="splash-center">
                     <div className="splash-logo-box">
-                      <img src="/assets/womup-logo.svg" alt="WOMUP" style={{ width: '80px', height: 'auto', marginBottom: '8px' }} />
+                      <img src="/assets/womup-logo.svg?v=2" alt="WOMUP" style={{ width: '80px', height: 'auto', marginBottom: '8px' }} />
                       <span className="splash-logo-text">WOMUP</span>
                     </div>
                     <p className="splash-tagline">Empowerment &bull; Shopping &bull; Revolution</p>
@@ -359,3 +359,4 @@ export default function MobileAppSection({ isPage = false }) {
     </section>
   );
 }
+

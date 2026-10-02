@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+﻿import React, { useEffect } from 'react';
 import HowItWorksSection from '../components/HowItWorksSection';
 
 export default function HowItWorks() {
@@ -12,3 +12,4 @@ export default function HowItWorks() {
     </main>
   );
 }
+

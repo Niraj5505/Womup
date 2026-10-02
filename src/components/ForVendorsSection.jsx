@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import { useModal } from '../context/ModalContext';
 
 export default function ForVendorsSection({ isPage = false }) {
@@ -120,3 +120,4 @@ export default function ForVendorsSection({ isPage = false }) {
     </section>
   );
 }
+

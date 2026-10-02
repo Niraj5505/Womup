@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+﻿import React, { useEffect } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import { ModalProvider } from './context/ModalContext';
 import Navbar from './components/Navbar';
@@ -79,3 +79,4 @@ export default function App() {
     </ModalProvider>
   );
 }
+

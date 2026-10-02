@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+﻿import React, { useState } from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import { useModal } from '../context/ModalContext';
 
@@ -15,7 +15,7 @@ export default function Navbar() {
         {/* Logo */}
         <Link to="/" className="logo-link" aria-label="WOMUP Home" onClick={closeMobileMenu}>
           <div className="logo-wrapper">
-            <img src="/assets/womup-logo.svg" alt="WOMUP" className="site-logo" />
+            <img src="/assets/womup-logo.svg?v=2" alt="WOMUP" className="site-logo" />
           </div>
         </Link>
 
@@ -86,3 +86,4 @@ export default function Navbar() {
     </header>
   );
 }
+

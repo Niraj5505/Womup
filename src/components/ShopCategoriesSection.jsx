@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+﻿import React, { useState, useMemo } from 'react';
 import { useModal } from '../context/ModalContext';
 
 const CATEGORIES = [
@@ -316,3 +316,4 @@ export default function ShopCategoriesSection({ isPage = false }) {
     </section>
   );
 }
+

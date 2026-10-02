@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+﻿import React, { useEffect } from 'react';
 import IncomeOpportunitySection from '../components/IncomeOpportunitySection';
 
 export default function IncomeOpportunity() {
@@ -12,3 +12,4 @@ export default function IncomeOpportunity() {
     </main>
   );
 }
+
