@@ -1233,9 +1233,41 @@ html, body, #root, .page-wrapper {
     transform-origin: top right;
   }
   .features-card {
-    grid-template-columns: 1fr !important;
-    gap: 14px !important;
-    padding: 18px 14px !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 10px !important;
+    padding: 12px !important;
+    border-radius: 22px !important;
+    box-shadow: 0 16px 36px -8px rgba(15, 23, 42, 0.1), 0 0 0 1px rgba(0, 0, 0, 0.04) !important;
+  }
+  .features-card .feature-divider {
+    display: none !important;
+  }
+  .features-card .feature-item {
+    background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%) !important;
+    border: 1px solid rgba(226, 232, 240, 0.85) !important;
+    border-radius: 16px !important;
+    padding: 14px 8px !important;
+    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.03) !important;
+  }
+  .features-card .feature-item:active {
+    transform: scale(0.96) !important;
+    background: #f1f5f9 !important;
+  }
+  .features-card .feature-icon-box {
+    width: 44px !important;
+    height: 44px !important;
+    margin-bottom: 8px !important;
+  }
+  .features-card .feature-icon-box svg {
+    width: 38px !important;
+    height: 38px !important;
+  }
+  .features-card .feature-text .line-1,
+  .features-card .feature-text .line-2 {
+    font-size: 12.5px !important;
+    font-weight: 700 !important;
+    color: #0f172a !important;
+    line-height: 1.25 !important;
   }
 
   /* How It Works Diagram */
@@ -1347,9 +1379,20 @@ html, body, #root, .page-wrapper {
     max-width: 330px;
   }
   .io-features-card {
-    grid-template-columns: 1fr !important;
-    gap: 14px !important;
-    padding: 16px 14px !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 10px !important;
+    padding: 12px !important;
+    border-radius: 22px !important;
+  }
+  .io-features-card .io-feature-divider {
+    display: none !important;
+  }
+  .io-features-card .io-feature-item {
+    background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%) !important;
+    border: 1px solid rgba(226, 232, 240, 0.85) !important;
+    border-radius: 16px !important;
+    padding: 14px 8px !important;
+    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.03) !important;
   }
 
   /* Modals */
