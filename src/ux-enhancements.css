@@ -1380,6 +1380,62 @@ html, body, #root, .page-wrapper {
     gap: 10px;
   }
 
+  /* For Customers: Phone Layout Only */
+  .mockup-hint-pill {
+    display: none !important;
+  }
+  .fc-container {
+    padding-bottom: 6px !important;
+    gap: 20px !important;
+  }
+  .fc-right-mockup {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+  }
+  .phone-frame {
+    width: 100% !important;
+    max-width: 310px !important;
+    height: 610px !important;
+    border-radius: 40px !important;
+    padding: 10px !important;
+    margin: 0 auto !important;
+    box-shadow: 0 18px 44px -8px rgba(15, 23, 42, 0.2), 0 0 0 1px rgba(255, 255, 255, 0.12) !important;
+    box-sizing: border-box !important;
+  }
+  .phone-screen {
+    height: calc(100% - 16px) !important;
+    border-radius: 32px !important;
+    padding: 11px 12px !important;
+    box-sizing: border-box !important;
+  }
+  .fc-vegetables-banner {
+    position: relative !important;
+    bottom: 0 !important;
+    left: auto !important;
+    margin: 6px auto 0 auto !important;
+    width: 90% !important;
+    max-width: 320px !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: flex-end !important;
+    line-height: 0 !important;
+    z-index: 2 !important;
+  }
+  .fc-veggies-img {
+    width: 100% !important;
+    height: auto !important;
+    max-height: 160px !important;
+    object-fit: contain !important;
+    display: block !important;
+    margin: 0 auto !important;
+    filter: drop-shadow(0 10px 22px rgba(0, 0, 0, 0.08)) !important;
+  }
+
   /* Income Calculator */
   .io-calc-card {
     padding: 20px 16px !important;
@@ -1517,18 +1573,18 @@ html, body, #root, .page-wrapper {
   /* For Customers */
   .phone-frame {
     width: 100% !important;
-    max-width: 290px !important;
-    height: 520px !important;
-    border-radius: 36px !important;
-    margin: 0 auto;
-  }
-  .app-screen {
-    padding: 10px 12px;
+    max-width: 300px !important;
+    height: 600px !important;
+    border-radius: 38px !important;
+    margin: 0 auto !important;
   }
   .fc-vegetables-banner {
-    width: 100%;
-    max-width: 360px;
-    margin-top: 14px;
+    width: 88% !important;
+    max-width: 300px !important;
+    margin: 6px auto 0 auto !important;
+  }
+  .fc-veggies-img {
+    max-height: 150px !important;
   }
 
   /* Shop Categories */
