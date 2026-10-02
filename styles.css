@@ -899,29 +899,141 @@ body {
   height: 100%;
 }
 
-/* App Download Modal */
-.app-download-box {
-  max-width: 480px;
+/* ========================================================
+   LUXURY APP DOWNLOAD MODAL REDESIGN
+   ======================================================== */
+.luxury-modal-backdrop {
+  background: rgba(11, 17, 32, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
 }
 
-.app-icon-badge {
-  width: 72px;
-  height: 72px;
-  background: #faf5ff;
-  border: 1px solid #f3e8ff;
-  border-radius: 20px;
+.luxury-app-box {
+  position: relative;
+  max-width: 520px;
+  width: 100%;
+  background: linear-gradient(145deg, #ffffff 0%, #fbfcfe 50%, #f7f9fd 100%);
+  border: 1px solid rgba(255, 255, 255, 0.95);
+  border-radius: 28px;
+  padding: 36px 32px 28px 32px;
+  box-shadow: 
+    0 24px 70px -12px rgba(15, 23, 42, 0.35),
+    0 0 0 1px rgba(226, 232, 240, 0.8),
+    inset 0 1px 0 rgba(255, 255, 255, 1);
+  overflow: hidden;
+  z-index: 10;
+}
+
+/* Ambient Glowing Background Orbs */
+.modal-glow-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  opacity: 0.35;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.modal-glow-pink {
+  width: 220px;
+  height: 220px;
+  background: radial-gradient(circle, #ff2a85 0%, rgba(255, 42, 133, 0) 70%);
+  top: -60px;
+  left: -50px;
+}
+
+.modal-glow-purple {
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, #7b5ce0 0%, rgba(123, 92, 224, 0) 70%);
+  bottom: -40px;
+  right: -40px;
+}
+
+/* Close Button */
+.luxury-close-btn {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: #f1f5f9;
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  color: #64748b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 20;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.luxury-close-btn:hover {
+  background: #0f172a;
+  color: #ffffff;
+  transform: rotate(90deg) scale(1.08);
+}
+
+/* Modal Header & 3D Squircle Icon */
+.luxury-header {
+  position: relative;
+  z-index: 5;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.luxury-app-icon-wrapper {
+  position: relative;
+  width: 82px;
+  height: 82px;
   margin: 0 auto 16px auto;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.modal-logo-icon {
-  width: 50px;
-  height: 34px;
+.luxury-app-icon-pulse {
+  position: absolute;
+  inset: -6px;
+  border-radius: 26px;
+  background: linear-gradient(135deg, rgba(255, 42, 133, 0.3), rgba(123, 92, 224, 0.3));
+  filter: blur(8px);
+  animation: pulseAppGlow 3s ease-in-out infinite alternate;
 }
 
-.modal-logo-img {
+@keyframes pulseAppGlow {
+  0% { transform: scale(0.96); opacity: 0.4; }
+  100% { transform: scale(1.06); opacity: 0.8; }
+}
+
+.luxury-app-icon-card {
+  position: relative;
+  width: 78px;
+  height: 78px;
+  background: linear-gradient(135deg, #ffffff 0%, #fdf2f8 50%, #f5f3ff 100%);
+  border: 1.5px solid rgba(255, 255, 255, 0.95);
+  border-radius: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 
+    0 16px 32px -4px rgba(255, 20, 117, 0.2),
+    0 6px 16px rgba(123, 92, 224, 0.15),
+    inset 0 1px 1px #ffffff;
+  padding: 8px;
+  transition: transform 0.3s ease;
+}
+
+.luxury-app-icon-card:hover {
+  transform: scale(1.05) rotate(-2deg);
+}
+
+.luxury-modal-logo {
   width: 58px;
   height: auto;
   max-height: 52px;
@@ -929,44 +1041,420 @@ body {
   display: block;
 }
 
-.store-buttons {
+.luxury-verified-badge {
+  position: absolute;
+  bottom: -2px;
+  right: -2px;
+  width: 22px;
+  height: 22px;
+  background: #10b981;
+  color: #ffffff;
+  border: 2.5px solid #ffffff;
+  border-radius: 50%;
   display: flex;
-  gap: 16px;
-  margin-top: 24px;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 6px rgba(16, 185, 129, 0.4);
 }
 
-.store-btn {
+.luxury-modal-title {
+  font-size: 1.65rem;
+  font-weight: 800;
+  color: #0f172a;
+  letter-spacing: -0.5px;
+  margin-bottom: 6px;
+  line-height: 1.2;
+}
+
+.gradient-text-pink-purple {
+  background: linear-gradient(135deg, #ff1475 0%, #8b5cf6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.luxury-modal-subtitle {
+  font-size: 0.92rem;
+  color: #64748b;
+  margin-bottom: 8px;
+}
+
+.luxury-social-proof {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(241, 245, 249, 0.8);
+  border: 1px solid rgba(226, 232, 240, 0.7);
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  color: #475569;
+  font-weight: 600;
+}
+
+.stars-row {
+  color: #f59e0b;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+}
+
+.rating-score {
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.proof-dot {
+  color: #cbd5e1;
+}
+
+/* 3 Value Hook Badges */
+.luxury-perks-row {
+  position: relative;
+  z-index: 5;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.perk-pill {
+  background: #ffffff;
+  border: 1px solid #f1f5f9;
+  border-radius: 14px;
+  padding: 10px 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.03);
+  transition: all 0.2s ease;
+}
+
+.perk-pill:hover {
+  border-color: #fbcfe8;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(255, 20, 117, 0.08);
+}
+
+.perk-icon {
+  font-size: 1.25rem;
+  flex-shrink: 0;
+}
+
+.perk-meta {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.perk-meta strong {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #0f172a;
+  white-space: nowrap;
+}
+
+.perk-meta small {
+  font-size: 0.68rem;
+  color: #64748b;
+  white-space: nowrap;
+}
+
+/* Tab Switcher */
+.modal-tab-switch {
+  position: relative;
+  z-index: 5;
+  display: flex;
+  background: #f1f5f9;
+  border-radius: 12px;
+  padding: 4px;
+  margin-bottom: 16px;
+}
+
+.modal-tab-switch .tab-btn {
   flex: 1;
-  background: #0f172a;
+  padding: 8px 12px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #64748b;
+  background: transparent;
+  border: none;
+  border-radius: 9px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.modal-tab-switch .tab-btn.active {
+  background: #ffffff;
+  color: #0f172a;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.06);
+}
+
+/* Store Buttons */
+.luxury-store-buttons {
+  position: relative;
+  z-index: 5;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+.luxury-store-btn {
+  position: relative;
+  background: #0b1120;
   color: #ffffff;
   text-decoration: none;
-  border-radius: 14px;
-  padding: 12px 16px;
+  border-radius: 16px;
+  padding: 12px 14px;
   display: flex;
   align-items: center;
   gap: 12px;
-  transition: transform 0.2s, background 0.2s;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 10px 24px -4px rgba(11, 17, 32, 0.35);
+  overflow: hidden;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.store-btn:hover {
-  background: #1e293b;
-  transform: translateY(-2px);
+.luxury-store-btn:hover {
+  background: #151d30;
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 14px 30px -4px rgba(255, 20, 117, 0.25), 0 8px 16px rgba(123, 92, 224, 0.2);
+  border-color: rgba(255, 255, 255, 0.25);
 }
 
-.store-tag {
-  display: block;
-  font-size: 10px;
-  letter-spacing: 0.5px;
+.store-btn-shine {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.12), transparent);
+  transition: left 0.6s ease;
+}
+
+.luxury-store-btn:hover .store-btn-shine {
+  left: 150%;
+}
+
+.store-icon {
+  flex-shrink: 0;
+}
+
+.store-btn-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.luxury-store-btn .store-tag {
+  font-size: 9px;
+  letter-spacing: 0.8px;
   color: #94a3b8;
   font-weight: 600;
   text-transform: uppercase;
 }
 
-.store-name {
-  display: block;
+.luxury-store-btn .store-name {
   font-size: 14px;
   font-weight: 700;
   color: #ffffff;
+  line-height: 1.1;
+}
+
+/* QR Code Panel */
+.qr-download-panel {
+  position: relative;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 14px 18px;
+  margin-bottom: 16px;
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04);
+}
+
+.qr-box-wrap {
+  width: 90px;
+  height: 90px;
+  border-radius: 12px;
+  background: #ffffff;
+  padding: 4px;
+  border: 1px solid #f1f5f9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.06);
+  flex-shrink: 0;
+}
+
+.qr-instructions strong {
+  display: block;
+  font-size: 0.95rem;
+  color: #0f172a;
+  margin-bottom: 4px;
+}
+
+.qr-instructions p {
+  font-size: 0.82rem;
+  color: #64748b;
+  margin: 0;
+  line-height: 1.35;
+}
+
+/* Divider */
+.modal-divider-row {
+  position: relative;
+  z-index: 5;
+  text-align: center;
+  margin: 14px 0;
+}
+
+.modal-divider-row::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: #e2e8f0;
+  z-index: 0;
+}
+
+.modal-divider-row span {
+  position: relative;
+  z-index: 1;
+  background: #fbfcfe;
+  padding: 0 12px;
+  font-size: 0.78rem;
+  color: #94a3b8;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* SMS Send Form */
+.luxury-sms-form {
+  position: relative;
+  z-index: 5;
+  margin-bottom: 16px;
+}
+
+.luxury-input-group {
+  display: flex;
+  align-items: center;
+  background: #ffffff;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 4px 6px 4px 12px;
+  transition: all 0.25s ease;
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.03);
+}
+
+.luxury-input-group:focus-within {
+  border-color: #8b5cf6;
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.15);
+}
+
+.input-country-code {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #475569;
+  padding-right: 8px;
+  border-right: 1px solid #cbd5e1;
+  margin-right: 8px;
+}
+
+.luxury-mobile-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 0.92rem;
+  color: #0f172a;
+  font-weight: 600;
+  background: transparent;
+  padding: 8px 0;
+}
+
+.luxury-mobile-input::placeholder {
+  color: #94a3b8;
+  font-weight: 500;
+}
+
+.luxury-send-btn {
+  background: linear-gradient(135deg, #ff1475 0%, #db2777 50%, #8b5cf6 100%);
+  color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  padding: 9px 18px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  white-space: nowrap;
+}
+
+.luxury-send-btn:hover:not(:disabled) {
+  opacity: 0.95;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px rgba(255, 20, 117, 0.3);
+}
+
+.luxury-send-btn.btn-sent {
+  background: #10b981;
+}
+
+.luxury-send-btn:disabled {
+  opacity: 0.75;
+  cursor: not-allowed;
+}
+
+/* Security Guarantee */
+.modal-security-note {
+  position: relative;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-size: 0.78rem;
+  color: #94a3b8;
+  font-weight: 500;
+}
+
+.modal-security-note svg {
+  color: #10b981;
+}
+
+/* Mobile Responsiveness for Modal */
+@media (max-width: 480px) {
+  .luxury-app-box {
+    padding: 28px 18px 20px 18px;
+    border-radius: 22px;
+  }
+
+  .luxury-modal-title {
+    font-size: 1.4rem;
+  }
+
+  .luxury-perks-row {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .perk-pill {
+    padding: 8px 12px;
+  }
+
+  .luxury-store-buttons {
+    grid-template-columns: 1fr;
+  }
+
+  .qr-download-panel {
+    flex-direction: column;
+    text-align: center;
+  }
 }
 
 /* ========================================================
