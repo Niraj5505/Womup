@@ -1,4 +1,4 @@
-﻿import React, { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import MobileAppSection from '../components/MobileAppSection';
 
 export default function MobileApp() {

@@ -1,4 +1,4 @@
-﻿import React, { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import ForVendorsSection from '../components/ForVendorsSection';
 
 export default function ForVendors() {

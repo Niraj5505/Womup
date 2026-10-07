@@ -1,4 +1,4 @@
-﻿import React, { useState } from 'react';
+import React, { useState } from 'react';
 import { useModal } from '../context/ModalContext';
 
 export default function ForCustomersSection({ isPage = false }) {
@@ -25,14 +25,14 @@ export default function ForCustomersSection({ isPage = false }) {
       distance: '1.2 km',
       img: '/assets/vendor_shopkeeper.jpg',
       isImage: true,
-      offer: '₹200 Instant Coin Off'
+      offer: '?200 Instant Coin Off'
     },
     {
       id: 3,
       name: 'Jay Medical',
       category: 'Pharmacy & Care',
       distance: '1.5 km',
-      symbol: '✚',
+      symbol: '?',
       className: 'thumb-medical',
       offer: 'Save 10% on medicines'
     },
@@ -41,9 +41,9 @@ export default function ForCustomersSection({ isPage = false }) {
       name: 'Beauty Salon',
       category: 'Hair & Skin Care',
       distance: '1.8 km',
-      symbol: '✂',
+      symbol: '?',
       className: 'thumb-salon',
-      offer: 'Free hair wash on ₹500 bill'
+      offer: 'Free hair wash on ?500 bill'
     }
   ];
 
@@ -53,8 +53,8 @@ export default function ForCustomersSection({ isPage = false }) {
       store: 'Gokul Vegetables',
       date: 'Today, 11:30 AM',
       items: '5 Items (Organic Produce)',
-      amount: '₹340',
-      saved: '₹70 saved with coins',
+      amount: '?340',
+      saved: '?70 saved with coins',
       status: 'Delivered'
     },
     {
@@ -62,8 +62,8 @@ export default function ForCustomersSection({ isPage = false }) {
       store: 'Shree Kirana Store',
       date: 'Yesterday',
       items: 'Atta, Dal, Mustard Oil',
-      amount: '₹890',
-      saved: '₹180 saved with coins',
+      amount: '?890',
+      saved: '?180 saved with coins',
       status: 'Delivered'
     },
     {
@@ -71,8 +71,8 @@ export default function ForCustomersSection({ isPage = false }) {
       store: 'Jay Medical',
       date: '28 Sep',
       items: 'Healthcare essentials',
-      amount: '₹280',
-      saved: '₹50 saved with coins',
+      amount: '?280',
+      saved: '?50 saved with coins',
       status: 'Delivered'
     }
   ];
@@ -87,12 +87,12 @@ export default function ForCustomersSection({ isPage = false }) {
     {
       code: 'FREEDEL',
       title: 'Free Doorstep Delivery',
-      desc: 'On orders above ₹199 from registered local vendors.',
+      desc: 'On orders above ?199 from registered local vendors.',
       badge: 'LIMITED'
     },
     {
       code: 'BOOST50',
-      title: '₹50 Referral Bonus Coin',
+      title: '?50 Referral Bonus Coin',
       desc: 'Credit directly to your shopping coin wallet.',
       badge: 'SPECIAL'
     }
@@ -119,7 +119,7 @@ export default function ForCustomersSection({ isPage = false }) {
 
           {/* 4 Benefit Rows */}
           <div className="fc-benefits-list">
-            {/* Benefit 1: ₹2,000 Monthly Shopping Coin */}
+            {/* Benefit 1: ?2,000 Monthly Shopping Coin */}
             <div className="fc-benefit-item">
               <div className="fc-benefit-icon icon-green">
                 <svg viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -245,7 +245,7 @@ export default function ForCustomersSection({ isPage = false }) {
                 className="coin-card-banner clickable-card"
                 onClick={() => {
                   setActiveTab('wallet');
-                  showToast('₹2,000 Monthly Shopping Coins active for this month!', 'success');
+                  showToast('?2,000 Monthly Shopping Coins active for this month!', 'success');
                 }}
               >
                 <div className="coin-card-left">
@@ -410,7 +410,7 @@ export default function ForCustomersSection({ isPage = false }) {
                       </div>
                       <div className="wallet-row-balance">
                         <span className="w-label">Cashback Earned</span>
-                        <span className="w-val">₹450</span>
+                        <span className="w-val">?450</span>
                       </div>
                       <div className="wallet-divider"></div>
                       <div className="wallet-row-balance total">

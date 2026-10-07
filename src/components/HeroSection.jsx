@@ -1,4 +1,4 @@
-ï»¿import React from 'react';
+import React from 'react';
 import { useModal } from '../context/ModalContext';
 
 export default function HeroSection() {
@@ -49,7 +49,7 @@ export default function HeroSection() {
 
         {/* Right Visual Column */}
         <div className="hero-visual">
-          {/* Stacked Floating Pills on Upper Right (Shop â€¢ Save â€¢ Earn) */}
+          {/* Stacked Floating Pills on Upper Right (Shop • Save • Earn) */}
           <div className="floating-badges" aria-label="Quick Highlights">
             {/* 1. SAVE BADGE */}
             <div 

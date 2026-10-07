@@ -71,7 +71,7 @@ export default function MobileAppSection({ isPage = false }) {
                   {/* Center Branding */}
                   <div className="splash-center">
                     <div className="splash-logo-box">
-                      <img src="/assets/womup-logo-white.png?v=5" alt="WOMUP" style={{ width: '88px', height: 'auto', marginBottom: '4px' }} />
+                      <img src="/assets/new-logo.png" alt="WOMUP" style={{ width: '88px', height: 'auto', marginBottom: '4px' }} />
                     </div>
                     <p className="splash-tagline">Empowerment &bull; Shopping &bull; Revolution</p>
                   </div>

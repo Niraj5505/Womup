@@ -1,4 +1,4 @@
-﻿import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo } from 'react';
 import { useModal } from '../context/ModalContext';
 
 const CATEGORIES = [
@@ -17,7 +17,7 @@ const CATEGORIES = [
     group: 'Essentials',
     img: '/assets/categories/grocery.png?v=hd2', 
     alt: 'Daily Grocery Basket',
-    badge: 'Save ₹500/mo',
+    badge: 'Save ?500/mo',
     desc: 'Daily rations, pulses, edible oils, spices, flour, and branded packaged food items.'
   },
   { 
@@ -137,7 +137,7 @@ export default function ShopCategoriesSection({ isPage = false }) {
             <span className="title-pink">Local </span>
             <span className="title-blue">Shops</span>
           </HeadingTag>
-          <p className="sc-subtitle">Everything you need, near you &bull; Redeem your ₹2,000 coins across all partner stores</p>
+          <p className="sc-subtitle">Everything you need, near you &bull; Redeem your ?2,000 coins across all partner stores</p>
         </div>
 
         {/* Interactive Search & Filter Bar */}
@@ -286,15 +286,15 @@ export default function ShopCategoriesSection({ isPage = false }) {
             
             <div className="cat-modal-perks">
               <div className="perk-row">
-                <span className="perk-icon">🪙</span>
-                <span>Pay using monthly ₹2,000 WOMUP coins</span>
+                <span className="perk-icon">??</span>
+                <span>Pay using monthly ?2,000 WOMUP coins</span>
               </div>
               <div className="perk-row">
-                <span className="perk-icon">⚡</span>
+                <span className="perk-icon">?</span>
                 <span>Instant QR scan billing at counter</span>
               </div>
               <div className="perk-row">
-                <span className="perk-icon">📍</span>
+                <span className="perk-icon">??</span>
                 <span>Verified neighborhood vendors within 2 km</span>
               </div>
             </div>

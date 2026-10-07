@@ -1,4 +1,4 @@
-﻿import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo } from 'react';
 import { useModal } from '../context/ModalContext';
 
 export default function IncomeOpportunitySection({ isPage = false }) {
@@ -281,7 +281,7 @@ export default function IncomeOpportunitySection({ isPage = false }) {
                 className="btn-toggle-table"
                 onClick={() => setShowTable(!showTable)}
               >
-                {showTable ? 'Hide 7-Level Tier Breakdown ▲' : 'View 7-Level Tier Breakdown ▼'}
+                {showTable ? 'Hide 7-Level Tier Breakdown ?' : 'View 7-Level Tier Breakdown ?'}
               </button>
             </div>
 

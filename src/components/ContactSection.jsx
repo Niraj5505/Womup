@@ -1,4 +1,4 @@
-﻿import React, { useState } from 'react';
+import React, { useState } from 'react';
 import { useModal } from '../context/ModalContext';
 
 export default function ContactSection({ isPage = false }) {

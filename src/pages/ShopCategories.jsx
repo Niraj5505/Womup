@@ -1,4 +1,4 @@
-﻿import React, { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import ShopCategoriesSection from '../components/ShopCategoriesSection';
 
 export default function ShopCategories() {
