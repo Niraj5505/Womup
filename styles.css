@@ -4699,3 +4699,17 @@ body {
     height: 95px;
   }
 }
+
+/* Logo Adjustments for New Aspect Ratio */
+.site-logo { height: 85px !important; width: auto !important; }
+.footer-logo { height: 95px !important; width: auto !important; }
+.minimal-logo-img { width: auto !important; height: 60px !important; max-height: 60px !important; }
+.center-logo-img { width: auto !important; height: 90px !important; max-height: 90px !important; }
+
+@media (max-width: 991px) {
+  .site-logo { height: 75px !important; }
+}
+
+@media (max-width: 576px) {
+  .site-logo { height: 65px !important; }
+}
