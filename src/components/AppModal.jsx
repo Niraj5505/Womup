@@ -41,7 +41,7 @@ export default function AppModal() {
 
         {/* App Icon */}
         <div className="minimal-app-icon">
-          <img src="/assets/womup-logo.png?v=4" alt="WOMUP" className="minimal-logo-img" />
+          <img src="/assets/womup-logo.png?v=5" alt="WOMUP" className="minimal-logo-img" />
         </div>
 
         {/* Header */}

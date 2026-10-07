@@ -1,4 +1,4 @@
-﻿import React from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 
 export default function Footer() {
@@ -7,7 +7,7 @@ export default function Footer() {
       <div className="footer-container">
         <div className="footer-brand">
           <div className="logo-wrapper">
-            <img src="/assets/womup-logo-white.png?v=4" alt="WOMUP" className="footer-logo" />
+            <img src="/assets/womup-logo-horizontal-white.png?v=5" alt="WOMUP" className="footer-logo" />
           </div>
           <p className="footer-tagline">Smart Shopping &bull; Better Living &bull; Save & Earn Everyday</p>
         </div>

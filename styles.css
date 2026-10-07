@@ -120,7 +120,7 @@ body {
 }
 
 .site-logo {
-  height: 48px;
+  height: 52px;
   width: auto;
   max-width: 100%;
   object-fit: contain;
@@ -129,7 +129,7 @@ body {
 }
 
 .footer-logo {
-  height: 52px;
+  height: 58px;
   width: auto;
   object-fit: contain;
   display: block;

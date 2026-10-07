@@ -1,4 +1,4 @@
-﻿import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useModal } from '../context/ModalContext';
 
 export default function HowItWorksSection({ isPage = false }) {
@@ -112,7 +112,7 @@ export default function HowItWorksSection({ isPage = false }) {
               </svg>
 
               <div className="center-brand-box">
-                <img src="/assets/womup-logo.png?v=4" alt="WOMUP" className="center-logo-img" />
+                <img src="/assets/womup-logo.png?v=5" alt="WOMUP" className="center-logo-img" />
               </div>
             </div>
           </div>
