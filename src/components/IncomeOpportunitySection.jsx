@@ -3,11 +3,44 @@ import { useModal } from '../context/ModalContext';
 
 export default function IncomeOpportunitySection({ isPage = false }) {
   const { setIsAppModalOpen } = useModal();
+  const [activeTab, setActiveTab] = useState('joining'); // 'joining' or 'monthly'
   const [directReferrals, setDirectReferrals] = useState(3);
   const [avgSpend, setAvgSpend] = useState(3000);
+  const [selectedPincode, setSelectedPincode] = useState('380051 (SG Highway, Ahmedabad)');
+  const [localJoiningsL1, setLocalJoiningsL1] = useState(25);
   const [showTable, setShowTable] = useState(false);
 
   const HeadingTag = isPage ? 'h1' : 'h2';
+
+  // Joining referral rewards (per member registration in selected pincode)
+  const joiningRates = [
+    { level: 1, label: 'Level 1 (Direct Referrals)', amount: 20, multiplier: 1 },
+    { level: 2, label: 'Level 2 (Friends of Friends)', amount: 10, multiplier: 3 },
+    { level: 3, label: 'Level 3 (Community Joinings)', amount: 5, multiplier: 8 },
+  ];
+
+  const joiningCalc = useMemo(() => {
+    const l1Count = localJoiningsL1;
+    const l2Count = Math.round(l1Count * 2.5);
+    const l3Count = Math.round(l2Count * 2.5);
+
+    const l1Earn = l1Count * 20;
+    const l2Earn = l2Count * 10;
+    const l3Earn = l3Count * 5;
+    const totalJoiningIncome = l1Earn + l2Earn + l3Earn;
+    const totalLocalShoppers = l1Count + l2Count + l3Count;
+
+    return {
+      l1Count,
+      l2Count,
+      l3Count,
+      l1Earn,
+      l2Earn,
+      l3Earn,
+      totalJoiningIncome,
+      totalLocalShoppers
+    };
+  }, [localJoiningsL1]);
 
   // Commission rates per level (% of purchase volume distributed to referrer)
   const tierRates = [
@@ -26,7 +59,6 @@ export default function IncomeOpportunitySection({ isPage = false }) {
     let totalCommunityMembers = 0;
 
     const levelDetails = tierRates.map((tier, idx) => {
-      // Conservative duplication assumption: e.g. Level 1 is N, Level 2 is N*2.5, etc.
       const members = Math.round(directReferrals * Math.pow(Math.min(directReferrals, 2.5), idx));
       const monthlyVolume = members * avgSpend;
       const earnings = Math.round(monthlyVolume * tier.rate);
@@ -194,85 +226,213 @@ export default function IncomeOpportunitySection({ isPage = false }) {
           </div>
         </div>
 
+        {/* SELECTED PINCODE OPERATIONAL RULE NOTICE */}
+        <div className="io-pincode-rule-alert">
+          <div className="pincode-alert-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+              <circle cx="12" cy="10" r="3" />
+            </svg>
+          </div>
+          <div className="pincode-alert-content">
+            <h4 className="pincode-alert-title">Important Pincode-Specific Referral Policy</h4>
+            <p className="pincode-alert-text">
+              Referral joining income (<strong>&#8377;20</strong> on Level 1, <strong>&#8377;10</strong> on Level 2, and <strong>&#8377;5</strong> on Level 3) is <strong>strictly payable on verified member registrations within your selected/operational pincode area</strong>. New registrations automatically tag to the member's device location for local community integrity.
+            </p>
+          </div>
+        </div>
+
+        {/* 3 JOINING REWARD CARDS */}
+        <div className="io-joining-cards-row">
+          <div className="io-join-card card-l1">
+            <span className="join-badge">DIRECT REFERRAL</span>
+            <div className="join-tier-num">Level 1</div>
+            <div className="join-amount-display">&#8377;20</div>
+            <p className="join-desc">Earned per verified joining registered within your operational pincode</p>
+          </div>
+
+          <div className="io-join-card card-l2">
+            <span className="join-badge">TIER 2 REFERRAL</span>
+            <div className="join-tier-num">Level 2</div>
+            <div className="join-amount-display">&#8377;10</div>
+            <p className="join-desc">Earned when your direct friends invite members in the designated pincode</p>
+          </div>
+
+          <div className="io-join-card card-l3">
+            <span className="join-badge">COMMUNITY TIER</span>
+            <div className="join-tier-num">Level 3</div>
+            <div className="join-amount-display">&#8377;5</div>
+            <p className="join-desc">Passive joining rewards across broader local community network in your pincode</p>
+          </div>
+        </div>
+
         {/* INTERACTIVE REFERRAL INCOME CALCULATOR (HIGH-ENGAGEMENT UX) */}
         <div className="io-calc-card">
           <div className="io-calc-header">
             <div className="io-calc-title-box">
               <span className="calc-badge">LIVE SIMULATOR</span>
-              <h3 className="calc-title">Calculate Your Monthly Referral Income</h3>
-              <p className="calc-subtitle">See what you can earn as your friends and neighbors shop daily essentials.</p>
+              <h3 className="calc-title">Referral Income Calculator</h3>
+              <p className="calc-subtitle">Simulate joining income in your selected pincode and long-term monthly shopping commissions.</p>
+            </div>
+
+            {/* Mode Switcher Tabs */}
+            <div className="calc-mode-tabs">
+              <button
+                type="button"
+                className={`calc-mode-btn ${activeTab === 'joining' ? 'active' : ''}`}
+                onClick={() => setActiveTab('joining')}
+              >
+                Pincode Joining Income (&#8377;20 / &#8377;10 / &#8377;5)
+              </button>
+              <button
+                type="button"
+                className={`calc-mode-btn ${activeTab === 'monthly' ? 'active' : ''}`}
+                onClick={() => setActiveTab('monthly')}
+              >
+                Monthly Shopping Volume (7 Tiers)
+              </button>
             </div>
           </div>
 
           <div className="io-calc-body">
-            {/* Control 1: Direct Referrals */}
-            <div className="calc-control-group">
-              <div className="control-label-row">
-                <span className="control-label">People You Refer Directly:</span>
-                <span className="control-value-highlight">{directReferrals} Friends</span>
-              </div>
-              <input 
-                type="range" 
-                min="1" 
-                max="8" 
-                step="1"
-                value={directReferrals}
-                onChange={(e) => setDirectReferrals(Number(e.target.value))}
-                className="calc-range-slider"
-                aria-label="Direct referrals slider"
-              />
-              <div className="slider-ticks">
-                <span>1</span>
-                <span>2</span>
-                <span>3</span>
-                <span>4</span>
-                <span>5</span>
-                <span>6</span>
-                <span>7</span>
-                <span>8+</span>
-              </div>
-            </div>
+            {activeTab === 'joining' ? (
+              /* TAB 1: PINCODE JOINING REWARDS */
+              <div className="calc-tab-content">
+                <div className="calc-control-group">
+                  <div className="control-label-row">
+                    <span className="control-label">Your Operational Pincode:</span>
+                    <span className="control-value-highlight">{selectedPincode}</span>
+                  </div>
+                  <div className="calc-pincode-picker">
+                    {['380051 (SG Highway)', '380015 (Satellite)', '382350 (Nikol)', '384002 (Mahesana)'].map((pin) => (
+                      <button
+                        key={pin}
+                        type="button"
+                        className={`spend-pill ${selectedPincode.startsWith(pin.slice(0, 6)) ? 'spend-active' : ''}`}
+                        onClick={() => setSelectedPincode(pin)}
+                      >
+                        {pin}
+                      </button>
+                    ))}
+                  </div>
+                </div>
 
-            {/* Control 2: Average Monthly Household Spend */}
-            <div className="calc-control-group">
-              <div className="control-label-row">
-                <span className="control-label">Average Monthly Shopping per Member:</span>
-                <span className="control-value-highlight">&#8377;{avgSpend.toLocaleString('en-IN')}</span>
-              </div>
-              <div className="calc-spend-pills">
-                {[1500, 3000, 5000].map((spend) => (
-                  <button
-                    key={spend}
-                    type="button"
-                    className={`spend-pill ${avgSpend === spend ? 'spend-active' : ''}`}
-                    onClick={() => setAvgSpend(spend)}
-                  >
-                    &#8377;{spend.toLocaleString('en-IN')} / mo
-                  </button>
-                ))}
-              </div>
-            </div>
+                <div className="calc-control-group">
+                  <div className="control-label-row">
+                    <span className="control-label">Direct Referrals in this Pincode (Level 1):</span>
+                    <span className="control-value-highlight">{localJoiningsL1} Members (&#8377;20 each)</span>
+                  </div>
+                  <input 
+                    type="range" 
+                    min="5" 
+                    max="100" 
+                    step="5"
+                    value={localJoiningsL1}
+                    onChange={(e) => setLocalJoiningsL1(Number(e.target.value))}
+                    className="calc-range-slider"
+                    aria-label="Local joinings slider"
+                  />
+                  <div className="slider-ticks">
+                    <span>5</span>
+                    <span>20</span>
+                    <span>40</span>
+                    <span>60</span>
+                    <span>80</span>
+                    <span>100+</span>
+                  </div>
+                </div>
 
-            {/* Live Projected Earnings Banner */}
-            <div className="calc-result-banner">
-              <div className="result-item">
-                <span className="res-label">Estimated Monthly Income</span>
-                <span className="res-amount pink">&#8377;{calculation.monthlyEstimate.toLocaleString('en-IN')}</span>
-                <span className="res-sub">paid directly to your bank account</span>
+                {/* Live Joining Result Banner */}
+                <div className="calc-result-banner">
+                  <div className="result-item">
+                    <span className="res-label">Direct Joining Income (L1)</span>
+                    <span className="res-amount pink">&#8377;{joiningCalc.l1Earn.toLocaleString('en-IN')}</span>
+                    <span className="res-sub">{joiningCalc.l1Count} members &times; &#8377;20</span>
+                  </div>
+                  <div className="result-divider"></div>
+                  <div className="result-item">
+                    <span className="res-label">Tier 2 &amp; 3 Network Bonus</span>
+                    <span className="res-amount purple">&#8377;{(joiningCalc.l2Earn + joiningCalc.l3Earn).toLocaleString('en-IN')}</span>
+                    <span className="res-sub">&#8377;10/mbr (L2) + &#8377;5/mbr (L3)</span>
+                  </div>
+                  <div className="result-divider"></div>
+                  <div className="result-item">
+                    <span className="res-label">Total Pincode Joining Bonus</span>
+                    <span className="res-amount blue">&#8377;{joiningCalc.totalJoiningIncome.toLocaleString('en-IN')}</span>
+                    <span className="res-sub">Across {joiningCalc.totalLocalShoppers} local residents</span>
+                  </div>
+                </div>
               </div>
-              <div className="result-divider"></div>
-              <div className="result-item">
-                <span className="res-label">Annual Extra Earnings</span>
-                <span className="res-amount purple">&#8377;{calculation.annualEstimate.toLocaleString('en-IN')}</span>
-                <span className="res-sub">plus &#8377;24,000/yr guaranteed shopping coins</span>
+            ) : (
+              /* TAB 2: MONTHLY SHOPPING REPURCHASE COMMISSIONS */
+              <div className="calc-tab-content">
+                <div className="calc-control-group">
+                  <div className="control-label-row">
+                    <span className="control-label">People You Refer Directly:</span>
+                    <span className="control-value-highlight">{directReferrals} Friends</span>
+                  </div>
+                  <input 
+                    type="range" 
+                    min="1" 
+                    max="8" 
+                    step="1"
+                    value={directReferrals}
+                    onChange={(e) => setDirectReferrals(Number(e.target.value))}
+                    className="calc-range-slider"
+                    aria-label="Direct referrals slider"
+                  />
+                  <div className="slider-ticks">
+                    <span>1</span>
+                    <span>2</span>
+                    <span>3</span>
+                    <span>4</span>
+                    <span>5</span>
+                    <span>6</span>
+                    <span>7</span>
+                    <span>8+</span>
+                  </div>
+                </div>
+
+                <div className="calc-control-group">
+                  <div className="control-label-row">
+                    <span className="control-label">Average Monthly Shopping per Member:</span>
+                    <span className="control-value-highlight">&#8377;{avgSpend.toLocaleString('en-IN')}</span>
+                  </div>
+                  <div className="calc-spend-pills">
+                    {[1500, 3000, 5000].map((spend) => (
+                      <button
+                        key={spend}
+                        type="button"
+                        className={`spend-pill ${avgSpend === spend ? 'spend-active' : ''}`}
+                        onClick={() => setAvgSpend(spend)}
+                      >
+                        &#8377;{spend.toLocaleString('en-IN')} / mo
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="calc-result-banner">
+                  <div className="result-item">
+                    <span className="res-label">Estimated Monthly Income</span>
+                    <span className="res-amount pink">&#8377;{calculation.monthlyEstimate.toLocaleString('en-IN')}</span>
+                    <span className="res-sub">paid directly to your bank account</span>
+                  </div>
+                  <div className="result-divider"></div>
+                  <div className="result-item">
+                    <span className="res-label">Annual Extra Earnings</span>
+                    <span className="res-amount purple">&#8377;{calculation.annualEstimate.toLocaleString('en-IN')}</span>
+                    <span className="res-sub">plus &#8377;24,000/yr guaranteed shopping coins</span>
+                  </div>
+                  <div className="result-divider"></div>
+                  <div className="result-item">
+                    <span className="res-label">7-Level Network Size</span>
+                    <span className="res-amount blue">{calculation.totalCommunityMembers.toLocaleString('en-IN')}</span>
+                    <span className="res-sub">active shoppers across India</span>
+                  </div>
+                </div>
               </div>
-              <div className="result-divider"></div>
-              <div className="result-item">
-                <span className="res-label">7-Level Network Size</span>
-                <span className="res-amount blue">{calculation.totalCommunityMembers.toLocaleString('en-IN')}</span>
-                <span className="res-sub">active shoppers across India</span>
-              </div>
-            </div>
+            )}
 
             {/* Toggle Level Breakdown Table */}
             <div className="calc-table-toggle-wrap">

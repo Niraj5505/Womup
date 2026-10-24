@@ -2,14 +2,18 @@ import React, { useState } from 'react';
 import { useModal } from '../context/ModalContext';
 
 export default function ContactSection({ isPage = false }) {
-  const { openSuccessModal } = useModal();
+  const { openSuccessModal, showToast } = useModal();
   const [selectedOption, setSelectedOption] = useState('Join as Customer');
   const [formData, setFormData] = useState({
     name: '',
     mobile: '',
     option: 'Join as Customer',
+    pincode: '',
+    location: '',
     message: '',
   });
+  const [isLocating, setIsLocating] = useState(false);
+  const [locationStatus, setLocationStatus] = useState('');
   const [feedback, setFeedback] = useState({ text: '', type: '' });
 
   const HeadingTag = isPage ? 'h1' : 'h2';
@@ -17,6 +21,55 @@ export default function ContactSection({ isPage = false }) {
   const handlePathwaySelect = (option) => {
     setSelectedOption(option);
     setFormData(prev => ({ ...prev, option }));
+  };
+
+  const handleDetectLocation = () => {
+    if (!navigator.geolocation) {
+      setLocationStatus('Geolocation is not supported by your browser.');
+      return;
+    }
+    setIsLocating(true);
+    setLocationStatus('Detecting your location...');
+
+    navigator.geolocation.getCurrentPosition(
+      async (position) => {
+        const { latitude, longitude } = position.coords;
+        try {
+          const res = await fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}`);
+          const data = await res.json();
+          const postcode = data.address?.postcode || '';
+          const city = data.address?.city || data.address?.town || data.address?.state_district || 'Ahmedabad';
+          const area = data.address?.suburb || data.address?.neighbourhood || '';
+          const locString = `${area ? area + ', ' : ''}${city}`.trim();
+
+          setFormData(prev => ({
+            ...prev,
+            location: locString || `GPS: ${latitude.toFixed(3)}, ${longitude.toFixed(3)}`,
+            pincode: postcode || prev.pincode
+          }));
+          setLocationStatus(`✓ Location Tagged: ${locString} ${postcode ? '(' + postcode + ')' : ''}`);
+          if (showToast) {
+            showToast('✓ Registration location & pincode detected via GPS!', 'success', 3500);
+          }
+        } catch (err) {
+          setFormData(prev => ({
+            ...prev,
+            location: `GPS: ${latitude.toFixed(3)}, ${longitude.toFixed(3)}`
+          }));
+          setLocationStatus(`✓ Geotagged: ${latitude.toFixed(3)}, ${longitude.toFixed(3)}`);
+        } finally {
+          setIsLocating(false);
+        }
+      },
+      (err) => {
+        setIsLocating(false);
+        setLocationStatus('Please enable location on your device to auto-detect.');
+        if (showToast) {
+          showToast('Please enable device location to auto-detect your area.', 'info', 4000);
+        }
+      },
+      { timeout: 10000, enableHighAccuracy: true }
+    );
   };
 
   const handleChange = (e) => {
@@ -53,8 +106,22 @@ export default function ContactSection({ isPage = false }) {
     }
 
     setFeedback({ text: '', type: '' });
-    openSuccessModal({ name, option, mobile });
-    setFormData({ name: '', mobile: '', option: selectedOption, message: '' });
+    openSuccessModal({ 
+      name, 
+      option, 
+      mobile, 
+      pincode: formData.pincode, 
+      location: formData.location 
+    });
+    setFormData({ 
+      name: '', 
+      mobile: '', 
+      option: selectedOption, 
+      pincode: '', 
+      location: '', 
+      message: '' 
+    });
+    setLocationStatus('');
   };
 
   return (
@@ -185,6 +252,38 @@ export default function ContactSection({ isPage = false }) {
                 </div>
               </div>
 
+              {/* Geolocation & Pincode Auto-Detect Row */}
+              <div className="form-group location-group">
+                <div className="location-input-flex">
+                  <input
+                    type="text"
+                    name="location"
+                    className="contact-input location-input"
+                    placeholder="Area / City / Pincode"
+                    value={formData.location}
+                    onChange={handleChange}
+                  />
+                  <button
+                    type="button"
+                    className="btn-detect-location"
+                    onClick={handleDetectLocation}
+                    disabled={isLocating}
+                    title="Auto-detect current location"
+                  >
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                      <polygon points="3 11 22 2 13 21 11 13 3 11" />
+                    </svg>
+                    <span>{isLocating ? 'Detecting...' : 'Detect GPS Location'}</span>
+                  </button>
+                </div>
+                {locationStatus && (
+                  <p className="location-status-tag">{locationStatus}</p>
+                )}
+                <p className="location-help-hint">
+                  Turn on device location to auto-tag your registration to your local operational pincode.
+                </p>
+              </div>
+
               <div className="form-group">
                 <textarea
                   name="message"
@@ -235,19 +334,19 @@ export default function ContactSection({ isPage = false }) {
             <div className="contact-details-card">
 
               {/* Phone Row */}
-              <a href="tel:+919876543210" className="contact-detail-row" aria-label="Call +91 98765 43210">
+              <a href="tel:8128112460" className="contact-detail-row" aria-label="Call 8128112460">
                 <div className="contact-icon-bubble">
                   <svg viewBox="0 0 24 24" fill="none" stroke="#e60067" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" className="contact-svg">
                     <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
                   </svg>
                 </div>
                 <div className="contact-detail-content">
-                  <span className="contact-text-value">+91 98765 43210</span>
+                  <span className="contact-text-value">+91 81281 12460</span>
                 </div>
               </a>
 
               {/* Email Row */}
-              <a href="mailto:info@womup.in" className="contact-detail-row" aria-label="Email info@womup.in">
+              <a href="mailto:womupproducts@gmail.com" className="contact-detail-row" aria-label="Email womupproducts@gmail.com">
                 <div className="contact-icon-bubble">
                   <svg viewBox="0 0 24 24" fill="none" stroke="#e60067" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" className="contact-svg">
                     <rect x="2" y="4" width="20" height="16" rx="2"></rect>
@@ -255,7 +354,7 @@ export default function ContactSection({ isPage = false }) {
                   </svg>
                 </div>
                 <div className="contact-detail-content">
-                  <span className="contact-text-value">info@womup.in</span>
+                  <span className="contact-text-value">womupproducts@gmail.com</span>
                 </div>
               </a>
 
@@ -268,7 +367,7 @@ export default function ContactSection({ isPage = false }) {
                   </svg>
                 </div>
                 <div className="contact-detail-content">
-                  <span className="contact-text-value">Mahesana, Gujarat,<br />India</span>
+                  <span className="contact-text-value">A-909 &amp; 910, Signature-2,<br />Nr. Sarkhej -Sanand Chokdi, SG HIGHWAY,<br />AHMEDABAD, GUJARAT 380051</span>
                 </div>
               </div>
 

@@ -19,6 +19,9 @@ import ShopCategories from './pages/ShopCategories';
 import IncomeOpportunity from './pages/IncomeOpportunity';
 import MobileApp from './pages/MobileApp';
 import Contact from './pages/Contact';
+import Gallery from './pages/Gallery';
+import Legal from './pages/Legal';
+import Admin from './pages/Admin';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -31,12 +34,15 @@ function ScrollToTop() {
 }
 
 export default function App() {
+  const { pathname } = useLocation();
+  const isAdminRoute = pathname.startsWith('/admin');
+
   return (
     <ModalProvider>
       <div className="page-wrapper">
         <ScrollToTop />
         <ScrollRevealManager />
-        <Navbar />
+        {!isAdminRoute && <Navbar />}
 
         <Routes>
           <Route path="/" element={<Home />} />
@@ -60,6 +66,15 @@ export default function App() {
           <Route path="/womup-mobile-app" element={<MobileApp />} />
           <Route path="/womup-mobile-app.html" element={<MobileApp />} />
 
+          <Route path="/gallery" element={<Gallery />} />
+          <Route path="/gallery.html" element={<Gallery />} />
+
+          <Route path="/legal" element={<Legal />} />
+          <Route path="/legal.html" element={<Legal />} />
+
+          <Route path="/admin" element={<Admin />} />
+          <Route path="/admin.html" element={<Admin />} />
+
           <Route path="/contact" element={<Contact />} />
           <Route path="/contact.html" element={<Contact />} />
 
@@ -67,7 +82,7 @@ export default function App() {
           <Route path="*" element={<Home />} />
         </Routes>
 
-        <Footer />
+        {!isAdminRoute && <Footer />}
 
         {/* Global Modals & Notifications */}
         <AppModal />

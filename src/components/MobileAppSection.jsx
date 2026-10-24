@@ -2,7 +2,7 @@ import React from 'react';
 import { useModal } from '../context/ModalContext';
 
 export default function MobileAppSection({ isPage = false }) {
-  const { setIsAppModalOpen } = useModal();
+  const { setIsAppModalOpen, showToast } = useModal();
 
   const HeadingTag = isPage ? 'h1' : 'h2';
 
@@ -316,7 +316,41 @@ export default function MobileAppSection({ isPage = false }) {
 
             {/* Download Now Section */}
             <div className="ma-download-section">
-              <h3 className="download-heading">Download Now</h3>
+              <h3 className="download-heading">Download App from Website</h3>
+              <p className="download-subtext">Get the official Android application package (.apk) directly or download via official app stores.</p>
+
+              {/* Primary Direct Download Card */}
+              <div className="ma-direct-download-card">
+                <a
+                  href="/downloads/womup.apk"
+                  download="WOMUP.apk"
+                  className="btn-ma-direct-apk"
+                  onClick={() => {
+                    if (showToast) {
+                      showToast('Downloading WOMUP App APK... Tap the downloaded file to install on Android.', 'success', 5000);
+                    }
+                  }}
+                  id="pageDirectDownloadBtn"
+                >
+                  <div className="ma-direct-icon-box">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                      <polyline points="7 10 12 15 17 10" />
+                      <line x1="12" y1="15" x2="12" y2="3" />
+                    </svg>
+                  </div>
+                  <div className="ma-direct-content">
+                    <span className="ma-direct-badge">DIRECT WEBSITE DOWNLOAD</span>
+                    <strong className="ma-direct-title">Download WOMUP Mobile App (.APK)</strong>
+                    <span className="ma-direct-meta">Android 6.0+ &bull; Version 1.0.0 &bull; Safe &amp; Verified</span>
+                  </div>
+                  <div className="ma-direct-arrow">
+                    <svg viewBox="0 0 20 20" fill="currentColor">
+                      <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
+                    </svg>
+                  </div>
+                </a>
+              </div>
               
               <div className="store-badges-row">
                 <button 
